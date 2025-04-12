@@ -1,170 +1,128 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 using Photon.Pun;
-using NSMB.Utils;
 
 public class StarBouncer : MonoBehaviourPun {
 
-    private static int ANY_GROUND_MASK = -1;
-
-    [SerializeField] private float pulseAmount = 0.2f, pulseSpeed = 0.2f, moveSpeed = 3f, rotationSpeed = 30f, bounceAmount = 4f, deathBoostAmount = 20f, blinkingSpeed = 0.5f, lifespan = 15f;
-
-    public Rigidbody2D body;
-    public bool stationary = true, passthrough = true, left = true, fast = false;
-
-    private SpriteRenderer sRenderer;
-    private Transform graphicTransform;
+    private static int groundMask = -1;
+    public bool stationary = true;
+    [SerializeField] float pulseAmount = 0.2f, pulseSpeed = 0.2f, moveSpeed = 3f, rotationSpeed = 30f, bounceAmount = 4f, deathBoostAmount = 20f, blinkingSpeed = 0.5f, lifespan = 15f;
+    public float counter, readyForUnPassthrough = 0.5f;
+    private Vector3 startingScale;
+    private Rigidbody2D body;
+    private BoxCollider2D hitbox;
+    public bool passthrough = true, left = true;
     private PhysicsEntity physics;
-    private BoxCollider2D worldCollider;
-    private float pulseEffectCounter;
-    private bool canBounce;
+    public int creator = -1;
 
-    public bool Collectable { get; private set; }
-    public bool Collected { get; set; }
-
-    public void Start() {
+    void Start() {
+        startingScale = transform.localScale;
         body = GetComponent<Rigidbody2D>();
+        hitbox = GetComponent<BoxCollider2D>();
         physics = GetComponent<PhysicsEntity>();
-        sRenderer = GetComponentInChildren<SpriteRenderer>();
-        worldCollider = GetComponent<BoxCollider2D>();
 
-        graphicTransform = transform.Find("Graphic");
-
-        GameObject trackObject = Instantiate(UIUpdater.Instance.starTrackTemplate, UIUpdater.Instance.starTrackTemplate.transform.parent);
-        TrackIcon icon = trackObject.GetComponent<TrackIcon>();
-        icon.target = gameObject;
-        trackObject.SetActive(true);
-
+        if (groundMask == -1)
+            groundMask = LayerMask.GetMask("Ground", "PassthroughInvalid");
+        
         object[] data = photonView.InstantiationData;
         if (data != null) {
-            //player dropped star
-
-            trackObject.transform.localScale = new(3f / 4f, 3f / 4f, 1f);
             stationary = false;
             passthrough = true;
-            sRenderer.color = new(1, 1, 1, 0.55f);
-            gameObject.layer = Layers.LayerHitsNothing;
-            int direction = (int) data[0];
-            left = direction <= 1;
-            fast = direction == 0 || direction == 3;
-            body.velocity = new(moveSpeed * (left ? -1 : 1) * (fast ? 2f : 1f), deathBoostAmount);
-
-            //death via pit boost
-            if ((bool) data[3])
-                body.velocity += Vector2.up * 3;
-
-            body.isKinematic = false;
-            worldCollider.enabled = true;
-        } else {
-            //main star
-
-            GetComponent<Animator>().enabled = true;
-            Collectable = true;
-            body.isKinematic = true;
-            body.velocity = Vector2.zero;
-            stationary = true;
-            GetComponent<CustomRigidbodySerializer>().enabled = false;
-
-            StartCoroutine(PulseEffect());
-
-            if (GameManager.Instance.musicEnabled)
-                GameManager.Instance.sfx.PlayOneShot(Enums.Sounds.World_Star_Spawn.GetClip());
+            gameObject.layer = LayerMask.NameToLayer("HitsNothing");
+            left = (bool) data[0];
+            creator = (int) data[1];
         }
 
-        if (ANY_GROUND_MASK == -1)
-            ANY_GROUND_MASK = LayerMask.GetMask("Ground", "PassthroughInvalid");
+        GameObject trackObject = GameObject.Instantiate(UIUpdater.Instance.starTrackTemplate, UIUpdater.Instance.starTrackTemplate.transform.position, Quaternion.identity, UIUpdater.Instance.transform);
+        TrackIcon icon = trackObject.GetComponent<TrackIcon>();
+        icon.target = gameObject;
+        if (!stationary) {
+            trackObject.transform.localScale = new Vector3(3f/4f, 3f/4f, 1f);
+            body.velocity = new Vector2(moveSpeed * (left ? -1 : 1), deathBoostAmount);
+        }
+        trackObject.SetActive(true);
     }
 
-    public void Update() {
-        if (GameManager.Instance?.gameover ?? false)
+    void FixedUpdate() {
+        if (GameManager.Instance && GameManager.Instance.gameover) {
+            body.velocity = Vector2.zero;
+            body.isKinematic = true;
             return;
+        }
 
         if (stationary) {
+            counter += Time.fixedDeltaTime;
+            float sin = (Mathf.Sin(counter * pulseSpeed)) * pulseAmount;
+            transform.localScale = startingScale + new Vector3(sin, sin, 0);
+            readyForUnPassthrough = -1;
             return;
+        } else {
+            body.velocity = new Vector2(moveSpeed * (left ? -1 : 1), body.velocity.y);
         }
-
-        lifespan -= Time.deltaTime;
-        sRenderer.enabled = !(lifespan < 5 && lifespan * 2 % (blinkingSpeed * 2) < blinkingSpeed);
-        graphicTransform.Rotate(new(0, 0, rotationSpeed * 30 * (left ? 1 : -1) * Time.deltaTime), Space.Self);
-    }
-
-    public void FixedUpdate() {
-        if (stationary)
-            return;
-
-        if (GameManager.Instance?.gameover ?? false) {
-            body.velocity = Vector2.zero;
-            body.isKinematic = true;
-            return;
-        }
-
-        body.velocity = new(moveSpeed * (left ? -1 : 1) * (fast ? 2f : 1f), body.velocity.y);
-
-        canBounce |= body.velocity.y < 0;
-        Collectable |= body.velocity.y < 0;
 
         HandleCollision();
 
-        if (passthrough && Collectable && body.velocity.y <= 0 && !Utils.IsAnyTileSolidBetweenWorldBox(body.position + worldCollider.offset, worldCollider.size * transform.lossyScale) && !Physics2D.OverlapBox(body.position, Vector2.one / 3, 0, ANY_GROUND_MASK)) {
-            passthrough = false;
-            gameObject.layer = Layers.LayerEntity;
-            sRenderer.color = Color.white;
-        }
-        if (!passthrough) {
-            if (Utils.IsAnyTileSolidBetweenWorldBox(body.position + worldCollider.offset, worldCollider.size * transform.lossyScale)) {
-                gameObject.layer = Layers.LayerHitsNothing;
+        lifespan -= Time.fixedDeltaTime;
+
+        if (lifespan < 5f) {
+            if ((lifespan * 2f) % (blinkingSpeed*2) < blinkingSpeed) {
+                GetComponentInChildren<SpriteRenderer>().color = new Color(0,0,0,0);
             } else {
-                gameObject.layer = Layers.LayerEntity;
+                GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            }
+        }
+        
+        Transform t = transform.Find("Graphic");
+        t.Rotate(new Vector3(0, 0, rotationSpeed * (left ? 1 : -1)), Space.Self);
+
+        if (passthrough) {
+            if ((readyForUnPassthrough -= Time.fixedDeltaTime) < 0 && body.velocity.y <= 0 && !Utils.IsTileSolidAtWorldLocation(body.position) && !Physics2D.OverlapBox(body.position, Vector2.one / 3, 0, groundMask)) {
+                passthrough = false;
+                gameObject.layer = LayerMask.NameToLayer("Entity");
             }
         }
 
-        if (photonView.IsMine && (lifespan <= 0 || (!passthrough && body.position.y < GameManager.Instance.GetLevelMinY())))
+        if (!photonView.IsMine || stationary) {
+            body.isKinematic = true;
+            return;
+        } else {
+            body.isKinematic = false;
+            transform.localScale = startingScale;
+        }
+
+        if (lifespan < 0 || (!passthrough && transform.position.y < GameManager.Instance.GetLevelMinY())) {
             photonView.RPC("Crushed", RpcTarget.All);
-    }
-
-    private IEnumerator PulseEffect() {
-        while (true) {
-            pulseEffectCounter += Time.deltaTime;
-            float sin = Mathf.Sin(pulseEffectCounter * pulseSpeed) * pulseAmount;
-            graphicTransform.localScale = Vector3.one * 3f + new Vector3(sin, sin, 0);
-
-            yield return null;
         }
     }
 
-    private void HandleCollision() {
-        physics.UpdateCollisions();
+    void HandleCollision() {
+        physics.Update();
 
-        if (physics.hitLeft || physics.hitRight) {
-            if (photonView.IsMine)
-                photonView.RPC("Turnaround", RpcTarget.All, physics.hitLeft);
-            else
-                Turnaround(physics.hitLeft);
+        if (physics.hitLeft) {
+            photonView.RPC("Turnaround", RpcTarget.All, true);
         }
-
-        if (physics.onGround && canBounce) {
-            body.velocity = new(body.velocity.x, bounceAmount);
-            if (photonView.IsMine && physics.hitRoof)
-                photonView.RPC("Crushed", RpcTarget.All);
+        if (physics.hitRight) {
+            photonView.RPC("Turnaround", RpcTarget.All, false);
         }
-    }
-
-    public void DisableAnimator() {
-        GetComponent<Animator>().enabled = false;
+        if (physics.onGround && physics.hitRoof) {
+            photonView.RPC("Crushed", RpcTarget.All);
+            return;
+        }
+        if (physics.onGround) {
+            body.velocity = new Vector2(body.velocity.x, bounceAmount);
+        }
     }
 
     [PunRPC]
     public void Crushed() {
         if (photonView.IsMine)
             PhotonNetwork.Destroy(gameObject);
-
-        Instantiate(Resources.Load("Prefabs/Particle/Puff"), transform.position, Quaternion.identity);
+        GameObject.Instantiate(Resources.Load("Prefabs/Particle/Puff"), transform.position, Quaternion.identity);
     }
-
     [PunRPC]
     public void Turnaround(bool hitLeft) {
         left = !hitLeft;
-        body.velocity = new(moveSpeed * (left ? -1 : 1), body.velocity.y);
+        body.velocity = new Vector2(moveSpeed * (left ? -1 : 1), body.velocity.y);
     }
 }

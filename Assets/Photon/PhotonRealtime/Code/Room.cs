@@ -540,14 +540,11 @@ namespace Photon.Realtime
         /// Only useful when in a Room, as IDs are only valid per Room.
         /// </summary>
         /// <param name="id">ID to look for.</param>
-        /// <param name="findMaster">If true, the Master Client is returned for ID == 0.</param>
         /// <returns>The player with the ID or null.</returns>
-        public virtual Player GetPlayer(int id, bool findMaster = false)
+        public virtual Player GetPlayer(int id)
         {
-            int idToFind = (findMaster && id == 0) ? this.MasterClientId : id;
-            
             Player result = null;
-            this.Players.TryGetValue(idToFind, out result);
+            this.Players.TryGetValue(id, out result);
 
             return result;
         }

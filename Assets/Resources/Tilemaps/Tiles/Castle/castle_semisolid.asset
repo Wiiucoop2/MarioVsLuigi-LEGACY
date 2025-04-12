@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: castle_semisolid
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 804450432, guid: a4f9db535870eae41abdc512667ac3d3, type: 3}
+  m_Sprite: {fileID: 4466985803740509904, guid: a4f9db535870eae41abdc512667ac3d3,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

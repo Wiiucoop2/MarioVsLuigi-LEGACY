@@ -1,44 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WrappingHitbox : MonoBehaviour {
-
+    
     private Rigidbody2D body;
     private BoxCollider2D[] ourColliders, childColliders;
-    private Vector2 offset;
     private float levelMiddle, levelWidth;
-
-    public void Awake() {
+    private Vector2 offset = Vector2.zero;
+    void Awake() {
         body = GetComponent<Rigidbody2D>();
-        if (!body)
-            body = GetComponentInParent<Rigidbody2D>();
+        if (!body) body = GetComponentInParent<Rigidbody2D>();
         ourColliders = GetComponents<BoxCollider2D>();
-
-        // null propagation is ok w/ GameManager.Instance
-        if (!(GameManager.Instance?.loopingLevel ?? false)) {
-            enabled = false;
+        Update();
+    }
+    void Update() {
+        if (!GameManager.Instance) return;
+        if (!GameManager.Instance.loopingLevel) {
+            this.enabled = false;
             return;
         }
-
-        childColliders = new BoxCollider2D[ourColliders.Length];
-        for (int i = 0; i < ourColliders.Length; i++)
+        
+        if (offset == Vector2.zero) {
+            childColliders = new BoxCollider2D[ourColliders.Length];
+            for (int i = 0; i < ourColliders.Length; i++)
             childColliders[i] = gameObject.AddComponent<BoxCollider2D>();
-        levelWidth = GameManager.Instance.levelWidthTile / 2f;
-        levelMiddle = GameManager.Instance.GetLevelMinX() + levelWidth / 2f;
-        offset = new(levelWidth, 0);
+            levelWidth = GameManager.Instance.levelWidthTile/2f;
+            levelMiddle = GameManager.Instance.GetLevelMinX() + levelWidth/2f;
+            offset = new Vector2(levelWidth, 0);
+        }
 
-        LateUpdate();
-    }
-
-    public void LateUpdate() {
         for (int i = 0; i < ourColliders.Length; i++)
             UpdateChildColliders(i);
     }
-
-    private void UpdateChildColliders(int index) {
+    
+    void UpdateChildColliders(int index) {
         BoxCollider2D ourCollider = ourColliders[index];
         BoxCollider2D childCollider = childColliders[index];
 
         childCollider.autoTiling = ourCollider.autoTiling;
+        // childCollider.density = ourCollider.density;
         childCollider.edgeRadius = ourCollider.edgeRadius;
         childCollider.enabled = ourCollider.enabled;
         childCollider.isTrigger = ourCollider.isTrigger;

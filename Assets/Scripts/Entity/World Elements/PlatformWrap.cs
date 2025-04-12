@@ -1,18 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlatformWrap : MonoBehaviour {
-
     public float maxY, minY, ySpeed;
     private Rigidbody2D body;
-
-    public void Start() {
+    void Start() {
         body = GetComponent<Rigidbody2D>();
-        body.velocity = ySpeed * Vector2.up;
-        body.isKinematic = true;
+        body.velocity = new Vector2(0, ySpeed);
     }
-
-    public void FixedUpdate() {
-        float y = body.position.y;
+    void Update() {
+        float y = transform.position.y;
         if (y > maxY) {
             body.position = new Vector2(body.position.x, y - (maxY - minY));
         } else if (y < minY) {

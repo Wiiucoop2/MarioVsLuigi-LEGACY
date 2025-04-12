@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 using Photon.Pun;
-using NSMB.Utils;
 
 [CreateAssetMenu(fileName = "PowerupTile", menuName = "ScriptableObjects/Tiles/PowerupTile", order = 2)]
 public class PowerupTile : BreakableBrickTile {
@@ -11,11 +13,11 @@ public class PowerupTile : BreakableBrickTile {
 
         Vector3Int tileLocation = Utils.WorldToTilemapPosition(worldLocation);
 
-        string spawnResult = "Mushroom";
+        BlockBump.SpawnResult spawnResult = BlockBump.SpawnResult.Mushroom;
 
-        if ((interacter is PlayerController) || (interacter is KoopaWalk koopa && koopa.previousHolder != null)) {
-            PlayerController player = interacter is PlayerController controller ? controller : ((KoopaWalk)interacter).previousHolder;
-            if (player.state == Enums.PowerupState.MegaMushroom) {
+        if (interacter is PlayerController) {
+            PlayerController player = (PlayerController) interacter;
+            if (player.state == Enums.PowerupState.Giant) {
                 //Break
 
                 //Tilemap
@@ -25,22 +27,29 @@ public class PowerupTile : BreakableBrickTile {
                 //Particle
                 object[] parametersParticle = new object[]{tileLocation.x, tileLocation.y, "BrickBreak", new Vector3(particleColor.r, particleColor.g, particleColor.b)};
                 GameManager.Instance.SendAndExecuteEvent(Enums.NetEventIds.SpawnParticle, parametersParticle, ExitGames.Client.Photon.SendOptions.SendUnreliable);
-
-                if (interacter is MonoBehaviourPun pun)
-                    pun.photonView.RPC("PlaySound", RpcTarget.All, Enums.Sounds.World_Block_Break);
+                
+                if (interacter is MonoBehaviourPun) {
+                    ((MonoBehaviourPun) interacter).photonView.RPC("PlaySound", RpcTarget.All, "player/brick_break");
+                }
                 return true;
             }
 
-            spawnResult = player.state <= Enums.PowerupState.Small ? "Mushroom" : "FireFlower";
+            if (player.state <= Enums.PowerupState.Small) {
+                spawnResult = BlockBump.SpawnResult.Mushroom;
+            } else {
+                spawnResult = BlockBump.SpawnResult.FireFlower;
+            }
         }
-
+        
         Bump(interacter, direction, worldLocation);
 
         object[] parametersBump = new object[]{tileLocation.x, tileLocation.y, direction == InteractionDirection.Down, resultTile, spawnResult};
         GameManager.Instance.SendAndExecuteEvent(Enums.NetEventIds.BumpTile, parametersBump, ExitGames.Client.Photon.SendOptions.SendReliable);
 
-        if (interacter is MonoBehaviourPun pun2)
-            pun2.photonView.RPC("PlaySound", RpcTarget.All, Enums.Sounds.World_Block_Powerup);
+        if (interacter is MonoBehaviourPun) {
+            // ((MonoBehaviourPun) interacter).photonView.RPC("PlaySound", RpcTarget.All, "player/brick_break");
+            ((MonoBehaviourPun) interacter).photonView.RPC("PlaySound", RpcTarget.All, "player/item_block");
+        }
         return false;
     }
 }

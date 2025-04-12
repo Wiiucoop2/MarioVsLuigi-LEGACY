@@ -6,10 +6,10 @@ public class ControllerRefocus : MonoBehaviour {
     GameObject lastselect;
     
     void Update () {
-        if (EventSystem.current.currentSelectedGameObject) {
-            lastselect = EventSystem.current.currentSelectedGameObject;
-        } else {
+        if (EventSystem.current.currentSelectedGameObject == null) {
             EventSystem.current.SetSelectedGameObject(lastselect);
+        } else {
+            lastselect = EventSystem.current.currentSelectedGameObject;
         }
     }
 }

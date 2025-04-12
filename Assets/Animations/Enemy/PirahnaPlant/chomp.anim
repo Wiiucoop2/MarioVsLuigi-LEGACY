@@ -352,15 +352,15 @@ AnimationClip:
   m_Events:
   - time: 0.13333334
     functionName: PlaySound
-    data: 
+    data: enemy/piranhaplant-chomp
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 7
+    intParameter: 0
     messageOptions: 0
   - time: 0.33333334
     functionName: PlaySound
-    data: 
+    data: enemy/piranhaplant-chomp
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 7
+    intParameter: 0
     messageOptions: 0

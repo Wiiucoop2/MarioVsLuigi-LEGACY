@@ -5,11 +5,12 @@ using UnityEngine;
 public class KillScript : MonoBehaviour {
     public string spawnAfter;
     public void Kill() {
-        Destroy(gameObject);
+        GameObject.Destroy(gameObject);
         if (transform.parent != null)
-            Destroy(transform.parent.gameObject);
+            GameObject.Destroy(transform.parent.gameObject);
 
-        if (spawnAfter.Length > 0)
-            Instantiate(Resources.Load("Prefabs/" + spawnAfter), transform.position, Quaternion.identity);
+        if (spawnAfter.Length > 0) {
+            GameObject.Instantiate(Resources.Load("Prefabs/" + spawnAfter), transform.position, Quaternion.identity);
+        }
     }
 }

@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class PirahnaSpawnpoint : EnemySpawnpoint {
 
     private PiranhaPlantController plant;
 
-    public void Start() {
+    void Start() {
         plant = GetComponent<PiranhaPlantController>();
     }
 

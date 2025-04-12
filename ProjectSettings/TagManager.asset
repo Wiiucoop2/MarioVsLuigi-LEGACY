@@ -10,6 +10,11 @@ TagManager:
   - Powerup
   - coin
   - bigstar
+  - Mushroom
+  - Star
+  - MiniMushroom
+  - FireFlower
+  - BlueShell
   - StarSpawn
   - MainStar
   - Fireball
@@ -20,18 +25,13 @@ TagManager:
   - LoadingCanvas
   - loosecoin
   - wintext
+  - MegaMushroom
   - bulletbill
   - spinner
   - platform
   - poison
   - uicamera
-  - CanvasMask
-  - Backgrounds
   - DestructablePipe
-  - FadeUI
-  - lava
-  - MarioBrosPlatform
-  - frozencube
   layers:
   - Default
   - TransparentFX
@@ -40,15 +40,15 @@ TagManager:
   - Water
   - UI
   - 
-  - PlayerPassthrough
+  - Player
   - Ground
   - Entity
   - EntityHitbox
   - HitsNothing
   - Semisolids
   - PassthroughInvalid
-  - IceBlock
-  - LooseCoin
+  - 
+  - 
   - 
   - 
   - 
@@ -74,7 +74,4 @@ TagManager:
     locked: 0
   - name: ParticleLayer
     uniqueID: 3539651837
-    locked: 0
-  - name: NametagLayer
-    uniqueID: 3589790019
     locked: 0

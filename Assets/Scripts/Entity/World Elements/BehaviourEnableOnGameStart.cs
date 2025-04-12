@@ -1,11 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class BehaviourEnableOnGameStart : WaitForGameStart {
-
-    [SerializeField] private Behaviour[] behaviours;
-
+public class MonoBehaviourEnableOnGameStart : WaitForGameStart {
+    public MonoBehaviour[] behaviours;
     public override void Execute() {
-        foreach (Behaviour behaviour in behaviours)
+        foreach (MonoBehaviour behaviour in behaviours) {
             behaviour.enabled = true;
+        }
     }
 }

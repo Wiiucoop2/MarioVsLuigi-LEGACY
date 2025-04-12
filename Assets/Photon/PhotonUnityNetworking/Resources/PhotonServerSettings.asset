@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppSettings:
     AppIdRealtime: ce540834-2db9-40b5-a311-e58be39e726a
-    AppIdFusion: 
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: usw
     Server: 
     Port: 0
     ProxyServer: 
@@ -28,7 +27,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: us
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -69,28 +68,6 @@ MonoBehaviour:
   - Turnaround
   - WakeUp
   - Win
-  - Bump
-  - DespawnWithPoof
-  - DestroySpaceship
-  - FinishMegaMario
-  - Fire
-  - Freeze
-  - HoldingWakeup
-  - PlaySoundEverywhere
-  - RespawnSpaceship
-  - SetHolding
-  - SetHoldingOld
-  - SetLeft
-  - SpawnReserveItem
-  - StartPropeller
-  - Unfreeze
-  - KillWithReason
-  - EndMega
-  - AttemptCollectBigStar
-  - AttemptCollectPowerup
-  - AttemptCollectCoin
-  - BlueBecomeItem
-  - CancelCollectCoin
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

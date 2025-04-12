@@ -1,22 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Photon.Pun;
 
 public class KillplaneKill : MonoBehaviourPun {
-
-    [SerializeField] private float killTime = 0f;
-    private float timer = 0;
-
-    public void Update() {
-        if (transform.position.y >= GameManager.Instance.GetLevelMinY())
+    [SerializeField] float killTime = 0f;
+    float timer = 0;
+    bool killed = false;
+    void Update() {
+        if (killed) return;
+        if (transform.position.y >= GameManager.Instance.GetLevelMinY()) return;
+        timer += Time.deltaTime;
+        if (timer < killTime)
             return;
-
-        if ((timer += Time.deltaTime) < killTime)
-            return;
-
         if (!photonView) {
-            Destroy(gameObject);
+            GameObject.Destroy(gameObject);
             return;
-        }
+        } 
         if (photonView.IsMine) {
             PhotonNetwork.Destroy(photonView);
             return;

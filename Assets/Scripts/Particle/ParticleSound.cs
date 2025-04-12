@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleSound : MonoBehaviour {
@@ -5,15 +7,17 @@ public class ParticleSound : MonoBehaviour {
     private ParticleSystem system;
     private AudioSource sfx;
 
-    public void Start() {
+    void Start() {
         system = GetComponent<ParticleSystem>();
         sfx = GetComponent<AudioSource>();
     }
 
-    public void Update() {
-        if (system.isEmitting && !sfx.isPlaying)
+    void Update() {
+        if (system.isEmitting && !sfx.isPlaying) {
             sfx.Play();
-        if (!system.isEmitting && sfx.isPlaying)
+        }
+        if (!system.isEmitting && sfx.isPlaying) {
             sfx.Stop();
+        }
     }
 }

@@ -1,30 +1,17 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-using Photon.Pun;
 
 public class RespawnParticle : MonoBehaviour {
 
+    float respawnTimer = 1.5f;
     public PlayerController player;
 
-    [SerializeField] private float respawnTimer = 1.5f;
-
-    public void Start() {
-        foreach (ParticleSystem system in GetComponentsInChildren<ParticleSystem>()) {
-            ParticleSystem.MainModule main = system.main;
-            main.startColor = player.AnimationController.GlowColor;
-
-            system.Play();
+    void Update() {
+        if (!player || !player.photonView.IsMine) return;
+        if (respawnTimer > 0 && (respawnTimer -= Time.deltaTime) <= 0) {
+            if (!player) return;
+            player.photonView.RPC("Respawn", Photon.Pun.RpcTarget.All);
         }
-
-        // null propagation should be ok
-        if (player?.photonView.IsMine ?? false) {
-            StartCoroutine(RespawnRoutine());
-        }
-    }
-
-    private IEnumerator RespawnRoutine() {
-        yield return new WaitForSeconds(respawnTimer);
-        player.photonView.RPC("Respawn", RpcTarget.All);
     }
 }

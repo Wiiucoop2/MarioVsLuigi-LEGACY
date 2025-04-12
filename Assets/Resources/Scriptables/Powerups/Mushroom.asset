@@ -12,14 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea796f302b1a91d478efc94e21899d8d, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
-  state: 3
   prefab: Mushroom
-  soundEffect: 16
-  spawnChance: 8
-  losingSpawnBonus: -8
-  big: 0
-  vertical: 0
-  custom: 0
-  lives: 0
-  reserveSprite: {fileID: -6080119536613256813, guid: a87d3b028baa82640b06b88398a8c4f0,
-    type: 3}
+  spawnChance: 1
+  starModifier: 0.2
