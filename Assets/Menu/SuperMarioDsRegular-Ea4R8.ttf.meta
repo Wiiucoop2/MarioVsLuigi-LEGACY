@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5f993a5d65354bb4dbfd614ae038f8fc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Super Mario DS
+  fontNames:
+  - Super Mario DS
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d15e25fbcc2b1e44b85ac210ea8c69f8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
