@@ -4997,8 +4997,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.8
-      minScalar: 0.6
+      scalar: 4
+      minScalar: 0.9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9788,6 +9788,9 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 8e33573d2c2ae7c4682fc6cdb5ea28cd, type: 2}
   heightSmallModel: 0.46
   heightLargeModel: 0.82
+  regularMarioTexture: {fileID: 2800000, guid: 1e194172011c9194f88aa6415127a062, type: 3}
+  fireMarioTexture: {fileID: 2800000, guid: a13da4655a7223d438c8268b546b43e5, type: 3}
+  skinRENDERER: {fileID: 5459105025968855876}
 --- !u!50 &4824223341387914443
 Rigidbody2D:
   serializedVersion: 4
@@ -15084,8 +15087,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5825b7eb90fdaa043ba90e0a30a93dbc, type: 2}
-  m_sharedMaterial: {fileID: -53834951448225802, guid: 5825b7eb90fdaa043ba90e0a30a93dbc,
+  m_fontAsset: {fileID: 11400000, guid: 3b9a582c505b68d40bbd996826f07dde, type: 2}
+  m_sharedMaterial: {fileID: 6015020410494396785, guid: 3b9a582c505b68d40bbd996826f07dde,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15118,7 +15121,7 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 100
   m_fontStyle: 0
-  m_textAlignment: 65535
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -20971,8 +20974,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5825b7eb90fdaa043ba90e0a30a93dbc, type: 2}
-  m_sharedMaterial: {fileID: -53834951448225802, guid: 5825b7eb90fdaa043ba90e0a30a93dbc,
+  m_fontAsset: {fileID: 11400000, guid: 3b9a582c505b68d40bbd996826f07dde, type: 2}
+  m_sharedMaterial: {fileID: 6015020410494396785, guid: 3b9a582c505b68d40bbd996826f07dde,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -21005,7 +21008,7 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 65535
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -22202,6 +22205,12 @@ Transform:
 --- !u!4 &2540033029915098234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8189757122026107490, guid: 024ceb223bceebd488dbc425555f4df0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5973987674091834904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5459105025968855876 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1811992120372893020, guid: 024ceb223bceebd488dbc425555f4df0,
     type: 3}
   m_PrefabInstance: {fileID: 5973987674091834904}
   m_PrefabAsset: {fileID: 0}

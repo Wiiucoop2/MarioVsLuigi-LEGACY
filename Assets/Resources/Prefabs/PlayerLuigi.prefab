@@ -554,8 +554,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.8
-      minScalar: 0.6
+      scalar: 4
+      minScalar: 0.9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10244,8 +10244,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5825b7eb90fdaa043ba90e0a30a93dbc, type: 2}
-  m_sharedMaterial: {fileID: -53834951448225802, guid: 5825b7eb90fdaa043ba90e0a30a93dbc,
+  m_fontAsset: {fileID: 11400000, guid: 3b9a582c505b68d40bbd996826f07dde, type: 2}
+  m_sharedMaterial: {fileID: 6015020410494396785, guid: 3b9a582c505b68d40bbd996826f07dde,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10278,7 +10278,7 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 65535
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -10311,15 +10311,15 @@ MonoBehaviour:
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
-    textComponent: {fileID: 0}
-    characterCount: 0
+    textComponent: {fileID: 6629018848133323561}
+    characterCount: 1
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
-    materialCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -10529,8 +10529,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5825b7eb90fdaa043ba90e0a30a93dbc, type: 2}
-  m_sharedMaterial: {fileID: -53834951448225802, guid: 5825b7eb90fdaa043ba90e0a30a93dbc,
+  m_fontAsset: {fileID: 11400000, guid: 3b9a582c505b68d40bbd996826f07dde, type: 2}
+  m_sharedMaterial: {fileID: 6015020410494396785, guid: 3b9a582c505b68d40bbd996826f07dde,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10556,14 +10556,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
+  m_fontSize: 0.35
   m_fontSizeBase: 0.4
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 100
   m_fontStyle: 0
-  m_textAlignment: 65535
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -10596,15 +10596,15 @@ MonoBehaviour:
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
-    textComponent: {fileID: 0}
-    characterCount: 0
+    textComponent: {fileID: 7764123242631454104}
+    characterCount: 1
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
-    materialCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -15790,6 +15790,9 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 083779ae7bd92ab4295d580d757b328e, type: 2}
   heightSmallModel: 0.46
   heightLargeModel: 0.82
+  regularMarioTexture: {fileID: 2800000, guid: 77032d0aaa50f124ea7cae92e342faf2, type: 3}
+  fireMarioTexture: {fileID: 2800000, guid: 8a08e2d47ca44f147b3bf770511c5d2f, type: 3}
+  skinRENDERER: {fileID: 2351734249189666000}
 --- !u!50 &8636928217783201367
 Rigidbody2D:
   serializedVersion: 4
@@ -16066,6 +16069,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: facingRight
+  - Type: 4
+    SynchronizeType: 0
+    Name: sliding
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -21862,6 +21868,12 @@ Transform:
 --- !u!4 &5197620554976496622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8189757122026107490, guid: 77fa7e39322fd5440bec69cf0275d39d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4145129069902821772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2351734249189666000 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1811992120372893020, guid: 77fa7e39322fd5440bec69cf0275d39d,
     type: 3}
   m_PrefabInstance: {fileID: 4145129069902821772}
   m_PrefabAsset: {fileID: 0}

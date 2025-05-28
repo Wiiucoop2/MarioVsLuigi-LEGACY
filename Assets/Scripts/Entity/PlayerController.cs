@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     private int playerId = 0;
     [SerializeField] public bool dead = false;
     [SerializeField] public Enums.PowerupState state = Enums.PowerupState.Small, previousState;
-    [SerializeField] public float slowriseGravity = 0.85f, normalGravity = 2.5f, flyingGravity = 0.5f, flyingTerminalVelocity = -1f, drillVelocity = 9f, deathUpTime = 0.6f, deathForce = 7f, groundpoundTime = 0.25f, groundpoundVelocity = 12, blinkingSpeed = 0.25f, terminalVelocity = -7f, jumpVelocity = 6.25f, launchVelocity = 20f, walkingAcceleration = 8f, runningAcceleration = 3f, walkingMaxSpeed = 2.7f, runningMaxSpeed = 5, wallslideSpeed = -2f, walljumpVelocity = 6f, pipeDuration = 2f, giantStartTime = 1.5f, blinkDuration = 0.25f;
+    [SerializeField] public float slowriseGravity = 0.85f, normalGravity = 2.5f, flyingGravity = 0.5f, flyingTerminalVelocity = -1f, drillVelocity = 9f, deathUpTime = 0.6f, deathForce = 7f, groundpoundTime = 0.25f, groundpoundVelocity = 12, blinkingSpeed = 0.25f, terminalVelocity = -7f, jumpVelocity = 6.25f, launchVelocity = 20f, walkingAcceleration = 8f, runningAcceleration = 3f, walkingMaxSpeed = 2.8125f, runningMaxSpeed = 5.625f, wallslideSpeed = -2f, walljumpVelocity = 6f, pipeDuration = 2f, giantStartTime = 1.5f, blinkDuration = 0.25f;
     [SerializeField] ParticleSystem dust, sparkles, drillParticle, giantParticle;
     private BoxCollider2D[] hitboxes;
     GameObject models;
@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     private AudioSource sfx;
     private Animator animator;
     public Rigidbody2D body;
+
+
 
     public bool onGround, crushGround, onGroundLastFrame, onRight, onLeft, hitRoof, skidding, turnaround, facingRight = true, singlejump, doublejump, triplejump, bounce, crouching, groundpound, groundpoundSit, knockback, deathUp, hitBlock, running, functionallyRunning, jumpHeld, flying, drill, inShell, hitLeft, hitRight, iceSliding, stuckInBlock;
     public float walljumping, landing, koyoteTime, deathCounter, groundpoundCounter, groundpoundDelay, hitInvincibilityCounter, powerupFlash, throwInvincibility, jumpBuffer, pipeTimer, giantStartTimer, giantEndTimer;
@@ -49,6 +51,14 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     private Enums.PlayerEyeState eyeState;
     public PlayerData character;
     public float heightSmallModel = 0.46f, heightLargeModel = 0.82f;
+
+
+    public Texture2D regularMarioTexture;
+    public Texture2D fireMarioTexture;
+    public SkinnedMeshRenderer skinRENDERER;
+    private Material[] materialInstances;
+   
+    //private Material originalMat;
 
     //Tile data
     private string footstepMaterial = "";
@@ -102,27 +112,28 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     }
 
     void Awake() {
-		if (Application.platform == RuntimePlatform.Switch){
-			characterActions = new PlayerBinds();
-			   
-			characterActions.Left.AddDefaultBinding(InputControlType.DPadX);
-			characterActions.Left.AddDefaultBinding(InputControlType.LeftStickLeft);
-		  
-			characterActions.Right.AddDefaultBinding(InputControlType.DPadX);	
-			characterActions.Right.AddDefaultBinding(InputControlType.LeftStickRight);
-			
-			characterActions.Down.AddDefaultBinding(InputControlType.DPadY);
-			characterActions.Up.AddDefaultBinding(InputControlType.DPadY);
-			characterActions.Up.AddDefaultBinding(InputControlType.LeftStickY);
+		if (Application.platform == RuntimePlatform.Switch)
+        {
+            characterActions = new PlayerBinds();
 
-			characterActions.Jump.AddDefaultBinding(InputControlType.Action1);
-			characterActions.Jump.AddDefaultBinding(InputControlType.Action2);
-			
-			characterActions.Sprint.AddDefaultBinding(InputControlType.Action3);
-			
-			characterActions.Select.AddDefaultBinding(InputControlType.Minus);
-			characterActions.Start.AddDefaultBinding(InputControlType.Plus);
-		}
+            characterActions.Left.AddDefaultBinding(InputControlType.DPadX);
+            characterActions.Left.AddDefaultBinding(InputControlType.LeftStickLeft);
+
+            characterActions.Right.AddDefaultBinding(InputControlType.DPadX);
+            characterActions.Right.AddDefaultBinding(InputControlType.LeftStickRight);
+
+            characterActions.Down.AddDefaultBinding(InputControlType.DPadY);
+            characterActions.Up.AddDefaultBinding(InputControlType.DPadY);
+            characterActions.Up.AddDefaultBinding(InputControlType.LeftStickY);
+
+            characterActions.Jump.AddDefaultBinding(InputControlType.Action1);
+            characterActions.Jump.AddDefaultBinding(InputControlType.Action2);
+
+            characterActions.Sprint.AddDefaultBinding(InputControlType.Action3);
+
+            characterActions.Select.AddDefaultBinding(InputControlType.Minus);
+            characterActions.Start.AddDefaultBinding(InputControlType.Plus);
+        }
 		
 		
         ANY_GROUND_MASK = LayerMask.GetMask("Ground", "Semisolids");
@@ -140,6 +151,19 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         starDirection = Random.value < 0.5;
         PlayerInput input = GetComponent<PlayerInput>();
         input.enabled = !photonView || photonView.IsMine;
+       
+
+        // Clone the array and each material so changes are per-instance
+        Material[] originalMaterials = skinRENDERER.materials;
+        materialInstances = new Material[originalMaterials.Length];
+
+        for (int i = 0; i < originalMaterials.Length; i++)
+        {
+            materialInstances[i] = new Material(originalMaterials[i]);
+        }
+
+        skinRENDERER.materials = materialInstances;
+
 
         smallModel.SetActive(false);
         largeModel.SetActive(false);
@@ -410,6 +434,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         }
         case "Star": {
             invincible = 10f;
+            powerupFlash = 10f;
             stateUp = true;
             break;
         }
@@ -460,7 +485,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             } else {
                 PlaySoundFromAnim("player/powerup");
             }
-            powerupFlash = 2f;
+            //powerupFlash = 2f;
             if (ForceCrouchCheck()) {
                 crouching = true;
             }
@@ -491,14 +516,14 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         }
         case Enums.PowerupState.Large: {
             state = Enums.PowerupState.Small;
-            powerupFlash = 2f;
+           // powerupFlash = 2f;
             SpawnStar();
             break;
         }
         case Enums.PowerupState.FireFlower:
         case Enums.PowerupState.Shell: {
             state = Enums.PowerupState.Large;
-            powerupFlash = 2f;
+           // powerupFlash = 2f;
             SpawnStar();
             break;
         }
@@ -509,6 +534,9 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             PlaySoundFromAnim("player/powerdown");
         }
     }
+
+
+
 
     [PunRPC]
     void SetCoins(int coins) {
@@ -956,15 +984,19 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 		}
 	}
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         //game ended, freeze.
-        
-        if (GameManager.Instance) {
-            if (!GameManager.Instance.musicEnabled) {
+
+        if (GameManager.Instance)
+        {
+            if (!GameManager.Instance.musicEnabled)
+            {
                 models.SetActive(false);
                 return;
             }
-            if (GameManager.Instance.gameover) {
+            if (GameManager.Instance.gameover)
+            {
                 body.velocity = Vector2.zero;
                 animator.enabled = false;
                 body.isKinematic = true;
@@ -974,7 +1006,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
         bool orig = facingRight;
 
-        if (!dead) {
+        if (!dead)
+        {
             HandleTemporaryInvincibility();
             HandleGroundCollision();
             HandleCustomTiles();
@@ -982,6 +1015,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             HandleMovement(Time.fixedDeltaTime);
         }
         HandleAnimation();
+        HandleFireFlower();
     }
 
     bool colliding = true;
@@ -1228,30 +1262,39 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
                 eyeState = Enums.PlayerEyeState.Normal;
             }
         }
-    
-        //Enable rainbow effect
-        MaterialPropertyBlock block = new MaterialPropertyBlock(); 
-        block.SetColor("GlowColor", glowColor);
-        block.SetFloat("RainbowEnabled", (animator.GetBool("invincible") ? 1.1f : 0f));
-        block.SetFloat("FireEnabled", (state == Enums.PowerupState.FireFlower ? 1.1f : 0f));
-        block.SetFloat("EyeState", (int) eyeState);
-        block.SetFloat("ModelScale", transform.lossyScale.x);
-        Vector3 giantMultiply = Vector3.one;
-        if (giantTimer > 0 && giantTimer < 4) {
-            float v = (((Mathf.Sin(giantTimer * 20f) + 1f) / 2f) * 0.9f) + 0.1f;
-            giantMultiply = new Vector3(v, 1, v);
+        /*
+            //Enable rainbow effect
+            MaterialPropertyBlock block = new MaterialPropertyBlock(); 
+            block.SetColor("GlowColor", glowColor);
+            block.SetFloat("RainbowEnabled", (animator.GetBool("invincible") ? 1.1f : 0f));
+            block.SetFloat("FireEnabled", (state == Enums.PowerupState.FireFlower ? 1.1f : 0f));
+            block.SetFloat("EyeState", (int) eyeState);
+            block.SetFloat("ModelScale", transform.lossyScale.x);
+            Vector3 giantMultiply = Vector3.one;
+            if (giantTimer > 0 && giantTimer < 4) {
+                float v = (((Mathf.Sin(giantTimer * 20f) + 1f) / 2f) * 0.9f) + 0.1f;
+                giantMultiply = new Vector3(v, 1, v);
+            }
+            block.SetVector("MultiplyColor", giantMultiply);
+            foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>()) {
+                renderer.SetPropertyBlock(block);
+            }
+            foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
+                renderer.SetPropertyBlock(block);
+            }*/
+        if (giantTimer > 0 && giantTimer <= 4) {
+            if (powerupFlash <= 0) {
+                powerupFlash = 5f;
+            }
+            
         }
-        block.SetVector("MultiplyColor", giantMultiply);
-        foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>()) {
-            renderer.SetPropertyBlock(block);
-        }
-        foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
-            renderer.SetPropertyBlock(block);
-        }
-        if (invincible > 0) {
+        if (invincible > 0)
+        {
             if (!sparkles.isPlaying)
                 sparkles.Play();
-        } else {
+        }
+        else
+        {
             sparkles.Stop();
         }
         if (state == Enums.PowerupState.Giant && giantStartTimer < 0) {
@@ -1264,20 +1307,36 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         //Hitbox changing
         UpdateHitbox();
 
-        //hit flash
+        // Blink logic vars
+        bool shouldBeInvisibleFromHit = false;
+        bool shouldBeInvisibleFromPowerup = false;
+
+        // Hit flash
         if (hitInvincibilityCounter >= 0) {
             hitInvincibilityCounter -= Time.fixedDeltaTime;
-            
-            bool invisible;
+
             if (hitInvincibilityCounter <= 0.75f) {
-                invisible = ((hitInvincibilityCounter * 5f) % (blinkingSpeed*2f) < blinkingSpeed);
+                shouldBeInvisibleFromHit = ((hitInvincibilityCounter * 5f) % (blinkingSpeed * 2f)) < blinkingSpeed;
             } else {
-                invisible = (hitInvincibilityCounter * 2f) % (blinkingSpeed*2) < blinkingSpeed;
+                shouldBeInvisibleFromHit = ((hitInvincibilityCounter * 2f) % (blinkingSpeed * 2f)) < blinkingSpeed;
             }
-            models.SetActive(!invisible);
-        } else {
-            models.SetActive(true);
         }
+
+        // Powerup flash
+        if (powerupFlash >= 0) {
+            powerupFlash -= Time.fixedDeltaTime;
+
+            if (powerupFlash <= 0.75f) {
+                shouldBeInvisibleFromPowerup = ((powerupFlash * 5f) % (blinkingSpeed * 2f)) < blinkingSpeed;
+            } else {
+                shouldBeInvisibleFromPowerup = ((powerupFlash * 2f) % (blinkingSpeed * 2f)) < blinkingSpeed;
+            }
+        }
+
+        // Final decision: invisible if either effect is active
+        bool finalInvisible = shouldBeInvisibleFromHit || shouldBeInvisibleFromPowerup;
+        models.SetActive(!finalInvisible);
+
 
         //Model changing
         bool large = state >= Enums.PowerupState.Large;
@@ -1494,7 +1553,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         if (groundpoundCounter > 0) return;
         if (state == Enums.PowerupState.Giant && singlejump) return;
 
-        bool topSpeed = Mathf.Abs(body.velocity.x) + 0.1f > (runningMaxSpeed * (invincible > 0 ? 2 : 1));
+        bool topSpeed = Mathf.Abs(body.velocity.x) + 0.1f > (runningMaxSpeed * (invincible > 0 ? 1.5 : 1));
         if (bounce || (jump && (onGround || koyoteTime < 0.2f))) {
             koyoteTime = 1;
             jumpBuffer = 0;
@@ -1594,7 +1653,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
         if ((left && right) || !(left || right)) return;
 
-        float invincibleSpeedBoost = (invincible > 0 ? 2f : 1);
+        float invincibleSpeedBoost = (invincible > 0 ? 1.5f : 1);
         float airPenalty = (onGround ? 1 : 0.5f);
         float xVel = body.velocity.x;
         float runSpeedTotal = runningMaxSpeed * invincibleSpeedBoost;
@@ -1740,6 +1799,40 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         Vector2 o = body.position + new Vector2(0.3f * (facingRight ? 1 : -1), 1.75f);
         RaycastHit2D hit = Physics2D.BoxCast(o, new Vector2(0.6f, 3f), 0, Vector2.zero, 0, ONLY_GROUND_MASK);
         photonView.RPC("FinishMegaMario", RpcTarget.All, !(bool) hit);
+    }
+
+    void HandleFireFlower()
+    {
+        if (materialInstances.Length > 1)
+        {
+            if ((state == Enums.PowerupState.FireFlower) && materialInstances[1].mainTexture != fireMarioTexture)
+            {
+                //Debug.Log("FAIER");
+                photonView.RPC("FireSkin", RpcTarget.All);
+            }
+            else if ((state != Enums.PowerupState.FireFlower) && materialInstances[1].mainTexture != regularMarioTexture)
+            {
+                
+                photonView.RPC("NormalSkin", RpcTarget.All);
+                
+            }
+        }
+    }
+
+    [PunRPC]
+    void FireSkin() {
+        
+        materialInstances[1].mainTexture = fireMarioTexture;
+        
+    }
+
+    [PunRPC]
+    void NormalSkin()
+    {
+        
+        materialInstances[1].mainTexture = regularMarioTexture;
+       
+
     }
     
     void HandleMovement(float delta) {
