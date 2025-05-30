@@ -1,549 +1,84 @@
 fileFormatVersion: 2
 guid: 5f97a3adca3c1c04e9b3eb9c5bc49eae
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1444423021683886661
-    second: 0 Grassland_0
-  - first:
-      213: 621740884096934703
-    second: 0 Grassland_1
-  - first:
-      213: -4697796355597963381
-    second: 0 Grassland_2
-  - first:
-      213: -4773117721650371740
-    second: 0 Grassland_3
-  - first:
-      213: 843885652918348221
-    second: 0 Grassland_4
-  - first:
-      213: 4842962144529490557
-    second: 0 Grassland_5
-  - first:
-      213: 748315125981360795
-    second: 0 Grassland_6
-  - first:
-      213: -5025630259543041086
-    second: 0 Grassland_7
-  - first:
-      213: 2509531404680018735
-    second: 0 Grassland_8
-  - first:
-      213: 4852825733853506695
-    second: 0 Grassland_9
-  - first:
-      213: 8063975727514943311
-    second: 0 Grassland_10
-  - first:
-      213: 3802484397096135110
-    second: 0 Grassland_11
-  - first:
-      213: 31745796448303617
-    second: 0 Grassland_12
-  - first:
-      213: -4429171857789531684
-    second: 0 Grassland_13
-  - first:
-      213: 7263838587416069969
-    second: 0 Grassland_14
-  - first:
-      213: -58422225245056829
-    second: 0 Grassland_15
-  - first:
-      213: -8486957675038345019
-    second: 0 Grassland_16
-  - first:
-      213: -269643795985375321
-    second: 0 Grassland_17
-  - first:
-      213: 2572502463982682973
-    second: 0 Grassland_18
-  - first:
-      213: 3580792813279181508
-    second: 0 Grassland_19
-  - first:
-      213: -6225470938232097600
-    second: 0 Grassland_20
-  - first:
-      213: -1507721680144234461
-    second: 0 Grassland_21
-  - first:
-      213: 5177976444356299919
-    second: 0 Grassland_22
-  - first:
-      213: -2813639027801839621
-    second: 0 Grassland_23
-  - first:
-      213: -1796817214456507191
-    second: 0 Grassland_24
-  - first:
-      213: 2661880469452059145
-    second: 0 Grassland_25
-  - first:
-      213: -4542286562028243669
-    second: 0 Grassland_26
-  - first:
-      213: 5294829645523315472
-    second: 0 Grassland_27
-  - first:
-      213: -1730572369971623326
-    second: 0 Grassland_28
-  - first:
-      213: 6808841651077869241
-    second: 0 Grassland_29
-  - first:
-      213: -5383223679912544007
-    second: 0 Grassland_30
-  - first:
-      213: 5960283580970489155
-    second: 0 Grassland_31
-  - first:
-      213: 1899716668919750380
-    second: 0 Grassland_32
-  - first:
-      213: -5494737232067038829
-    second: 0 Grassland_33
-  - first:
-      213: 5120440823237014660
-    second: 0 Grassland_34
-  - first:
-      213: -7286386105543516405
-    second: 0 Grassland_35
-  - first:
-      213: -6288595345864003279
-    second: 0 Grassland_36
-  - first:
-      213: -8214984105036659224
-    second: 0 Grassland_37
-  - first:
-      213: 3940509154638213084
-    second: 0 Grassland_38
-  - first:
-      213: -7654924321983703725
-    second: 0 Grassland_39
-  - first:
-      213: 2502133524153868366
-    second: 0 Grassland_40
-  - first:
-      213: 2873865852785696666
-    second: 0 Grassland_41
-  - first:
-      213: 5925013994013622594
-    second: 0 Grassland_42
-  - first:
-      213: -4485117697269193114
-    second: 0 Grassland_43
-  - first:
-      213: 7024221940755843639
-    second: 0 Grassland_44
-  - first:
-      213: -7297408930059804134
-    second: 0 Grassland_45
-  - first:
-      213: -9193871439537931907
-    second: 0 Grassland_46
-  - first:
-      213: -2714141780574848486
-    second: 0 Grassland_47
-  - first:
-      213: -2372336785400602172
-    second: 0 Grassland_48
-  - first:
-      213: -5047517436719655688
-    second: 0 Grassland_49
-  - first:
-      213: -6197828666713538191
-    second: 0 Grassland_50
-  - first:
-      213: 6284887163355210658
-    second: 0 Grassland_51
-  - first:
-      213: 127262301178821073
-    second: 0 Grassland_52
-  - first:
-      213: 5010446382747831222
-    second: 0 Grassland_53
-  - first:
-      213: -4831188527725574933
-    second: 0 Grassland_54
-  - first:
-      213: 8692542740233645745
-    second: 0 Grassland_55
-  - first:
-      213: 8402262941519369470
-    second: 0 Grassland_56
-  - first:
-      213: 7509806717856338116
-    second: 0 Grassland_57
-  - first:
-      213: 8874738343213719381
-    second: 0 Grassland_58
-  - first:
-      213: -508700946644478239
-    second: 0 Grassland_59
-  - first:
-      213: 3709115134562595054
-    second: 0 Grassland_60
-  - first:
-      213: -1300814203282683099
-    second: 0 Grassland_61
-  - first:
-      213: -461441546699794899
-    second: 0 Grassland_62
-  - first:
-      213: -1067389983176232251
-    second: 0 Grassland_63
-  - first:
-      213: -6571045777421387379
-    second: 0 Grassland_64
-  - first:
-      213: 7182249287784691548
-    second: 0 Grassland_65
-  - first:
-      213: 3859939834505068698
-    second: 0 Grassland_66
-  - first:
-      213: 6001440888774167547
-    second: 0 Grassland_67
-  - first:
-      213: 4538452416707052481
-    second: 0 Grassland_68
-  - first:
-      213: -4358832264338607076
-    second: 0 Grassland_69
-  - first:
-      213: -8374577716657017953
-    second: 0 Grassland_70
-  - first:
-      213: 5506155800571673522
-    second: 0 Grassland_71
-  - first:
-      213: -3689759506794351865
-    second: 0 Grassland_72
-  - first:
-      213: 5149095185888379539
-    second: 0 Grassland_73
-  - first:
-      213: -427436624276013311
-    second: 0 Grassland_74
-  - first:
-      213: 233868520492092229
-    second: 0 Grassland_75
-  - first:
-      213: -3688714502030175475
-    second: 0 Grassland_76
-  - first:
-      213: 2984980675198529272
-    second: 0 Grassland_77
-  - first:
-      213: 3582755484016520944
-    second: 0 Grassland_78
-  - first:
-      213: 8014937394726558486
-    second: 0 Grassland_79
-  - first:
-      213: 3839482597003528053
-    second: 0 Grassland_80
-  - first:
-      213: -3039194678342183824
-    second: 0 Grassland_81
-  - first:
-      213: 6299165055149171426
-    second: 0 Grassland_82
-  - first:
-      213: -9044310432130269204
-    second: 0 Grassland_83
-  - first:
-      213: 8747474063084393882
-    second: 0 Grassland_84
-  - first:
-      213: 7243391124948757905
-    second: 0 Grassland_85
-  - first:
-      213: -4747627012815954686
-    second: 0 Grassland_86
-  - first:
-      213: 1998588945402664653
-    second: 0 Grassland_87
-  - first:
-      213: 9194335875063372576
-    second: 0 Grassland_88
-  - first:
-      213: -8682703795210048186
-    second: 0 Grassland_89
-  - first:
-      213: -1238084574743955201
-    second: 0 Grassland_90
-  - first:
-      213: 9004548082323880429
-    second: 0 Grassland_91
-  - first:
-      213: -2929024777266657357
-    second: 0 Grassland_92
-  - first:
-      213: -5444465111608787568
-    second: 0 Grassland_93
-  - first:
-      213: 2647591593500648587
-    second: 0 Grassland_94
-  - first:
-      213: 4683249653654619167
-    second: 0 Grassland_95
-  - first:
-      213: -683189349211798165
-    second: 0 Grassland_96
-  - first:
-      213: -8402452923332570017
-    second: 0 Grassland_97
-  - first:
-      213: -6650004999461003731
-    second: 0 Grassland_98
-  - first:
-      213: 6873907467705929552
-    second: 0 Grassland_99
-  - first:
-      213: 7932916211814125238
-    second: 0 Grassland_100
-  - first:
-      213: -4118142165262079471
-    second: 0 Grassland_101
-  - first:
-      213: -4354400416002598478
-    second: 0 Grassland_102
-  - first:
-      213: 1827692423795911557
-    second: 0 Grassland_103
-  - first:
-      213: 2951550492848884198
-    second: 0 Grassland_104
-  - first:
-      213: 3313547660045521459
-    second: 0 Grassland_105
-  - first:
-      213: 1979116087514208989
-    second: 0 Grassland_106
-  - first:
-      213: -3128345703424356310
-    second: 0 Grassland_107
-  - first:
-      213: 1979728170566909823
-    second: 0 Grassland_108
-  - first:
-      213: -5524555054500316562
-    second: 0 Grassland_109
-  - first:
-      213: 2404095825642085972
-    second: 0 Grassland_110
-  - first:
-      213: -4988122654707678320
-    second: 0 Grassland_111
-  - first:
-      213: -3793694484665720065
-    second: 0 Grassland_112
-  - first:
-      213: -774392425130366466
-    second: 0 Grassland_113
-  - first:
-      213: 4301526190453703069
-    second: 0 Grassland_114
-  - first:
-      213: 863867184008000231
-    second: 0 Grassland_115
-  - first:
-      213: -2851182035262950775
-    second: 0 Grassland_116
-  - first:
-      213: -8779424444417450697
-    second: 0 Grassland_117
-  - first:
-      213: 5705433432623651397
-    second: 0 Grassland_118
-  - first:
-      213: 1809236013114975531
-    second: 0 Grassland_119
-  - first:
-      213: -2480334018557795406
-    second: 0 Grassland_120
-  - first:
-      213: 6669483059989097805
-    second: 0 Grassland_121
-  - first:
-      213: -686763038047999609
-    second: 0 Grassland_122
-  - first:
-      213: -6951603443470832697
-    second: 0 Grassland_123
-  - first:
-      213: -5292302768853322339
-    second: 0 Grassland_124
-  - first:
-      213: -3883464127837586288
-    second: 0 Grassland_125
-  - first:
-      213: -3862210362728650303
-    second: 0 Grassland_126
-  - first:
-      213: 5794554369211712875
-    second: 0 Grassland_127
-  - first:
-      213: -5544505720206334380
-    second: 0 Grassland_128
-  - first:
-      213: 4662088923083636939
-    second: 0 Grassland_129
-  - first:
-      213: -938454729740523736
-    second: 0 Grassland_130
-  - first:
-      213: 304732457421136883
-    second: 0 Grassland_131
-  - first:
-      213: -137026198884973084
-    second: 0 Grassland_132
-  - first:
-      213: -99174536587674103
-    second: 0 Grassland_133
-  - first:
-      213: -9154882096261672925
-    second: 0 Grassland_134
-  - first:
-      213: -2577430259556962006
-    second: 0 Grassland_135
-  - first:
-      213: 1473871065824629519
-    second: 0 Grassland_136
-  - first:
-      213: -2108912591080687332
-    second: 0 Grassland_137
-  - first:
-      213: -766346416687370710
-    second: 0 Grassland_138
-  - first:
-      213: -1131813622084842990
-    second: 0 Grassland_139
-  - first:
-      213: -5799643608959397948
-    second: 0 Grassland_140
-  - first:
-      213: 8226831608928402000
-    second: 0 Grassland_141
-  - first:
-      213: -4334208827169912785
-    second: 0 Grassland_142
-  - first:
-      213: -6623555725695154556
-    second: 0 Grassland_143
-  - first:
-      213: 7975784582202906990
-    second: 0 Grassland_144
-  - first:
-      213: -5764819659711786375
-    second: 0 Grassland_145
-  - first:
-      213: 7513339631169776939
-    second: 0 Grassland_146
-  - first:
-      213: -6870083931947811948
-    second: 0 Grassland_147
-  - first:
-      213: 3309240827059343636
-    second: 0 Grassland_148
-  - first:
-      213: 7235633269239302412
-    second: 0 Grassland_149
-  - first:
-      213: 7079911691377401148
-    second: 0 Grassland_150
-  - first:
-      213: 7262261740020469975
-    second: 0 Grassland_151
-  - first:
-      213: -3889960463160175835
-    second: 0 Grassland_152
-  - first:
-      213: -7783589487556145976
-    second: 0 Grassland_153
-  - first:
-      213: -1418129578894250644
-    second: 0 Grassland_154
-  - first:
-      213: 1706087988183349436
-    second: 0 Grassland_155
-  - first:
-      213: 7629970000796040482
-    second: 0 Grassland_156
-  - first:
-      213: -1634679652344615067
-    second: 0 Grassland_157
-  - first:
-      213: -86314960172617271
-    second: 0 Grassland_158
-  - first:
-      213: 5255277052610759196
-    second: 0 Grassland_159
-  - first:
-      213: 2407831835562822827
-    second: 0 Grassland_160
-  - first:
-      213: 4691115268221287146
-    second: 0 Grassland_161
-  - first:
-      213: -8590631633766922021
-    second: 0 Grassland_162
-  - first:
-      213: -3172615856425165656
-    second: 0 Grassland_163
-  - first:
-      213: -1410624868952040381
-    second: 0 Grassland_164
-  - first:
-      213: -4903351579565505817
-    second: 0 Grassland_165
-  - first:
-      213: 5590088324411379968
-    second: 0 Grassland_166
-  - first:
-      213: 1916260613390672371
-    second: 0 Grassland_167
-  - first:
-      213: -495376719070995264
-    second: 0 Grassland_168
-  - first:
-      213: 2464458649876406639
-    second: 0 Grassland_169
-  - first:
-      213: 3635817257284204863
-    second: 0 Grassland_170
-  - first:
-      213: 1666427994678490778
-    second: 0 Grassland_171
-  - first:
-      213: -4020420901683050367
-    second: 0 Grassland_172
-  - first:
-      213: 5509870762079034774
-    second: 0 Grassland_173
-  - first:
-      213: 8008633347620254193
-    second: 0 Grassland_174
-  - first:
-      213: -5285859983222969398
-    second: 0 Grassland_175
-  - first:
-      213: -2518757585333489217
-    second: 0 Grassland_176
-  - first:
-      213: -3557399390307900076
-    second: 0 Grassland_177
-  - first:
-      213: -1230061742707896966
-    second: 0 Grassland_178
-  - first:
-      213: 550735671041698171
-    second: 0 Grassland_179
+  fileIDToRecycleName:
+    21300000: 0 Grassland_35
+    21300002: 0 Grassland_36
+    21300004: 0 Grassland_37
+    21300006: 0 Grassland_38
+    21300008: 0 Grassland_39
+    21300010: 0 Grassland_40
+    21300012: 0 Grassland_41
+    21300014: 0 Grassland_42
+    21300016: 0 Grassland_48
+    21300018: 0 Grassland_49
+    21300020: 0 Grassland_51
+    21300022: 0 Grassland_52
+    21300024: 0 Grassland_53
+    21300026: 0 Grassland_54
+    21300028: 0 Grassland_55
+    21300030: 0 Grassland_56
+    21300032: 0 Grassland_57
+    21300034: 0 Grassland_58
+    21300036: 0 Grassland_90
+    21300038: 0 Grassland_91
+    21300040: 0 Grassland_92
+    21300042: 0 Grassland_93
+    21300044: 0 Grassland_94
+    21300046: 0 Grassland_95
+    21300048: 0 Grassland_96
+    21300050: 0 Grassland_100
+    21300052: 0 Grassland_101
+    21300054: 0 Grassland_105
+    21300056: 0 Grassland_106
+    21300058: 0 Grassland_107
+    21300060: 0 Grassland_108
+    21300062: 0 Grassland_109
+    21300064: 0 Grassland_110
+    21300066: 0 Grassland_111
+    21300068: 0 Grassland_112
+    21300070: 0 Grassland_113
+    21300072: 0 Grassland_114
+    21300074: 0 Grassland_115
+    21300076: 0 Grassland_116
+    21300078: 0 Grassland_117
+    21300080: 0 Grassland_118
+    21300082: 0 Grassland_119
+    21300084: 0 Grassland_120
+    21300086: 0 Grassland_124
+    21300088: 0 Grassland_133
+    21300090: 0 Grassland_134
+    21300092: 0 Grassland_135
+    21300094: 0 Grassland_136
+    21300096: 0 Grassland_140
+    21300098: 0 Grassland_154
+    21300100: 0 Grassland_155
+    21300102: 0 Grassland_156
+    21300104: 0 Grassland_157
+    21300106: 0 Grassland_158
+    21300108: 0 Grassland_159
+    21300110: 0 Grassland_160
+    21300112: 0 Grassland_161
+    21300114: 0 Grassland_162
+    21300116: 0 Grassland_163
+    21300118: 0 Grassland_164
+    21300120: 0 Grassland_165
+    21300122: 0 Grassland_166
+    21300124: 0 Grassland_167
+    21300126: 0 Grassland_168
+    21300128: 0 Grassland_169
+    21300130: 0 Grassland_170
+    21300132: 0 Grassland_171
+    21300134: 0 Grassland_172
+    21300136: 0 Grassland_173
+    21300138: 0 Grassland_174
+    21300140: 0 Grassland_175
+    21300142: 0 Grassland_176
+    21300144: 0 Grassland_177
+    21300146: 0 Grassland_178
+    21300148: 0 Grassland_179
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -563,8 +98,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -596,15 +129,11 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
-  applyGammaDecoding: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -615,8 +144,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -627,8 +155,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -639,8 +166,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -651,8 +177,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -663,8 +188,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -675,7 +199,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -695,7 +218,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b0f9cb2217e81ea90800000000000000
-      internalID: -7286386105543516405
       vertices: []
       indices: 
       edges: []
@@ -716,7 +238,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 131f991f9db6ab8a0800000000000000
-      internalID: -6288595345864003279
       vertices: []
       indices: 
       edges: []
@@ -737,7 +258,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8e54fc73b738efd80800000000000000
-      internalID: -8214984105036659224
       vertices: []
       indices: 
       edges: []
@@ -758,7 +278,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cdfa26cc2308fa630800000000000000
-      internalID: 3940509154638213084
       vertices: []
       indices: 
       edges: []
@@ -779,7 +298,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 355d9adf2ee34c590800000000000000
-      internalID: -7654924321983703725
       vertices: []
       indices: 
       edges: []
@@ -800,7 +318,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e40a9cfee2d59b220800000000000000
-      internalID: 2502133524153868366
       vertices: []
       indices: 
       edges: []
@@ -821,7 +338,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a9f9a6744c502e720800000000000000
-      internalID: 2873865852785696666
       vertices: []
       indices: 
       edges: []
@@ -842,7 +358,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2418662e5d0e93250800000000000000
-      internalID: 5925013994013622594
       vertices: []
       indices: 
       edges: []
@@ -863,7 +378,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4c1ea9a4344c31fd0800000000000000
-      internalID: -2372336785400602172
       vertices: []
       indices: 
       edges: []
@@ -884,7 +398,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8f41cba52ad93f9b0800000000000000
-      internalID: -5047517436719655688
       vertices: []
       indices: 
       edges: []
@@ -905,7 +418,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2a323398397683750800000000000000
-      internalID: 6284887163355210658
       vertices: []
       indices: 
       edges: []
@@ -926,7 +438,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1d9ff0f736024c100800000000000000
-      internalID: 127262301178821073
       vertices: []
       indices: 
       edges: []
@@ -947,7 +458,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6bb43d9407ea88540800000000000000
-      internalID: 5010446382747831222
       vertices: []
       indices: 
       edges: []
@@ -968,7 +478,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: be489f971ab24fcb0800000000000000
-      internalID: -4831188527725574933
       vertices: []
       indices: 
       edges: []
@@ -989,7 +498,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1bee682319d12a870800000000000000
-      internalID: 8692542740233645745
       vertices: []
       indices: 
       edges: []
@@ -1010,7 +518,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ef4d0b2d0a5da9470800000000000000
-      internalID: 8402262941519369470
       vertices: []
       indices: 
       edges: []
@@ -1031,7 +538,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4c05ba5db61383860800000000000000
-      internalID: 7509806717856338116
       vertices: []
       indices: 
       edges: []
@@ -1052,7 +558,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 55fdac5b087692b70800000000000000
-      internalID: 8874738343213719381
       vertices: []
       indices: 
       edges: []
@@ -1073,7 +578,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ff8fe7093a071dee0800000000000000
-      internalID: -1238084574743955201
       vertices: []
       indices: 
       edges: []
@@ -1094,7 +598,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: de9f6d1d5c496fc70800000000000000
-      internalID: 9004548082323880429
       vertices: []
       indices: 
       edges: []
@@ -1115,7 +618,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3b704b4db730a57d0800000000000000
-      internalID: -2929024777266657357
       vertices: []
       indices: 
       edges: []
@@ -1136,7 +638,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 09dfc86b3df5174b0800000000000000
-      internalID: -5444465111608787568
       vertices: []
       indices: 
       edges: []
@@ -1157,7 +658,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b84aae8d6822eb420800000000000000
-      internalID: 2647591593500648587
       vertices: []
       indices: 
       edges: []
@@ -1178,7 +678,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f140e804fbe3ef040800000000000000
-      internalID: 4683249653654619167
       vertices: []
       indices: 
       edges: []
@@ -1199,7 +698,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b6586e518e2d486f0800000000000000
-      internalID: -683189349211798165
       vertices: []
       indices: 
       edges: []
@@ -1220,7 +718,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6be4e16a341671e60800000000000000
-      internalID: 7932916211814125238
       vertices: []
       indices: 
       edges: []
@@ -1241,7 +738,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 11aeef0058b69d6c0800000000000000
-      internalID: -4118142165262079471
       vertices: []
       indices: 
       edges: []
@@ -1262,7 +758,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 33217577a061cfd20800000000000000
-      internalID: 3313547660045521459
       vertices: []
       indices: 
       edges: []
@@ -1283,7 +778,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: dda9b85889b377b10800000000000000
-      internalID: 1979116087514208989
       vertices: []
       indices: 
       edges: []
@@ -1304,7 +798,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a2095cc4822e594d0800000000000000
-      internalID: -3128345703424356310
       vertices: []
       indices: 
       edges: []
@@ -1325,7 +818,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f7f79763848697b10800000000000000
-      internalID: 1979728170566909823
       vertices: []
       indices: 
       edges: []
@@ -1346,7 +838,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e6a7b62c276d453b0800000000000000
-      internalID: -5524555054500316562
       vertices: []
       indices: 
       edges: []
@@ -1367,7 +858,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 45e556d7a601d5120800000000000000
-      internalID: 2404095825642085972
       vertices: []
       indices: 
       edges: []
@@ -1388,7 +878,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 093021eafd0a6cab0800000000000000
-      internalID: -4988122654707678320
       vertices: []
       indices: 
       edges: []
@@ -1409,7 +898,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ff2242f47f61a5bc0800000000000000
-      internalID: -3793694484665720065
       vertices: []
       indices: 
       edges: []
@@ -1430,7 +918,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ef9e957313ec045f0800000000000000
-      internalID: -774392425130366466
       vertices: []
       indices: 
       edges: []
@@ -1451,7 +938,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d91480e974712bb30800000000000000
-      internalID: 4301526190453703069
       vertices: []
       indices: 
       edges: []
@@ -1472,7 +958,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7e2f9eb70a21dfb00800000000000000
-      internalID: 863867184008000231
       vertices: []
       indices: 
       edges: []
@@ -1493,7 +978,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9823d2e8b019e68d0800000000000000
-      internalID: -2851182035262950775
       vertices: []
       indices: 
       edges: []
@@ -1514,7 +998,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 73ddd12bbf7392680800000000000000
-      internalID: -8779424444417450697
       vertices: []
       indices: 
       edges: []
@@ -1535,7 +1018,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 54a9b217a75cd2f40800000000000000
-      internalID: 5705433432623651397
       vertices: []
       indices: 
       edges: []
@@ -1556,7 +1038,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b25ef847192bb1910800000000000000
-      internalID: 1809236013114975531
       vertices: []
       indices: 
       edges: []
@@ -1577,7 +1058,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2b3ab8bf955149dd0800000000000000
-      internalID: -2480334018557795406
       vertices: []
       indices: 
       edges: []
@@ -1601,7 +1081,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d957eaaeba6fd86b0800000000000000
-      internalID: -5292302768853322339
       vertices: []
       indices: 
       edges: []
@@ -1622,7 +1101,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 90e7defc849af9ef0800000000000000
-      internalID: -99174536587674103
       vertices: []
       indices: 
       edges: []
@@ -1643,7 +1121,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3205db3fc3353f080800000000000000
-      internalID: -9154882096261672925
       vertices: []
       indices: 
       edges: []
@@ -1664,7 +1141,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a21b3c1b5d02b3cd0800000000000000
-      internalID: -2577430259556962006
       vertices: []
       indices: 
       edges: []
@@ -1685,7 +1161,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f03143beced347410800000000000000
-      internalID: 1473871065824629519
       vertices: []
       indices: 
       edges: []
@@ -1706,7 +1181,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4cf4c109dd6838fa0800000000000000
-      internalID: -5799643608959397948
       vertices: []
       indices: 
       edges: []
@@ -1727,7 +1201,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c6da88c59aac15ce0800000000000000
-      internalID: -1418129578894250644
       vertices: []
       indices: 
       edges: []
@@ -1748,7 +1221,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cb8ba3b6cfd3da710800000000000000
-      internalID: 1706087988183349436
       vertices: []
       indices: 
       edges: []
@@ -1769,7 +1241,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 22db5585a4913e960800000000000000
-      internalID: 7629970000796040482
       vertices: []
       indices: 
       edges: []
@@ -1790,7 +1261,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 56fa07064837059e0800000000000000
-      internalID: -1634679652344615067
       vertices: []
       indices: 
       edges: []
@@ -1811,7 +1281,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9c1fb1440095dcef0800000000000000
-      internalID: -86314960172617271
       vertices: []
       indices: 
       edges: []
@@ -1832,7 +1301,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c1a402db2ae7ee840800000000000000
-      internalID: 5255277052610759196
       vertices: []
       indices: 
       edges: []
@@ -1853,7 +1321,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bac49951c465a6120800000000000000
-      internalID: 2407831835562822827
       vertices: []
       indices: 
       edges: []
@@ -1874,7 +1341,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: aeabdba5b703a1140800000000000000
-      internalID: 4691115268221287146
       vertices: []
       indices: 
       edges: []
@@ -1895,7 +1361,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bd8c6115b02f7c880800000000000000
-      internalID: -8590631633766922021
       vertices: []
       indices: 
       edges: []
@@ -1916,7 +1381,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8ac910510ba98f3d0800000000000000
-      internalID: -3172615856425165656
       vertices: []
       indices: 
       edges: []
@@ -1937,7 +1401,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 34c18cec7247c6ce0800000000000000
-      internalID: -1410624868952040381
       vertices: []
       indices: 
       edges: []
@@ -1958,7 +1421,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7e2c52ba7bbc3fbb0800000000000000
-      internalID: -4903351579565505817
       vertices: []
       indices: 
       edges: []
@@ -1979,7 +1441,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0015997a6bbf39d40800000000000000
-      internalID: 5590088324411379968
       vertices: []
       indices: 
       edges: []
@@ -2000,7 +1461,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3f1293600ece79a10800000000000000
-      internalID: 1916260613390672371
       vertices: []
       indices: 
       edges: []
@@ -2021,7 +1481,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0cc56c5af711029f0800000000000000
-      internalID: -495376719070995264
       vertices: []
       indices: 
       edges: []
@@ -2042,7 +1501,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f61a585b514833220800000000000000
-      internalID: 2464458649876406639
       vertices: []
       indices: 
       edges: []
@@ -2063,7 +1521,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f39f8a83884057230800000000000000
-      internalID: 3635817257284204863
       vertices: []
       indices: 
       edges: []
@@ -2084,7 +1541,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a96f39a9e67502710800000000000000
-      internalID: 1666427994678490778
       vertices: []
       indices: 
       edges: []
@@ -2105,7 +1561,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 18840a3bd789438c0800000000000000
-      internalID: -4020420901683050367
       vertices: []
       indices: 
       edges: []
@@ -2126,7 +1581,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 69d180cf34ef67c40800000000000000
-      internalID: 5509870762079034774
       vertices: []
       indices: 
       edges: []
@@ -2147,7 +1601,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1f1b04d1991642f60800000000000000
-      internalID: 8008633347620254193
       vertices: []
       indices: 
       edges: []
@@ -2168,7 +1621,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: acbea87d95ad4a6b0800000000000000
-      internalID: -5285859983222969398
       vertices: []
       indices: 
       edges: []
@@ -2189,7 +1641,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: fb170e232539b0dd0800000000000000
-      internalID: -2518757585333489217
       vertices: []
       indices: 
       edges: []
@@ -2210,7 +1661,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 455a1883a1491aec0800000000000000
-      internalID: -3557399390307900076
       vertices: []
       indices: 
       edges: []
@@ -2231,7 +1681,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a7d0916bc51fdeee0800000000000000
-      internalID: -1230061742707896966
       vertices: []
       indices: 
       edges: []
@@ -2252,7 +1701,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b79a395cc2b94a700800000000000000
-      internalID: 550735671041698171
       vertices: []
       indices: 
       edges: []
@@ -2261,193 +1709,10 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
-    nameFileIdTable:
-      0 Grassland_142: -4334208827169912785
-      0 Grassland_25: 2661880469452059145
-      0 Grassland_44: 7024221940755843639
-      0 Grassland_26: -4542286562028243669
-      0 Grassland_130: -938454729740523736
-      0 Grassland_17: -269643795985375321
-      0 Grassland_145: -5764819659711786375
-      0 Grassland_152: -3889960463160175835
-      0 Grassland_3: -4773117721650371740
-      0 Grassland_166: 5590088324411379968
-      0 Grassland_117: -8779424444417450697
-      0 Grassland_131: 304732457421136883
-      0 Grassland_161: 4691115268221287146
-      0 Grassland_28: -1730572369971623326
-      0 Grassland_6: 748315125981360795
-      0 Grassland_155: 1706087988183349436
-      0 Grassland_162: -8590631633766922021
-      0 Grassland_124: -5292302768853322339
-      0 Grassland_76: -3688714502030175475
-      0 Grassland_43: -4485117697269193114
-      0 Grassland_95: 4683249653654619167
-      0 Grassland_122: -686763038047999609
-      0 Grassland_170: 3635817257284204863
-      0 Grassland_72: -3689759506794351865
-      0 Grassland_156: 7629970000796040482
-      0 Grassland_29: 6808841651077869241
-      0 Grassland_24: -1796817214456507191
-      0 Grassland_50: -6197828666713538191
-      0 Grassland_168: -495376719070995264
-      0 Grassland_172: -4020420901683050367
-      0 Grassland_178: -1230061742707896966
-      0 Grassland_137: -2108912591080687332
-      0 Grassland_47: -2714141780574848486
-      0 Grassland_164: -1410624868952040381
-      0 Grassland_132: -137026198884973084
-      0 Grassland_27: 5294829645523315472
-      0 Grassland_91: 9004548082323880429
-      0 Grassland_147: -6870083931947811948
-      0 Grassland_60: 3709115134562595054
-      0 Grassland_116: -2851182035262950775
-      0 Grassland_175: -5285859983222969398
-      0 Grassland_88: 9194335875063372576
-      0 Grassland_13: -4429171857789531684
-      0 Grassland_92: -2929024777266657357
-      0 Grassland_129: 4662088923083636939
-      0 Grassland_18: 2572502463982682973
-      0 Grassland_61: -1300814203282683099
-      0 Grassland_159: 5255277052610759196
-      0 Grassland_177: -3557399390307900076
-      0 Grassland_66: 3859939834505068698
-      0 Grassland_32: 1899716668919750380
-      0 Grassland_154: -1418129578894250644
-      0 Grassland_146: 7513339631169776939
-      0 Grassland_35: -7286386105543516405
-      0 Grassland_89: -8682703795210048186
-      0 Grassland_123: -6951603443470832697
-      0 Grassland_9: 4852825733853506695
-      0 Grassland_115: 863867184008000231
-      0 Grassland_80: 3839482597003528053
-      0 Grassland_53: 5010446382747831222
-      0 Grassland_106: 1979116087514208989
-      0 Grassland_31: 5960283580970489155
-      0 Grassland_114: 4301526190453703069
-      0 Grassland_133: -99174536587674103
-      0 Grassland_121: 6669483059989097805
-      0 Grassland_59: -508700946644478239
-      0 Grassland_134: -9154882096261672925
-      0 Grassland_71: 5506155800571673522
-      0 Grassland_84: 8747474063084393882
-      0 Grassland_63: -1067389983176232251
-      0 Grassland_64: -6571045777421387379
-      0 Grassland_139: -1131813622084842990
-      0 Grassland_23: -2813639027801839621
-      0 Grassland_160: 2407831835562822827
-      0 Grassland_21: -1507721680144234461
-      0 Grassland_171: 1666427994678490778
-      0 Grassland_85: 7243391124948757905
-      0 Grassland_8: 2509531404680018735
-      0 Grassland_78: 3582755484016520944
-      0 Grassland_69: -4358832264338607076
-      0 Grassland_136: 1473871065824629519
-      0 Grassland_149: 7235633269239302412
-      0 Grassland_2: -4697796355597963381
-      0 Grassland_37: -8214984105036659224
-      0 Grassland_99: 6873907467705929552
-      0 Grassland_83: -9044310432130269204
-      0 Grassland_4: 843885652918348221
-      0 Grassland_65: 7182249287784691548
-      0 Grassland_10: 8063975727514943311
-      0 Grassland_0: -1444423021683886661
-      0 Grassland_36: -6288595345864003279
-      0 Grassland_70: -8374577716657017953
-      0 Grassland_143: -6623555725695154556
-      0 Grassland_105: 3313547660045521459
-      0 Grassland_98: -6650004999461003731
-      0 Grassland_77: 2984980675198529272
-      0 Grassland_7: -5025630259543041086
-      0 Grassland_5: 4842962144529490557
-      0 Grassland_20: -6225470938232097600
-      0 Grassland_125: -3883464127837586288
-      0 Grassland_1: 621740884096934703
-      0 Grassland_12: 31745796448303617
-      0 Grassland_79: 8014937394726558486
-      0 Grassland_163: -3172615856425165656
-      0 Grassland_52: 127262301178821073
-      0 Grassland_22: 5177976444356299919
-      0 Grassland_169: 2464458649876406639
-      0 Grassland_128: -5544505720206334380
-      0 Grassland_135: -2577430259556962006
-      0 Grassland_96: -683189349211798165
-      0 Grassland_11: 3802484397096135110
-      0 Grassland_16: -8486957675038345019
-      0 Grassland_87: 1998588945402664653
-      0 Grassland_111: -4988122654707678320
-      0 Grassland_120: -2480334018557795406
-      0 Grassland_68: 4538452416707052481
-      0 Grassland_127: 5794554369211712875
-      0 Grassland_140: -5799643608959397948
-      0 Grassland_151: 7262261740020469975
-      0 Grassland_174: 8008633347620254193
-      0 Grassland_102: -4354400416002598478
-      0 Grassland_109: -5524555054500316562
-      0 Grassland_48: -2372336785400602172
-      0 Grassland_34: 5120440823237014660
-      0 Grassland_15: -58422225245056829
-      0 Grassland_56: 8402262941519369470
-      0 Grassland_74: -427436624276013311
-      0 Grassland_103: 1827692423795911557
-      0 Grassland_148: 3309240827059343636
-      0 Grassland_176: -2518757585333489217
-      0 Grassland_81: -3039194678342183824
-      0 Grassland_141: 8226831608928402000
-      0 Grassland_41: 2873865852785696666
-      0 Grassland_38: 3940509154638213084
-      0 Grassland_86: -4747627012815954686
-      0 Grassland_153: -7783589487556145976
-      0 Grassland_67: 6001440888774167547
-      0 Grassland_126: -3862210362728650303
-      0 Grassland_119: 1809236013114975531
-      0 Grassland_144: 7975784582202906990
-      0 Grassland_90: -1238084574743955201
-      0 Grassland_165: -4903351579565505817
-      0 Grassland_54: -4831188527725574933
-      0 Grassland_55: 8692542740233645745
-      0 Grassland_97: -8402452923332570017
-      0 Grassland_58: 8874738343213719381
-      0 Grassland_94: 2647591593500648587
-      0 Grassland_167: 1916260613390672371
-      0 Grassland_108: 1979728170566909823
-      0 Grassland_40: 2502133524153868366
-      0 Grassland_45: -7297408930059804134
-      0 Grassland_46: -9193871439537931907
-      0 Grassland_100: 7932916211814125238
-      0 Grassland_19: 3580792813279181508
-      0 Grassland_49: -5047517436719655688
-      0 Grassland_157: -1634679652344615067
-      0 Grassland_93: -5444465111608787568
-      0 Grassland_14: 7263838587416069969
-      0 Grassland_51: 6284887163355210658
-      0 Grassland_104: 2951550492848884198
-      0 Grassland_173: 5509870762079034774
-      0 Grassland_112: -3793694484665720065
-      0 Grassland_118: 5705433432623651397
-      0 Grassland_62: -461441546699794899
-      0 Grassland_57: 7509806717856338116
-      0 Grassland_113: -774392425130366466
-      0 Grassland_33: -5494737232067038829
-      0 Grassland_138: -766346416687370710
-      0 Grassland_179: 550735671041698171
-      0 Grassland_75: 233868520492092229
-      0 Grassland_158: -86314960172617271
-      0 Grassland_150: 7079911691377401148
-      0 Grassland_82: 6299165055149171426
-      0 Grassland_101: -4118142165262079471
-      0 Grassland_39: -7654924321983703725
-      0 Grassland_30: -5383223679912544007
-      0 Grassland_110: 2404095825642085972
-      0 Grassland_107: -3128345703424356310
-      0 Grassland_73: 5149095185888379539
-      0 Grassland_42: 5925013994013622594
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

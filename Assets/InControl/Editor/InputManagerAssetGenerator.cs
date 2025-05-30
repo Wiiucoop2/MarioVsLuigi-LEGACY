@@ -1,7 +1,6 @@
 #if UNITY_EDITOR
 namespace InControl
 {
-	using System;
 	using System.Collections.Generic;
 	using System.Text.RegularExpressions;
 	using UnityEditor;
@@ -9,32 +8,30 @@ namespace InControl
 
 
 	[InitializeOnLoad]
-	class InputManagerAssetGenerator
+	internal class InputManagerAssetGenerator
 	{
+		const string productName = "InControl";
 		static readonly List<AxisPreset> axisPresets = new List<AxisPreset>();
 
 
 		static InputManagerAssetGenerator()
 		{
-			if (!EditorApplication.isPlayingOrWillChangePlaymode)
+			if (!CheckAxisPresets())
 			{
-				if (!CheckAxisPresets())
-				{
-					Debug.LogError( "InControl needs to modify your InputManager settings. Please run the 'InControl > Setup InputManager Settings' menu item." );
-				}
+				Debug.LogError( productName + " has detected invalid InputManager settings. To fix, execute 'Edit > Project Settings > " + productName + " > Setup InputManager Settings'." );
 			}
 		}
 
 
-		[MenuItem( "InControl/Setup InputManager Settings" )]
+		[MenuItem( "Edit/Project Settings/" + productName + "/Setup InputManager Settings" )]
 		static void GenerateInputManagerAsset()
 		{
 			ApplyAxisPresets();
-			Debug.Log( "InControl has successfully modified your InputManager settings." );
+			Debug.Log( productName + " has successfully generated new InputManager settings." );
 		}
 
 
-		[MenuItem( "InControl/Check InputManager Settings" )]
+		[MenuItem( "Edit/Project Settings/" + productName + "/Check InputManager Settings" )]
 		static void CheckInputManagerAsset()
 		{
 			if (CheckAxisPresets())
@@ -43,22 +40,14 @@ namespace InControl
 			}
 			else
 			{
-				Debug.LogError( "InControl needs to modify your InputManager settings. Please run the 'InControl > Setup InputManager Settings' menu item." );
+				Debug.LogError( productName + " has detected invalid InputManager settings. To fix, execute 'Edit > Project Settings > " + productName + " > Setup InputManager Settings'." );
 			}
 		}
 
 
 		static bool CheckAxisPresets()
 		{
-			try
-			{
-				SetupAxisPresets();
-			}
-			catch (IndexOutOfRangeException)
-			{
-				// This can happen on first load when the Library folder is deleted.
-				return true;
-			}
+			SetupAxisPresets();
 
 			var axisArray = GetInputManagerAxisArray();
 
@@ -316,7 +305,9 @@ namespace InControl
 			public int joyNum;
 
 
-			public AxisPreset() {}
+			public AxisPreset()
+			{
+			}
 
 
 			public AxisPreset( SerializedProperty axisPreset )

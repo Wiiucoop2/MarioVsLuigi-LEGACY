@@ -6,6 +6,7 @@
 	public class TouchTrackControl : TouchControl
 	{
 		[Header( "Dimensions" )]
+
 		[SerializeField]
 		TouchUnitType areaUnitType = TouchUnitType.Percent;
 
@@ -14,13 +15,13 @@
 
 
 		[Header( "Analog Target" )]
-		public AnalogTarget target = AnalogTarget.LeftStick;
 
+		public AnalogTarget target = AnalogTarget.LeftStick;
 		public float scale = 1.0f;
 
 		[Header( "Button Target" )]
-		public ButtonTarget tapTarget = ButtonTarget.None;
 
+		public ButtonTarget tapTarget = ButtonTarget.None;
 		public float maxTapDuration = 0.5f;
 		public float maxTapMovement = 1.0f;
 
@@ -192,3 +193,4 @@
 		}
 	}
 }
+

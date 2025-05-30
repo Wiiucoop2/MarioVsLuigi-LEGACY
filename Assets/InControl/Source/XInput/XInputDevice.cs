@@ -9,7 +9,7 @@ namespace InControl
 		const float LowerDeadZone = 0.2f;
 		const float UpperDeadZone = 0.9f;
 
-		readonly XInputDeviceManager owner;
+		XInputDeviceManager owner;
 		GamePadState state;
 
 		public int DeviceIndex { get; private set; }
@@ -57,8 +57,8 @@ namespace InControl
 			AddControl( InputControlType.LeftStickButton, "Left Stick Button" );
 			AddControl( InputControlType.RightStickButton, "Right Stick Button" );
 
-			AddControl( InputControlType.View, "View" );
-			AddControl( InputControlType.Menu, "Menu" );
+			AddControl( InputControlType.Start, "Start" );
+			AddControl( InputControlType.Back, "Back" );
 		}
 
 
@@ -88,8 +88,10 @@ namespace InControl
 			UpdateWithState( InputControlType.LeftStickButton, state.Buttons.LeftStick == ButtonState.Pressed, updateTick, deltaTime );
 			UpdateWithState( InputControlType.RightStickButton, state.Buttons.RightStick == ButtonState.Pressed, updateTick, deltaTime );
 
-			UpdateWithState( InputControlType.View, state.Buttons.Back == ButtonState.Pressed, updateTick, deltaTime );
-			UpdateWithState( InputControlType.Menu, state.Buttons.Start == ButtonState.Pressed, updateTick, deltaTime );
+			UpdateWithState( InputControlType.Start, state.Buttons.Start == ButtonState.Pressed, updateTick, deltaTime );
+			UpdateWithState( InputControlType.Back, state.Buttons.Back == ButtonState.Pressed, updateTick, deltaTime );
+
+			Commit( updateTick, deltaTime );
 		}
 
 

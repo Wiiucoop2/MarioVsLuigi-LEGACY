@@ -1,7 +1,4 @@
-﻿using System.Text;
-
-
-namespace InControl
+﻿namespace InControl
 {
 	using System;
 	using System.Collections.Generic;
@@ -13,8 +10,6 @@ namespace InControl
 	/// </summary>
 	public struct KeyCombo
 	{
-		public static readonly KeyCombo Empty = new KeyCombo();
-
 		int includeSize;
 		ulong includeData;
 
@@ -42,8 +37,8 @@ namespace InControl
 				return;
 			}
 
-			includeData |= ((ulong) key & 0xFF) << (includeSize * 8);
-			includeSize += 1;
+			includeData = includeData | (((ulong) key & 0xFF) << (includeSize * 8));
+			includeSize = includeSize + 1;
 		}
 
 
@@ -79,7 +74,6 @@ namespace InControl
 			{
 				throw new IndexOutOfRangeException( "Index " + index + " is out of the range 0.." + includeSize );
 			}
-
 			return (Key) GetIncludeInt( index );
 		}
 
@@ -91,8 +85,8 @@ namespace InControl
 				return;
 			}
 
-			excludeData |= ((ulong) key & 0xFF) << (excludeSize * 8);
-			excludeSize += 1;
+			excludeData = excludeData | (((ulong) key & 0xFF) << (excludeSize * 8));
+			excludeSize = excludeSize + 1;
 		}
 
 
@@ -114,7 +108,6 @@ namespace InControl
 			{
 				throw new IndexOutOfRangeException( "Index " + index + " is out of the range 0.." + excludeSize );
 			}
-
 			return (Key) GetExcludeInt( index );
 		}
 
@@ -131,7 +124,6 @@ namespace InControl
 			{
 				AddExclude( keys[i] );
 			}
-
 			return this;
 		}
 
@@ -182,19 +174,17 @@ namespace InControl
 					return false;
 				}
 
-				var provider = InputManager.KeyboardProvider;
-
 				var includePressed = true;
 				for (var i = 0; i < includeSize; i++)
 				{
-					var key = GetInclude( i );
-					includePressed = includePressed && provider.GetKeyIsPressed( key );
+					var key = GetIncludeInt( i );
+					includePressed = includePressed && KeyInfo.KeyList[key].IsPressed;
 				}
 
 				for (var i = 0; i < excludeSize; i++)
 				{
-					var key = GetExclude( i );
-					if (provider.GetKeyIsPressed( key ))
+					var key = GetExcludeInt( i );
+					if (KeyInfo.KeyList[key].IsPressed)
 					{
 						return false;
 					}
@@ -207,54 +197,35 @@ namespace InControl
 
 		public static KeyCombo Detect( bool modifiersAsKeys )
 		{
-			const Key minModifier = Key.Shift;
-			const Key maxModifier = Key.Control;
-			const Key minFirstClassModifier = Key.LeftShift;
-			const Key maxFirstClassModifier = Key.RightControl;
-			const Key minStandardKey = Key.Escape;
-			const Key maxStandardKey = Key.QuestionMark;
-
-			var keyCombo = Empty;
-			var provider = InputManager.KeyboardProvider;
-			if (provider == null)
-			{
-				return keyCombo;
-			}
+			var keyCombo = new KeyCombo();
 
 			if (modifiersAsKeys)
 			{
-				for (var i = minFirstClassModifier; i <= maxFirstClassModifier; i++)
+				for (var i = 5; i < 13; i++)
 				{
-					if (provider.GetKeyIsPressed( i ))
+					if (KeyInfo.KeyList[i].IsPressed)
 					{
-						keyCombo.AddInclude( i );
-
-						if (i == Key.LeftControl &&
-						    provider.GetKeyIsPressed( Key.RightAlt ))
-						{
-							keyCombo.AddInclude( Key.RightAlt );
-						}
-
+						keyCombo.AddIncludeInt( i );
 						return keyCombo;
 					}
 				}
 			}
 			else
 			{
-				for (var i = minModifier; i <= maxModifier; i++)
+				for (var i = 1; i < 5; i++)
 				{
-					if (provider.GetKeyIsPressed( i ))
+					if (KeyInfo.KeyList[i].IsPressed)
 					{
-						keyCombo.AddInclude( i );
+						keyCombo.AddIncludeInt( i );
 					}
 				}
 			}
 
-			for (var i = minStandardKey; i <= maxStandardKey; i++)
+			for (var i = 13; i < KeyInfo.KeyList.Length; i++)
 			{
-				if (provider.GetKeyIsPressed( i ))
+				if (KeyInfo.KeyList[i].IsPressed)
 				{
-					keyCombo.AddInclude( i );
+					keyCombo.AddIncludeInt( i );
 					return keyCombo;
 				}
 			}
@@ -264,31 +235,23 @@ namespace InControl
 		}
 
 
-		static readonly Dictionary<ulong, string> cachedStrings = new Dictionary<ulong, string>();
-		static readonly StringBuilder cachedStringBuilder = new StringBuilder( 256 );
-
-
+		static Dictionary<ulong, string> cachedStrings = new Dictionary<ulong, string>();
 		public override string ToString()
 		{
 			string value;
 			if (!cachedStrings.TryGetValue( includeData, out value ))
 			{
-				cachedStringBuilder.Clear();
+				value = "";
 				for (var i = 0; i < includeSize; i++)
 				{
 					if (i != 0)
 					{
-						cachedStringBuilder.Append( " " );
+						value += " ";
 					}
-
-					var key = GetInclude( i );
-					cachedStringBuilder.Append( InputManager.KeyboardProvider.GetNameForKey( key ) );
+					var key = GetIncludeInt( i );
+					value += KeyInfo.KeyList[key].Name;
 				}
-
-				value = cachedStringBuilder.ToString();
-				cachedStrings[includeData] = value;
 			}
-
 			return value;
 		}
 
@@ -319,7 +282,7 @@ namespace InControl
 
 		public override int GetHashCode()
 		{
-			var hash = 17;
+			int hash = 17;
 			hash = hash * 31 + includeData.GetHashCode();
 			hash = hash * 31 + excludeData.GetHashCode();
 			return hash;
@@ -328,21 +291,23 @@ namespace InControl
 
 		internal void Load( BinaryReader reader, UInt16 dataFormatVersion )
 		{
-			switch (dataFormatVersion)
+			if (dataFormatVersion == 1)
 			{
-				case 1:
-					includeSize = reader.ReadInt32();
-					includeData = reader.ReadUInt64();
-					return;
-				case 2:
-					includeSize = reader.ReadInt32();
-					includeData = reader.ReadUInt64();
-					excludeSize = reader.ReadInt32();
-					excludeData = reader.ReadUInt64();
-					return;
-				default:
-					throw new InControlException( "Unknown data format version: " + dataFormatVersion );
+				includeSize = reader.ReadInt32();
+				includeData = reader.ReadUInt64();
+				return;
 			}
+
+			if (dataFormatVersion == 2)
+			{
+				includeSize = reader.ReadInt32();
+				includeData = reader.ReadUInt64();
+				excludeSize = reader.ReadInt32();
+				excludeData = reader.ReadUInt64();
+				return;
+			}
+
+			throw new InControlException( "Unknown data format version: " + dataFormatVersion );
 		}
 
 
@@ -355,3 +320,4 @@ namespace InControl
 		}
 	}
 }
+

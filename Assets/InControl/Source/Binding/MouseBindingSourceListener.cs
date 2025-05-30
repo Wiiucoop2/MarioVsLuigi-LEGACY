@@ -55,12 +55,12 @@
 		{
 			switch (control)
 			{
-				case Mouse.NegativeScrollWheel:
-					return MouseBindingSource.NegativeScrollWheelIsActive( ScrollWheelThreshold );
-				case Mouse.PositiveScrollWheel:
-					return MouseBindingSource.PositiveScrollWheelIsActive( ScrollWheelThreshold );
-				default:
-					return MouseBindingSource.ButtonIsPressed( control );
+			case Mouse.NegativeScrollWheel:
+				return MouseBindingSource.NegativeScrollWheelIsActive( ScrollWheelThreshold );
+			case Mouse.PositiveScrollWheel:
+				return MouseBindingSource.PositiveScrollWheelIsActive( ScrollWheelThreshold );
+			default:
+				return MouseBindingSource.ButtonIsPressed( control );
 			}
 		}
 
@@ -69,7 +69,7 @@
 		{
 			if (listenOptions.IncludeMouseButtons)
 			{
-				for (var control = Mouse.None; control <= Mouse.Button7; control++)
+				for (var control = Mouse.None; control <= Mouse.Button9; control++)
 				{
 					if (MouseBindingSource.ButtonIsPressed( control ))
 					{
@@ -95,3 +95,4 @@
 		}
 	}
 }
+

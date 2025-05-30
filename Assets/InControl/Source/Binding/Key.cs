@@ -132,48 +132,14 @@
 
 		// Other
 		AltGr,
-		CapsLock,
+		CapsLock
 
-		// Shifted / non-US keyboard keys.
-		ExclamationMark,
-		Tilde,
-		At,
-		Hash,
-		Dollar,
-		Percent,
-		Caret,
-		Ampersand,
-		Asterisk,
-		LeftParen,
-		RightParen,
-		Underscore,
-		Plus,
-		LeftBrace,
-		RightBrace,
-		Pipe,
-		Colon,
-		DoubleQuote,
-		LessThan,
-		GreaterThan,
-		QuestionMark,
-
-		// Unsupported for now.
-		// LeftApple,
-		// LeftWindows,
-		// RightApple,
-		// RightWindows,
-		// Help,
-		// Print,
-		// ScrollLock,
-		// SysReq,
-		// Break,
-		// Menu,
-		// Pause,
-
-		// Unity doesn't define/support these :(
+		// Unity doesn't define/support these. :(
 		// F16,
 		// F17,
 		// F18,
 		// F19,
 	}
 }
+
+

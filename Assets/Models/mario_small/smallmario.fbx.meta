@@ -1,653 +1,279 @@
 fileFormatVersion: 2
 guid: e0d3ef6bcff32414dbd34fc6ac031292
 ModelImporter:
-  serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: 7936476158259880078
-    second: small_model|2jmp1_small_model
-  - first:
-      74: -6639942427629169614
-    second: small_model|2jmp2_small_model
-  - first:
-      74: 7699966397248795634
-    second: small_model|2jmp_b_1_small_model
-  - first:
-      74: -8969870314571355361
-    second: small_model|2jmp_b_2_small_model
-  - first:
-      74: 8419052139562869826
-    second: small_model|2jmp_c_1_small_model
-  - first:
-      74: 4160601144243102020
-    second: small_model|2jmp_c_2_small_model
-  - first:
-      74: -4754633320589427335
-    second: small_model|2jmp_d_1_small_model
-  - first:
-      74: 7480476736449432889
-    second: small_model|2jmp_d_2_small_model
-  - first:
-      74: 2498910735832237851
-    second: small_model|2jmp_e_1_small_model
-  - first:
-      74: -2924956034205866454
-    second: small_model|2jmp_e_2_small_model
-  - first:
-      74: -2151110872859412887
-    second: small_model|2jump1_small_model
-  - first:
-      74: -1537112494762962389
-    second: small_model|2jump2_small_model
-  - first:
-      74: 1412296139127706353
-    second: small_model|2jumped_small_model
-  - first:
-      74: -7162211266807783020
-    second: small_model|attack_small_model
-  - first:
-      74: -52972709486961553
-    second: small_model|b_dash.001_small_model
-  - first:
-      74: -1924426181260180765
-    second: small_model|b_dash2_small_model
-  - first:
-      74: 260706077939130250
-    second: small_model|b_dash_small_model
-  - first:
-      74: -512889097398413721
-    second: small_model|big_goal_small_model
-  - first:
-      74: -6354498825522892707
-    second: small_model|big_hip_at_small_model
-  - first:
-      74: 2594209376928735925
-    second: small_model|big_hip_ed_small_model
-  - first:
-      74: -6440208053847755642
-    second: small_model|big_hip_squat_small_model
-  - first:
-      74: -6381754872607530736
-    second: small_model|big_hip_st_small_model
-  - first:
-      74: 2215250688942907302
-    second: small_model|big_jmp_2_small_model
-  - first:
-      74: 6280934751958031832
-    second: small_model|big_jump_ed_small_model
-  - first:
-      74: -1345341436771645040
-    second: small_model|big_jump_st_small_model
-  - first:
-      74: -9217855143133706902
-    second: small_model|big_wait_small_model
-  - first:
-      74: 1096643599403292869
-    second: small_model|big_walk_small_model
-  - first:
-      74: 89013481578005799
-    second: small_model|boss_key_get_small_model
-  - first:
-      74: -4038178438070670725
-    second: small_model|bt_goal_jmp_small_model
-  - first:
-      74: -555896859292758498
-    second: small_model|bt_goal_out_small_model
-  - first:
-      74: -6909954984475992176
-    second: small_model|bt_surprise_small_model
-  - first:
-      74: 8963183691879282650
-    second: small_model|bt_wait_small_model
-  - first:
-      74: -7693308462220482985
-    second: small_model|buried_damage_small_model
-  - first:
-      74: -2738989493842277428
-    second: small_model|buried_ed_small_model
-  - first:
-      74: 1916510837601583417
-    second: small_model|buried_small_model
-  - first:
-      74: -4551274836903085042
-    second: small_model|buried_st_small_model
-  - first:
-      74: 811358110652670183
-    second: small_model|carry_pose_small_model
-  - first:
-      74: -1793997947394056756
-    second: small_model|carry_start_small_model
-  - first:
-      74: 7886267423451820335
-    second: small_model|carry_throw.001_small_model
-  - first:
-      74: 5948526577055480938
-    second: small_model|carry_throw_small_model
-  - first:
-      74: 7003237198640996264
-    second: small_model|carry_wait_small_model
-  - first:
-      74: -1835024565755934109
-    second: small_model|carry_walk_small_model
-  - first:
-      74: -3603314070675947977
-    second: small_model|coin_comp_small_model
-  - first:
-      74: 7446725847768108327
-    second: small_model|course_in_small_model
-  - first:
-      74: -640440574317787726
-    second: small_model|dead_pose_small_model
-  - first:
-      74: 6375383926091036412
-    second: small_model|dead_small_model
-  - first:
-      74: 6443310717821990193
-    second: small_model|door_walk_small_model
-  - first:
-      74: -9118509795334661285
-    second: small_model|e_damage1_small_model
-  - first:
-      74: 373676986686793347
-    second: small_model|e_damage2_small_model
-  - first:
-      74: 1003954972444245905
-    second: small_model|e_down_small_model
-  - first:
-      74: -3763231738054466654
-    second: small_model|e_shock_small_model
-  - first:
-      74: -1610155098777347149
-    second: small_model|find_loop_small_model
-  - first:
-      74: 2398574656149711739
-    second: small_model|find_small_model
-  - first:
-      74: -8791565305058366542
-    second: small_model|find_surprise_small_model
-  - first:
-      74: 6546792754202268191
-    second: small_model|fire_at_small_model
-  - first:
-      74: -6504954987964277701
-    second: small_model|firejmp.001_small_model
-  - first:
-      74: 6887249865480955562
-    second: small_model|firejmp_small_model
-  - first:
-      74: 6405167943055810712
-    second: small_model|goal_jump_ed_small_model
-  - first:
-      74: 4472664096138522212
-    second: small_model|goal_jump_small_model
-  - first:
-      74: 1719766384787957522
-    second: small_model|goal_puton_cap_small_model
-  - first:
-      74: -7434923069459320267
-    second: small_model|hang_start_small_model
-  - first:
-      74: -2367052930249552917
-    second: small_model|hang_up.001_small_model
-  - first:
-      74: 3486693602990094512
-    second: small_model|hang_up_small_model
-  - first:
-      74: -1901547555313687713
-    second: small_model|hang_wait_small_model
-  - first:
-      74: 6888807895600586730
-    second: small_model|hang_walk_l_small_model
-  - first:
-      74: 5241355653440503129
-    second: small_model|hang_walk_r_small_model
-  - first:
-      74: 7515403095619481644
-    second: small_model|hipat_small_model
-  - first:
-      74: -3698275467366424441
-    second: small_model|hiped_small_model
-  - first:
-      74: 4780964270251140306
-    second: small_model|hipsr_small_model
-  - first:
-      74: 1432315855629459717
-    second: small_model|jmped_small_model
-  - first:
-      74: -2589900523734449944
-    second: small_model|jr_crear_small_model
-  - first:
-      74: 3691073933460726598
-    second: small_model|jump.001_small_model
-  - first:
-      74: -3522646275187565555
-    second: small_model|jump.002_small_model
-  - first:
-      74: -377952458914106669
-    second: small_model|jump2_small_model
-  - first:
-      74: -8665081022964605464
-    second: small_model|jump_b_small_model
-  - first:
-      74: -4830381737848772983
-    second: small_model|jump_c_small_model
-  - first:
-      74: 6780692395485953647
-    second: small_model|jump_d_small_model
-  - first:
-      74: 7982092972226932072
-    second: small_model|jump_e_small_model
-  - first:
-      74: 8569991810129339349
-    second: small_model|jump_hang_small_model
-  - first:
-      74: 4624056914225141925
-    second: small_model|jump_small_model
-  - first:
-      74: -7488660409206856488
-    second: small_model|jumped.001_small_model
-  - first:
-      74: -1732358660349452388
-    second: small_model|jumped_small_model
-  - first:
-      74: 9132251433522413156
-    second: small_model|L_run.001_small_model
-  - first:
-      74: -430917681480016655
-    second: small_model|L_run.002_small_model
-  - first:
-      74: 2371622749205818100
-    second: small_model|L_run_small_model
-  - first:
-      74: 2432398820511013772
-    second: small_model|L_wait.001_small_model
-  - first:
-      74: 3510553818048241034
-    second: small_model|L_wait.002_small_model
-  - first:
-      74: 8033881327150838690
-    second: small_model|L_wait_small_model
-  - first:
-      74: -8089680189926646965
-    second: small_model|L_walk.001_small_model
-  - first:
-      74: -8105061269104856668
-    second: small_model|L_walk.002_small_model
-  - first:
-      74: -5258488889800978005
-    second: small_model|L_walk_small_model
-  - first:
-      74: 7462946426669348551
-    second: small_model|lost_small_model
-  - first:
-      74: -8962043991467221727
-    second: small_model|low_walk_small_model
-  - first:
-      74: -6219252557755891220
-    second: small_model|m_escort_small_model
-  - first:
-      74: -6538762818865036041
-    second: small_model|m_fall_wait_small_model
-  - first:
-      74: 5107367479195303991
-    second: small_model|m_kiss_small_model
-  - first:
-      74: 7791433446465310632
-    second: small_model|m_shy_small_model
-  - first:
-      74: 8508316647722158827
-    second: small_model|monkey_l_to_r_small_model
-  - first:
-      74: 4231306977853867151
-    second: small_model|monkey_r_to_l_small_model
-  - first:
-      74: -7290194685497377359
-    second: small_model|monkey_start_small_model
-  - first:
-      74: 4791470956763856970
-    second: small_model|monkey_wait_l_small_model
-  - first:
-      74: -517724137996205203
-    second: small_model|monkey_wait_r_small_model
-  - first:
-      74: -3827122007066024379
-    second: small_model|move1_small_model
-  - first:
-      74: -3205463521191486540
-    second: small_model|move2_small_model
-  - first:
-      74: -427087757921689309
-    second: small_model|net_attack_small_model
-  - first:
-      74: -7217331606826724638
-    second: small_model|net_wait_small_model
-  - first:
-      74: -430307565415842194
-    second: small_model|net_walk1_small_model
-  - first:
-      74: -6144912346451620848
-    second: small_model|net_walk2_small_model
-  - first:
-      74: 3336576483582413294
-    second: small_model|opm_brake_small_model
-  - first:
-      74: -1241352521065714865
-    second: small_model|opm_jr_notice_small_model
-  - first:
-      74: -1548258312088327192
-    second: small_model|opm_look_up_small_model
-  - first:
-      74: 1670060025623168910
-    second: small_model|opm_noti_wait_small_model
-  - first:
-      74: -4906585524409082412
-    second: small_model|opm_notice_small_model
-  - first:
-      74: -7786313736109694354
-    second: small_model|opm_person_small_model
-  - first:
-      74: -7328446667716093684
-    second: small_model|opm_surprise1_small_model
-  - first:
-      74: 5338808450718018685
-    second: small_model|opm_surprise2_small_model
-  - first:
-      74: 9129952639957435728
-    second: small_model|paddle_1_small_model
-  - first:
-      74: -1450800138159677020
-    second: small_model|paddle_2_small_model
-  - first:
-      74: -5130526267198538221
-    second: small_model|paddle_carry_small_model
-  - first:
-      74: -1714981660976019192
-    second: small_model|paddle_end_small_model
-  - first:
-      74: -2408297327929252295
-    second: small_model|pea_plant_small_model
-  - first:
-      74: -1077555419079226275
-    second: small_model|pea_plant_st_small_model
-  - first:
-      74: 9051584508887010740
-    second: small_model|pea_plant_wait_small_model
-  - first:
-      74: -4962251184426679145
-    second: small_model|pipe_pose_small_model
-  - first:
-      74: -99453128320597628
-    second: small_model|push_small_model
-  - first:
-      74: 7864121712295505746
-    second: small_model|roll_jump.001_small_model
-  - first:
-      74: 8856784474666852019
-    second: small_model|roll_jump_end_small_model
-  - first:
-      74: -6129758935914687026
-    second: small_model|roll_jump_small_model
-  - first:
-      74: 8352197684581130756
-    second: small_model|roll_small_model
-  - first:
-      74: -7340670706018965402
-    second: small_model|rope_jump_ed_small_model
-  - first:
-      74: -7865130279563191891
-    second: small_model|rope_swing_small_model
-  - first:
-      74: 4204739689981056537
-    second: small_model|rope_wait2_small_model
-  - first:
-      74: -2584359463438857776
-    second: small_model|rope_wait_small_model
-  - first:
-      74: 7202830435218497296
-    second: small_model|rope_walk_small_model
-  - first:
-      74: 5078285246594252001
-    second: small_model|run.001_small_model
-  - first:
-      74: -5801790274841104781
-    second: small_model|run.002_small_model
-  - first:
-      74: 5409230535341655534
-    second: small_model|run_small_model
-  - first:
-      74: 402656025695855544
-    second: small_model|scale_up_small_model
-  - first:
-      74: -8348716127769688250
-    second: small_model|sdown.001_small_model
-  - first:
-      74: -7497526177137761964
-    second: small_model|sdown_small_model
-  - first:
-      74: 6224909437318610329
-    second: small_model|sfbdn.001_small_model
-  - first:
-      74: -1364823488104787703
-    second: small_model|sfbdn_small_model
-  - first:
-      74: 1755432936616918175
-    second: small_model|sffdn_small_model
-  - first:
-      74: -4586896965948262971
-    second: small_model|shell_in_small_model
-  - first:
-      74: -9008695362798734905
-    second: small_model|shell_puton_cap_small_model
-  - first:
-      74: 16642518191945113
-    second: small_model|shell_run_small_model
-  - first:
-      74: -2040972002263389457
-    second: small_model|shell_walk_small_model
-  - first:
-      74: 3249054709511704380
-    second: small_model|shfdn_small_model
-  - first:
-      74: 3346481249106753661
-    second: small_model|shoot_small_model
-  - first:
-      74: -4088976587014476991
-    second: small_model|sldct_small_model
-  - first:
-      74: -747683311231444747
-    second: small_model|slip_small_model
-  - first:
-      74: 1211943790510962727
-    second: small_model|sliped_small_model
-  - first:
-      74: -3453307289983948327
-    second: small_model|slpbk_small_model
-  - first:
-      74: 8960043577428907392
-    second: small_model|slpla_small_model
-  - first:
-      74: 4020693698225016504
-    second: small_model|small_jumped_small_model
-  - first:
-      74: 243643990169188179
-    second: small_model|small_wait.001_small_model
-  - first:
-      74: 6202542967663376441
-    second: small_model|small_wait_small_model
-  - first:
-      74: -5503484127282722008
-    second: small_model|spin_jump2_small_model
-  - first:
-      74: -1368532675737174877
-    second: small_model|spin_jump_end_small_model
-  - first:
-      74: -2551347513794941686
-    second: small_model|spin_jump_off_small_model
-  - first:
-      74: -1481294355513415535
-    second: small_model|spin_jump_small_model
-  - first:
-      74: 4923090873536843850
-    second: small_model|spin_jump_st_small_model
-  - first:
-      74: -2542958352768806341
-    second: small_model|squat_start_small_model
-  - first:
-      74: 3560171144541046011
-    second: small_model|star_roll_small_model
-  - first:
-      74: 322023833197727488
-    second: small_model|stoop_small_model
-  - first:
-      74: 1595368942753365984
-    second: small_model|struggle_small_model
-  - first:
-      74: 619522883305048403
-    second: small_model|swim_carry_small_model
-  - first:
-      74: -1864605977965360569
-    second: small_model|swim_dead_small_model
-  - first:
-      74: 4470249552013099663
-    second: small_model|swim_in_small_model
-  - first:
-      74: -1738986643369669577
-    second: small_model|swim_small_model
-  - first:
-      74: 857365722258276877
-    second: small_model|swim_standing_small_model
-  - first:
-      74: 7799610590480670819
-    second: small_model|swim_throw_small_model
-  - first:
-      74: 7895174424702449073
-    second: small_model|swim_wait_small_model
-  - first:
-      74: 8230929000990782752
-    second: small_model|swim_walk_small_model
-  - first:
-      74: -5054360054508461738
-    second: small_model|tree_climb_small_model
-  - first:
-      74: 7993257879210697999
-    second: small_model|tree_pose_small_model
-  - first:
-      74: 6187457823744630647
-    second: small_model|tree_start_small_model
-  - first:
-      74: 307752299928823724
-    second: small_model|tree_wait_small_model
-  - first:
-      74: 2895927467342860945
-    second: small_model|trned.001_small_model
-  - first:
-      74: -4688439969703827836
-    second: small_model|trned.002_small_model
-  - first:
-      74: -7789720605928042146
-    second: small_model|trned_small_model
-  - first:
-      74: 7207938471918191830
-    second: small_model|turn.001_small_model
-  - first:
-      74: 2123559365010944008
-    second: small_model|turn.002_small_model
-  - first:
-      74: 8943216577534994318
-    second: small_model|turn_small_model
-  - first:
-      74: -5901927716123923169
-    second: small_model|w_jump1_small_model
-  - first:
-      74: 9128479992526849734
-    second: small_model|w_jump2_small_model
-  - first:
-      74: -930031154798981397
-    second: small_model|w_jump_ed_small_model
-  - first:
-      74: -8258578285814891613
-    second: small_model|wait.001_small_model
-  - first:
-      74: -8483421991573250095
-    second: small_model|wait1_small_model
-  - first:
-      74: 290226059193128198
-    second: small_model|wait2_small_model
-  - first:
-      74: 5557143905499695693
-    second: small_model|wait_small_model
-  - first:
-      74: 7390272466520957865
-    second: small_model|walk.001_small_model
-  - first:
-      74: -8559657422799023689
-    second: small_model|walk.002_small_model
-  - first:
-      74: -2663693128504642509
-    second: small_model|walk.003_small_model
-  - first:
-      74: -9050529476152615225
-    second: small_model|walk_small_model
-  - first:
-      74: 3476737784410960049
-    second: small_model|wall_wait_small_model
-  - first:
-      74: -8922544193166278594
-    second: small_model|wall_walk_l_small_model
-  - first:
-      74: -3144660328596340507
-    second: small_model|wall_walk_r_small_model
-  - first:
-      74: 1133448241266618264
-    second: small_model|wjmp.001_small_model
-  - first:
-      74: -2348336868829445558
-    second: small_model|wjmp_small_model
-  - first:
-      74: -4201825508877912255
-    second: small_model|wsld_small_model
-  - first:
-      74: -6597220401461031306
-    second: small_model|Y_run_small_model
-  - first:
-      74: 1318652830790664921
-    second: small_model|Y_vs_lose_A_small_model
-  - first:
-      74: -1643183509320756249
-    second: small_model|Y_vs_lose_B_small_model
-  - first:
-      74: 3945362201621947764
-    second: small_model|Y_vs_lose_C_small_model
-  - first:
-      74: -3142103507113181749
-    second: small_model|Y_vs_win_wait_small_model
-  - first:
-      74: -308898678611544316
-    second: small_model|Y_wait_small_model
-  - first:
-      74: -607855662789579490
-    second: small_model|zero_g_jump2_small_model
-  - first:
-      74: -4824347878234702167
-    second: small_model|zero_g_jump_ed_small_model
-  - first:
-      74: -7010635871915262554
-    second: small_model|zero_g_jump_small_model
-  - first:
-      74: -2598022806238239279
-    second: small_model|zero_g_walk_small_model
-  - first:
-      74: -1810016331125947321
-    second: small_model|b_dash.001_small_model (1)
-  - first:
-      74: -3229569389255740034
-    second: small_model|shfdn_knockdown
-  - first:
-      74: -7677944236119783192
-    second: small_model|shfdn_getup
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ankle_l1
+    100002: ankle_l1_end
+    100004: ankle_r1
+    100006: ankle_r1_end
+    100008: arm_l1
+    100010: arm_l2
+    100012: arm_r1
+    100014: arm_r2
+    100016: leg_l1
+    100018: leg_l2
+    100020: leg_r1
+    100022: leg_r2
+    100024: mario_all_root
+    100026: mario_head_cap.001
+    100028: skl_root
+    100030: small_model
+    100032: small_model.001
+    100034: //RootNode
+    100036: spin
+    100038: wrist_l1
+    100040: wrist_l1_end
+    100042: wrist_r1
+    100044: wrist_r1_end
+    400000: ankle_l1
+    400002: ankle_l1_end
+    400004: ankle_r1
+    400006: ankle_r1_end
+    400008: arm_l1
+    400010: arm_l2
+    400012: arm_r1
+    400014: arm_r2
+    400016: leg_l1
+    400018: leg_l2
+    400020: leg_r1
+    400022: leg_r2
+    400024: mario_all_root
+    400026: mario_head_cap.001
+    400028: skl_root
+    400030: small_model
+    400032: small_model.001
+    400034: //RootNode
+    400036: spin
+    400038: wrist_l1
+    400040: wrist_l1_end
+    400042: wrist_r1
+    400044: wrist_r1_end
+    2100000: mat_body
+    2100002: mat_eye
+    2100004: mat_head
+    2300000: mario_head_cap.001
+    3300000: mario_head_cap.001
+    4300000: small_model.001
+    4300002: mario_head_cap.001
+    7400000: small_model|2jmp1_small_model
+    7400002: small_model|2jmp2_small_model
+    7400004: small_model|2jmp_b_1_small_model
+    7400006: small_model|2jmp_b_2_small_model
+    7400008: small_model|2jmp_c_1_small_model
+    7400010: small_model|2jmp_c_2_small_model
+    7400012: small_model|2jmp_d_1_small_model
+    7400014: small_model|2jmp_d_2_small_model
+    7400016: small_model|2jmp_e_1_small_model
+    7400018: small_model|2jmp_e_2_small_model
+    7400020: small_model|2jump1_small_model
+    7400022: small_model|2jump2_small_model
+    7400024: small_model|2jumped_small_model
+    7400026: small_model|attack_small_model
+    7400028: small_model|b_dash.001_small_model
+    7400030: small_model|b_dash2_small_model
+    7400032: small_model|b_dash_small_model
+    7400034: small_model|big_goal_small_model
+    7400036: small_model|big_hip_at_small_model
+    7400038: small_model|big_hip_ed_small_model
+    7400040: small_model|big_hip_squat_small_model
+    7400042: small_model|big_hip_st_small_model
+    7400044: small_model|big_jmp_2_small_model
+    7400046: small_model|big_jump_ed_small_model
+    7400048: small_model|big_jump_st_small_model
+    7400050: small_model|big_wait_small_model
+    7400052: small_model|big_walk_small_model
+    7400054: small_model|boss_key_get_small_model
+    7400056: small_model|bt_goal_jmp_small_model
+    7400058: small_model|bt_goal_out_small_model
+    7400060: small_model|bt_surprise_small_model
+    7400062: small_model|bt_wait_small_model
+    7400064: small_model|buried_damage_small_model
+    7400066: small_model|buried_ed_small_model
+    7400068: small_model|buried_small_model
+    7400070: small_model|buried_st_small_model
+    7400072: small_model|carry_pose_small_model
+    7400074: small_model|carry_start_small_model
+    7400076: small_model|carry_throw.001_small_model
+    7400078: small_model|carry_throw_small_model
+    7400080: small_model|carry_wait_small_model
+    7400082: small_model|carry_walk_small_model
+    7400084: small_model|coin_comp_small_model
+    7400086: small_model|course_in_small_model
+    7400088: small_model|dead_pose_small_model
+    7400090: small_model|dead_small_model
+    7400092: small_model|door_walk_small_model
+    7400094: small_model|e_damage1_small_model
+    7400096: small_model|e_damage2_small_model
+    7400098: small_model|e_down_small_model
+    7400100: small_model|e_shock_small_model
+    7400102: small_model|find_loop_small_model
+    7400104: small_model|find_small_model
+    7400106: small_model|find_surprise_small_model
+    7400108: small_model|fire_at_small_model
+    7400110: small_model|firejmp.001_small_model
+    7400112: small_model|firejmp_small_model
+    7400114: small_model|goal_jump_ed_small_model
+    7400116: small_model|goal_jump_small_model
+    7400118: small_model|goal_puton_cap_small_model
+    7400120: small_model|hang_start_small_model
+    7400122: small_model|hang_up.001_small_model
+    7400124: small_model|hang_up_small_model
+    7400126: small_model|hang_wait_small_model
+    7400128: small_model|hang_walk_l_small_model
+    7400130: small_model|hang_walk_r_small_model
+    7400132: small_model|hipat_small_model
+    7400134: small_model|hiped_small_model
+    7400136: small_model|hipsr_small_model
+    7400138: small_model|jmped_small_model
+    7400140: small_model|jr_crear_small_model
+    7400142: small_model|jump.001_small_model
+    7400144: small_model|jump.002_small_model
+    7400146: small_model|jump2_small_model
+    7400148: small_model|jump_b_small_model
+    7400150: small_model|jump_c_small_model
+    7400152: small_model|jump_d_small_model
+    7400154: small_model|jump_e_small_model
+    7400156: small_model|jump_hang_small_model
+    7400158: small_model|jump_small_model
+    7400160: small_model|jumped.001_small_model
+    7400162: small_model|jumped_small_model
+    7400164: small_model|L_run.001_small_model
+    7400166: small_model|L_run.002_small_model
+    7400168: small_model|L_run_small_model
+    7400170: small_model|L_wait.001_small_model
+    7400172: small_model|L_wait.002_small_model
+    7400174: small_model|L_wait_small_model
+    7400176: small_model|L_walk.001_small_model
+    7400178: small_model|L_walk.002_small_model
+    7400180: small_model|L_walk_small_model
+    7400182: small_model|lost_small_model
+    7400184: small_model|low_walk_small_model
+    7400186: small_model|m_escort_small_model
+    7400188: small_model|m_fall_wait_small_model
+    7400190: small_model|m_kiss_small_model
+    7400192: small_model|m_shy_small_model
+    7400194: small_model|monkey_l_to_r_small_model
+    7400196: small_model|monkey_r_to_l_small_model
+    7400198: small_model|monkey_start_small_model
+    7400200: small_model|monkey_wait_l_small_model
+    7400202: small_model|monkey_wait_r_small_model
+    7400204: small_model|move1_small_model
+    7400206: small_model|move2_small_model
+    7400208: small_model|net_attack_small_model
+    7400210: small_model|net_wait_small_model
+    7400212: small_model|net_walk1_small_model
+    7400214: small_model|net_walk2_small_model
+    7400216: small_model|opm_brake_small_model
+    7400218: small_model|opm_jr_notice_small_model
+    7400220: small_model|opm_look_up_small_model
+    7400222: small_model|opm_noti_wait_small_model
+    7400224: small_model|opm_notice_small_model
+    7400226: small_model|opm_person_small_model
+    7400228: small_model|opm_surprise1_small_model
+    7400230: small_model|opm_surprise2_small_model
+    7400232: small_model|paddle_1_small_model
+    7400234: small_model|paddle_2_small_model
+    7400236: small_model|paddle_carry_small_model
+    7400238: small_model|paddle_end_small_model
+    7400240: small_model|pea_plant_small_model
+    7400242: small_model|pea_plant_st_small_model
+    7400244: small_model|pea_plant_wait_small_model
+    7400246: small_model|pipe_pose_small_model
+    7400248: small_model|push_small_model
+    7400250: small_model|roll_jump.001_small_model
+    7400252: small_model|roll_jump_end_small_model
+    7400254: small_model|roll_jump_small_model
+    7400256: small_model|roll_small_model
+    7400258: small_model|rope_jump_ed_small_model
+    7400260: small_model|rope_swing_small_model
+    7400262: small_model|rope_wait2_small_model
+    7400264: small_model|rope_wait_small_model
+    7400266: small_model|rope_walk_small_model
+    7400268: small_model|run.001_small_model
+    7400270: small_model|run.002_small_model
+    7400272: small_model|b_dash.001_small_model (1)
+    7400274: small_model|scale_up_small_model
+    7400276: small_model|sdown.001_small_model
+    7400278: small_model|sdown_small_model
+    7400280: small_model|sfbdn.001_small_model
+    7400282: small_model|sfbdn_small_model
+    7400284: small_model|sffdn_small_model
+    7400286: small_model|shell_in_small_model
+    7400288: small_model|shell_puton_cap_small_model
+    7400290: small_model|shell_run_small_model
+    7400292: small_model|shell_walk_small_model
+    7400294: small_model|shfdn_small_model
+    7400296: small_model|shoot_small_model
+    7400298: small_model|sldct_small_model
+    7400300: small_model|slip_small_model
+    7400302: small_model|sliped_small_model
+    7400304: small_model|slpbk_small_model
+    7400306: small_model|slpla_small_model
+    7400308: small_model|small_jumped_small_model
+    7400310: small_model|small_wait.001_small_model
+    7400312: small_model|small_wait_small_model
+    7400314: small_model|spin_jump2_small_model
+    7400316: small_model|spin_jump_end_small_model
+    7400318: small_model|spin_jump_off_small_model
+    7400320: small_model|spin_jump_small_model
+    7400322: small_model|spin_jump_st_small_model
+    7400324: small_model|squat_start_small_model
+    7400326: small_model|star_roll_small_model
+    7400328: small_model|stoop_small_model
+    7400330: small_model|struggle_small_model
+    7400332: small_model|swim_carry_small_model
+    7400334: small_model|swim_dead_small_model
+    7400336: small_model|swim_in_small_model
+    7400338: small_model|swim_small_model
+    7400340: small_model|swim_standing_small_model
+    7400342: small_model|swim_throw_small_model
+    7400344: small_model|swim_wait_small_model
+    7400346: small_model|swim_walk_small_model
+    7400348: small_model|tree_climb_small_model
+    7400350: small_model|tree_pose_small_model
+    7400352: small_model|tree_start_small_model
+    7400354: small_model|tree_wait_small_model
+    7400356: small_model|trned.001_small_model
+    7400358: small_model|trned.002_small_model
+    7400360: small_model|trned_small_model
+    7400362: small_model|turn.001_small_model
+    7400364: small_model|turn.002_small_model
+    7400366: small_model|turn_small_model
+    7400368: small_model|w_jump1_small_model
+    7400370: small_model|w_jump2_small_model
+    7400372: small_model|w_jump_ed_small_model
+    7400374: small_model|wait.001_small_model
+    7400376: small_model|wait1_small_model
+    7400378: small_model|wait2_small_model
+    7400380: small_model|wait_small_model
+    7400382: small_model|walk.001_small_model
+    7400384: small_model|walk.002_small_model
+    7400386: small_model|walk.003_small_model
+    7400388: small_model|walk_small_model
+    7400390: small_model|wall_wait_small_model
+    7400392: small_model|wall_walk_l_small_model
+    7400394: small_model|wall_walk_r_small_model
+    7400396: small_model|wjmp.001_small_model
+    7400398: small_model|wjmp_small_model
+    7400400: small_model|wsld_small_model
+    7400402: small_model|Y_run_small_model
+    7400404: small_model|Y_vs_lose_A_small_model
+    7400406: small_model|Y_vs_lose_B_small_model
+    7400408: small_model|Y_vs_lose_C_small_model
+    7400410: small_model|Y_vs_win_wait_small_model
+    7400412: small_model|Y_wait_small_model
+    7400414: small_model|zero_g_jump2_small_model
+    7400416: small_model|zero_g_jump_ed_small_model
+    7400418: small_model|zero_g_jump_small_model
+    7400420: small_model|zero_g_walk_small_model
+    7400422: small_model|shfdn_knockdown
+    7400424: small_model|shfdn_getup
+    9500000: //RootNode
+    13700000: small_model.001
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -656,7 +282,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 0
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -677,7 +302,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp1_small_model
       takeName: small_model|2jmp1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -706,7 +330,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp2_small_model
       takeName: small_model|2jmp2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -735,7 +358,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_b_1_small_model
       takeName: small_model|2jmp_b_1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -764,7 +386,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_b_2_small_model
       takeName: small_model|2jmp_b_2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -793,7 +414,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_c_1_small_model
       takeName: small_model|2jmp_c_1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -822,7 +442,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_c_2_small_model
       takeName: small_model|2jmp_c_2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -851,7 +470,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_d_1_small_model
       takeName: small_model|2jmp_d_1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -880,7 +498,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_d_2_small_model
       takeName: small_model|2jmp_d_2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -909,7 +526,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_e_1_small_model
       takeName: small_model|2jmp_e_1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -938,7 +554,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jmp_e_2_small_model
       takeName: small_model|2jmp_e_2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -967,7 +582,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jump1_small_model
       takeName: small_model|2jump1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -996,7 +610,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jump2_small_model
       takeName: small_model|2jump2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -1025,7 +638,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|2jumped_small_model
       takeName: small_model|2jumped_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -1054,7 +666,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|attack_small_model
       takeName: small_model|attack_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -1083,7 +694,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|b_dash.001_small_model
       takeName: small_model|b_dash.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -1126,7 +736,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|b_dash2_small_model
       takeName: small_model|b_dash2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -1169,7 +778,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|b_dash_small_model
       takeName: small_model|b_dash_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -1198,7 +806,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_goal_small_model
       takeName: small_model|big_goal_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 62
       wrapMode: 0
@@ -1227,7 +834,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_hip_at_small_model
       takeName: small_model|big_hip_at_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 0
       wrapMode: 0
@@ -1256,7 +862,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_hip_ed_small_model
       takeName: small_model|big_hip_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -1285,7 +890,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_hip_squat_small_model
       takeName: small_model|big_hip_squat_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -1314,7 +918,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_hip_st_small_model
       takeName: small_model|big_hip_st_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -1343,7 +946,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_jmp_2_small_model
       takeName: small_model|big_jmp_2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 8
       wrapMode: 0
@@ -1372,7 +974,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_jump_ed_small_model
       takeName: small_model|big_jump_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -1401,7 +1002,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_jump_st_small_model
       takeName: small_model|big_jump_st_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -1430,7 +1030,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_wait_small_model
       takeName: small_model|big_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -1459,7 +1058,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|big_walk_small_model
       takeName: small_model|big_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -1488,7 +1086,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|boss_key_get_small_model
       takeName: small_model|boss_key_get_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 42
       wrapMode: 0
@@ -1517,7 +1114,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|bt_goal_jmp_small_model
       takeName: small_model|bt_goal_jmp_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -1546,7 +1142,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|bt_goal_out_small_model
       takeName: small_model|bt_goal_out_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 34
       wrapMode: 0
@@ -1575,7 +1170,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|bt_surprise_small_model
       takeName: small_model|bt_surprise_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -1604,7 +1198,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|bt_wait_small_model
       takeName: small_model|bt_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 19
       wrapMode: 0
@@ -1633,7 +1226,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|buried_damage_small_model
       takeName: small_model|buried_damage_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -1662,7 +1254,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|buried_ed_small_model
       takeName: small_model|buried_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -1691,7 +1282,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|buried_small_model
       takeName: small_model|buried_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -1720,7 +1310,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|buried_st_small_model
       takeName: small_model|buried_st_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 9
       wrapMode: 0
@@ -1749,7 +1338,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|carry_pose_small_model
       takeName: small_model|carry_pose_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -1778,7 +1366,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|carry_start_small_model
       takeName: small_model|carry_start_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -1807,7 +1394,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|carry_throw.001_small_model
       takeName: small_model|carry_throw.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -1836,7 +1422,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|carry_throw_small_model
       takeName: small_model|carry_throw_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -1865,7 +1450,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|carry_wait_small_model
       takeName: small_model|carry_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -1894,7 +1478,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|carry_walk_small_model
       takeName: small_model|carry_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -1937,7 +1520,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|coin_comp_small_model
       takeName: small_model|coin_comp_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -1966,7 +1548,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|course_in_small_model
       takeName: small_model|course_in_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -1995,7 +1576,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|dead_pose_small_model
       takeName: small_model|dead_pose_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 9
       wrapMode: 0
@@ -2024,7 +1604,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|dead_small_model
       takeName: small_model|dead_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 62
       wrapMode: 0
@@ -2053,7 +1632,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|door_walk_small_model
       takeName: small_model|door_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -2082,7 +1660,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|e_damage1_small_model
       takeName: small_model|e_damage1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -2111,7 +1688,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|e_damage2_small_model
       takeName: small_model|e_damage2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 25
       wrapMode: 0
@@ -2140,7 +1716,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|e_down_small_model
       takeName: small_model|e_down_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 31
       wrapMode: 0
@@ -2169,7 +1744,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|e_shock_small_model
       takeName: small_model|e_shock_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 0
       wrapMode: 0
@@ -2198,7 +1772,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|find_loop_small_model
       takeName: small_model|find_loop_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -2227,7 +1800,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|find_small_model
       takeName: small_model|find_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 38
       wrapMode: 0
@@ -2256,7 +1828,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|find_surprise_small_model
       takeName: small_model|find_surprise_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 19
       wrapMode: 0
@@ -2285,7 +1856,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|fire_at_small_model
       takeName: small_model|fire_at_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -2314,7 +1884,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|firejmp.001_small_model
       takeName: small_model|firejmp.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -2343,7 +1912,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|firejmp_small_model
       takeName: small_model|firejmp_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 2
       wrapMode: 0
@@ -2372,7 +1940,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|goal_jump_ed_small_model
       takeName: small_model|goal_jump_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -2401,7 +1968,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|goal_jump_small_model
       takeName: small_model|goal_jump_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 8
       wrapMode: 0
@@ -2430,7 +1996,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|goal_puton_cap_small_model
       takeName: small_model|goal_puton_cap_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -2459,7 +2024,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hang_start_small_model
       takeName: small_model|hang_start_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -2488,7 +2052,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hang_up.001_small_model
       takeName: small_model|hang_up.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -2517,7 +2080,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hang_up_small_model
       takeName: small_model|hang_up_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -2546,7 +2108,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hang_wait_small_model
       takeName: small_model|hang_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -2575,7 +2136,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hang_walk_l_small_model
       takeName: small_model|hang_walk_l_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -2604,7 +2164,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hang_walk_r_small_model
       takeName: small_model|hang_walk_r_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -2633,7 +2192,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hipat_small_model
       takeName: small_model|hipat_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -2662,7 +2220,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hiped_small_model
       takeName: small_model|hiped_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 2
       wrapMode: 0
@@ -2691,7 +2248,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|hipsr_small_model
       takeName: small_model|hipsr_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -2720,7 +2276,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jmped_small_model
       takeName: small_model|jmped_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -2749,7 +2304,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jr_crear_small_model
       takeName: small_model|jr_crear_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 39
       wrapMode: 0
@@ -2778,7 +2332,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump.001_small_model
       takeName: small_model|jump.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -2807,7 +2360,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump.002_small_model
       takeName: small_model|jump.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -2836,7 +2388,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump2_small_model
       takeName: small_model|jump2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -2865,7 +2416,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump_b_small_model
       takeName: small_model|jump_b_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -2894,7 +2444,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump_c_small_model
       takeName: small_model|jump_c_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -2923,7 +2472,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump_d_small_model
       takeName: small_model|jump_d_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -2952,7 +2500,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump_e_small_model
       takeName: small_model|jump_e_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -2981,7 +2528,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump_hang_small_model
       takeName: small_model|jump_hang_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -3010,7 +2556,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jump_small_model
       takeName: small_model|jump_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -3039,7 +2584,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jumped.001_small_model
       takeName: small_model|jumped.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -3068,7 +2612,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|jumped_small_model
       takeName: small_model|jumped_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -3097,7 +2640,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_run.001_small_model
       takeName: small_model|L_run.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3126,7 +2668,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_run.002_small_model
       takeName: small_model|L_run.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3155,7 +2696,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_run_small_model
       takeName: small_model|L_run_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3184,7 +2724,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_wait.001_small_model
       takeName: small_model|L_wait.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -3213,7 +2752,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_wait.002_small_model
       takeName: small_model|L_wait.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -3242,7 +2780,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_wait_small_model
       takeName: small_model|L_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -3271,7 +2808,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_walk.001_small_model
       takeName: small_model|L_walk.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3300,7 +2836,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_walk.002_small_model
       takeName: small_model|L_walk.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3329,7 +2864,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|L_walk_small_model
       takeName: small_model|L_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3358,7 +2892,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|lost_small_model
       takeName: small_model|lost_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -3387,7 +2920,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|low_walk_small_model
       takeName: small_model|low_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -3416,7 +2948,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|m_escort_small_model
       takeName: small_model|m_escort_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -3445,7 +2976,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|m_fall_wait_small_model
       takeName: small_model|m_fall_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 91
       wrapMode: 0
@@ -3474,7 +3004,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|m_kiss_small_model
       takeName: small_model|m_kiss_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -3503,7 +3032,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|m_shy_small_model
       takeName: small_model|m_shy_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -3532,7 +3060,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|monkey_l_to_r_small_model
       takeName: small_model|monkey_l_to_r_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -3561,7 +3088,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|monkey_r_to_l_small_model
       takeName: small_model|monkey_r_to_l_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -3590,7 +3116,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|monkey_start_small_model
       takeName: small_model|monkey_start_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 18
       wrapMode: 0
@@ -3619,7 +3144,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|monkey_wait_l_small_model
       takeName: small_model|monkey_wait_l_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -3648,7 +3172,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|monkey_wait_r_small_model
       takeName: small_model|monkey_wait_r_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -3677,7 +3200,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|move1_small_model
       takeName: small_model|move1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 17
       wrapMode: 0
@@ -3706,7 +3228,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|move2_small_model
       takeName: small_model|move2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -3735,7 +3256,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|net_attack_small_model
       takeName: small_model|net_attack_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -3764,7 +3284,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|net_wait_small_model
       takeName: small_model|net_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -3793,7 +3312,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|net_walk1_small_model
       takeName: small_model|net_walk1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -3822,7 +3340,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|net_walk2_small_model
       takeName: small_model|net_walk2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -3851,7 +3368,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_brake_small_model
       takeName: small_model|opm_brake_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -3880,7 +3396,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_jr_notice_small_model
       takeName: small_model|opm_jr_notice_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -3909,7 +3424,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_look_up_small_model
       takeName: small_model|opm_look_up_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -3938,7 +3452,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_noti_wait_small_model
       takeName: small_model|opm_noti_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -3967,7 +3480,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_notice_small_model
       takeName: small_model|opm_notice_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -3996,7 +3508,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_person_small_model
       takeName: small_model|opm_person_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 18
       wrapMode: 0
@@ -4025,7 +3536,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_surprise1_small_model
       takeName: small_model|opm_surprise1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 39
       wrapMode: 0
@@ -4054,7 +3564,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|opm_surprise2_small_model
       takeName: small_model|opm_surprise2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 31
       wrapMode: 0
@@ -4083,7 +3592,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|paddle_1_small_model
       takeName: small_model|paddle_1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -4112,7 +3620,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|paddle_2_small_model
       takeName: small_model|paddle_2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -4141,7 +3648,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|paddle_carry_small_model
       takeName: small_model|paddle_carry_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -4170,7 +3676,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|paddle_end_small_model
       takeName: small_model|paddle_end_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -4199,7 +3704,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|pea_plant_small_model
       takeName: small_model|pea_plant_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -4228,7 +3732,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|pea_plant_st_small_model
       takeName: small_model|pea_plant_st_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -4257,7 +3760,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|pea_plant_wait_small_model
       takeName: small_model|pea_plant_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 19
       wrapMode: 0
@@ -4286,7 +3788,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|pipe_pose_small_model
       takeName: small_model|pipe_pose_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -4315,7 +3816,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|push_small_model
       takeName: small_model|push_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -4344,7 +3844,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|roll_jump.001_small_model
       takeName: small_model|roll_jump.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -4373,7 +3872,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|roll_jump_end_small_model
       takeName: small_model|roll_jump_end_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -4402,7 +3900,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|roll_jump_small_model
       takeName: small_model|roll_jump_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -4431,7 +3928,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|roll_small_model
       takeName: small_model|roll_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -4460,7 +3956,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|rope_jump_ed_small_model
       takeName: small_model|rope_jump_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -4489,7 +3984,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|rope_swing_small_model
       takeName: small_model|rope_swing_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -4518,7 +4012,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|rope_wait2_small_model
       takeName: small_model|rope_wait2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 38
       wrapMode: 0
@@ -4547,7 +4040,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|rope_wait_small_model
       takeName: small_model|rope_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -4576,7 +4068,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|rope_walk_small_model
       takeName: small_model|rope_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -4605,7 +4096,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|run.001_small_model
       takeName: small_model|run.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -4648,7 +4138,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|run.002_small_model
       takeName: small_model|run.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -4677,7 +4166,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|b_dash.001_small_model (1)
       takeName: small_model|b_dash.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -4720,7 +4208,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|scale_up_small_model
       takeName: small_model|scale_up_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 37
       wrapMode: 0
@@ -4749,7 +4236,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sdown.001_small_model
       takeName: small_model|sdown.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -4778,7 +4264,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sdown_small_model
       takeName: small_model|sdown_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -4807,7 +4292,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sfbdn.001_small_model
       takeName: small_model|sfbdn.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 8
       wrapMode: 0
@@ -4836,7 +4320,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sfbdn_small_model
       takeName: small_model|sfbdn_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 8
       wrapMode: 0
@@ -4865,7 +4348,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sffdn_small_model
       takeName: small_model|sffdn_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 8
       wrapMode: 0
@@ -4894,7 +4376,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shell_in_small_model
       takeName: small_model|shell_in_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -4923,7 +4404,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shell_puton_cap_small_model
       takeName: small_model|shell_puton_cap_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 51
       wrapMode: 0
@@ -4952,7 +4432,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shell_run_small_model
       takeName: small_model|shell_run_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -4981,7 +4460,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shell_walk_small_model
       takeName: small_model|shell_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -5010,7 +4488,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shfdn_small_model
       takeName: small_model|shfdn_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -5039,7 +4516,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shoot_small_model
       takeName: small_model|shoot_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -5068,7 +4544,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sldct_small_model
       takeName: small_model|sldct_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -5097,7 +4572,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|slip_small_model
       takeName: small_model|slip_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -5126,7 +4600,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|sliped_small_model
       takeName: small_model|sliped_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -5155,7 +4628,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|slpbk_small_model
       takeName: small_model|slpbk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 0
       wrapMode: 0
@@ -5184,7 +4656,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|slpla_small_model
       takeName: small_model|slpla_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -5213,7 +4684,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|small_jumped_small_model
       takeName: small_model|small_jumped_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -5242,7 +4712,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|small_wait.001_small_model
       takeName: small_model|small_wait.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -5271,7 +4740,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|small_wait_small_model
       takeName: small_model|small_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -5300,7 +4768,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|spin_jump2_small_model
       takeName: small_model|spin_jump2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -5329,7 +4796,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|spin_jump_end_small_model
       takeName: small_model|spin_jump_end_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -5358,7 +4824,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|spin_jump_off_small_model
       takeName: small_model|spin_jump_off_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -5387,7 +4852,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|spin_jump_small_model
       takeName: small_model|spin_jump_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -5416,7 +4880,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|spin_jump_st_small_model
       takeName: small_model|spin_jump_st_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 2
       wrapMode: 0
@@ -5445,7 +4908,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|squat_start_small_model
       takeName: small_model|squat_start_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 0
       wrapMode: 0
@@ -5474,7 +4936,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|star_roll_small_model
       takeName: small_model|star_roll_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -5503,7 +4964,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|stoop_small_model
       takeName: small_model|stoop_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -5532,7 +4992,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|struggle_small_model
       takeName: small_model|struggle_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -5561,7 +5020,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_carry_small_model
       takeName: small_model|swim_carry_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -5590,7 +5048,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_dead_small_model
       takeName: small_model|swim_dead_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 64
       wrapMode: 0
@@ -5619,7 +5076,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_in_small_model
       takeName: small_model|swim_in_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 4
       wrapMode: 0
@@ -5648,7 +5104,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_small_model
       takeName: small_model|swim_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -5677,7 +5132,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_standing_small_model
       takeName: small_model|swim_standing_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -5706,7 +5160,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_throw_small_model
       takeName: small_model|swim_throw_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -5735,7 +5188,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_wait_small_model
       takeName: small_model|swim_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -5764,7 +5216,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|swim_walk_small_model
       takeName: small_model|swim_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 23
       wrapMode: 0
@@ -5793,7 +5244,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|tree_climb_small_model
       takeName: small_model|tree_climb_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 7
       wrapMode: 0
@@ -5822,7 +5272,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|tree_pose_small_model
       takeName: small_model|tree_pose_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -5851,7 +5300,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|tree_start_small_model
       takeName: small_model|tree_start_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -5880,7 +5328,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|tree_wait_small_model
       takeName: small_model|tree_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -5909,7 +5356,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|trned.001_small_model
       takeName: small_model|trned.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 2
       wrapMode: 0
@@ -5938,7 +5384,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|trned.002_small_model
       takeName: small_model|trned.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -5967,7 +5412,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|trned_small_model
       takeName: small_model|trned_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -5996,7 +5440,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|turn.001_small_model
       takeName: small_model|turn.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 0
       wrapMode: 0
@@ -6025,7 +5468,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|turn.002_small_model
       takeName: small_model|turn.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 0
       wrapMode: 0
@@ -6054,7 +5496,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|turn_small_model
       takeName: small_model|turn_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -6083,7 +5524,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|w_jump1_small_model
       takeName: small_model|w_jump1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -6112,7 +5552,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|w_jump2_small_model
       takeName: small_model|w_jump2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 2
       wrapMode: 0
@@ -6141,7 +5580,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|w_jump_ed_small_model
       takeName: small_model|w_jump_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 3
       wrapMode: 0
@@ -6170,7 +5608,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wait.001_small_model
       takeName: small_model|wait.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 61
       wrapMode: 0
@@ -6199,7 +5636,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wait1_small_model
       takeName: small_model|wait1_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -6228,7 +5664,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wait2_small_model
       takeName: small_model|wait2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -6257,7 +5692,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wait_small_model
       takeName: small_model|wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 61
       wrapMode: 0
@@ -6286,7 +5720,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|walk.001_small_model
       takeName: small_model|walk.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -6315,7 +5748,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|walk.002_small_model
       takeName: small_model|walk.002_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -6344,7 +5776,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|walk.003_small_model
       takeName: small_model|walk.003_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -6373,7 +5804,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|walk_small_model
       takeName: small_model|walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -6402,7 +5832,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wall_wait_small_model
       takeName: small_model|wall_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 35
       wrapMode: 0
@@ -6431,7 +5860,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wall_walk_l_small_model
       takeName: small_model|wall_walk_l_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -6460,7 +5888,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wall_walk_r_small_model
       takeName: small_model|wall_walk_r_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -6489,7 +5916,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wjmp.001_small_model
       takeName: small_model|wjmp.001_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -6518,7 +5944,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wjmp_small_model
       takeName: small_model|wjmp_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 6
       wrapMode: 0
@@ -6547,7 +5972,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|wsld_small_model
       takeName: small_model|wsld_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -6576,7 +6000,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|Y_run_small_model
       takeName: small_model|Y_run_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 12
       wrapMode: 0
@@ -6605,7 +6028,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|Y_vs_lose_A_small_model
       takeName: small_model|Y_vs_lose_A_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 18
       wrapMode: 0
@@ -6634,7 +6056,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|Y_vs_lose_B_small_model
       takeName: small_model|Y_vs_lose_B_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
@@ -6663,7 +6084,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|Y_vs_lose_C_small_model
       takeName: small_model|Y_vs_lose_C_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 14
       wrapMode: 0
@@ -6692,7 +6112,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|Y_vs_win_wait_small_model
       takeName: small_model|Y_vs_win_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 13
       wrapMode: 0
@@ -6721,7 +6140,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|Y_wait_small_model
       takeName: small_model|Y_wait_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -6750,7 +6168,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|zero_g_jump2_small_model
       takeName: small_model|zero_g_jump2_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -6779,7 +6196,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|zero_g_jump_ed_small_model
       takeName: small_model|zero_g_jump_ed_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 11
       wrapMode: 0
@@ -6808,7 +6224,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|zero_g_jump_small_model
       takeName: small_model|zero_g_jump_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -6837,7 +6252,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|zero_g_walk_small_model
       takeName: small_model|zero_g_walk_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -6866,7 +6280,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shfdn_knockdown
       takeName: small_model|shfdn_small_model
-      internalID: 0
       firstFrame: 0
       lastFrame: 5
       wrapMode: 0
@@ -6895,7 +6308,6 @@ ModelImporter:
     - serializedVersion: 16
       name: small_model|shfdn_getup
       takeName: small_model|shfdn_small_model
-      internalID: 0
       firstFrame: 5
       lastFrame: 10
       wrapMode: 0
@@ -6928,34 +6340,25 @@ ModelImporter:
     meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    optimizeBones: 1
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -6964,10 +6367,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton:
     - name: smallmario(Clone)
@@ -7093,17 +6496,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: mario_all_root
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

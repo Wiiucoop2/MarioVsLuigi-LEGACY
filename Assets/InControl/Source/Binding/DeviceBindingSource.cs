@@ -50,7 +50,7 @@
 			{
 				if (BoundTo == null)
 				{
-					// Cannot query property 'Name' for unbound BindingSource.
+					// Debug.LogWarning( "Cannot query property 'Name' for unbound BindingSource." );
 					return "";
 				}
 				else
@@ -61,7 +61,6 @@
 					{
 						return Control.ToString();
 					}
-
 					return inputDevice.GetControl( Control ).Handle;
 				}
 			}
@@ -74,7 +73,7 @@
 			{
 				if (BoundTo == null)
 				{
-					// Cannot query property 'DeviceName' for unbound BindingSource.
+					// Debug.LogWarning( "Cannot query property 'DeviceName' for unbound BindingSource." );
 					return "";
 				}
 				else
@@ -84,7 +83,6 @@
 					{
 						return "Controller";
 					}
-
 					return inputDevice.Name;
 				}
 			}
@@ -158,13 +156,13 @@
 		}
 
 
-		public override void Save( BinaryWriter writer )
+		internal override void Save( BinaryWriter writer )
 		{
 			writer.Write( (int) Control );
 		}
 
 
-		public override void Load( BinaryReader reader, UInt16 dataFormatVersion )
+		internal override void Load( BinaryReader reader, UInt16 dataFormatVersion )
 		{
 			Control = (InputControlType) reader.ReadInt32();
 		}
@@ -176,7 +174,7 @@
 			{
 				if (BoundTo == null)
 				{
-					Logger.LogError( "Cannot query property 'IsValid' for unbound BindingSource." );
+					Debug.LogError( "Cannot query property 'IsValid' for unbound BindingSource." );
 					return false;
 				}
 				else
@@ -187,3 +185,4 @@
 		}
 	}
 }
+

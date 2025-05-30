@@ -9,7 +9,9 @@ namespace InControl
 		public KeyCombo Control { get; protected set; }
 
 
-		internal KeyBindingSource() {}
+		internal KeyBindingSource()
+		{
+		}
 
 
 		public KeyBindingSource( KeyCombo keyCombo )
@@ -121,7 +123,7 @@ namespace InControl
 		}
 
 
-		public override void Load( BinaryReader reader, UInt16 dataFormatVersion )
+		internal override void Load( BinaryReader reader, UInt16 dataFormatVersion )
 		{
 			// Have to do this because it's a struct property? Weird.
 			var temp = new KeyCombo();
@@ -130,9 +132,10 @@ namespace InControl
 		}
 
 
-		public override void Save( BinaryWriter writer )
+		internal override void Save( BinaryWriter writer )
 		{
 			Control.Save( writer );
 		}
 	}
 }
+

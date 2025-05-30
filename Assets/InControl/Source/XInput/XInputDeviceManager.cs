@@ -6,20 +6,16 @@ namespace InControl
 	using System.Threading;
 	using UnityEngine;
 	using XInputDotNetPure;
-	using Internal;
 
 
 	public class XInputDeviceManager : InputDeviceManager
 	{
-		readonly bool[] deviceConnected = new bool[]
-		{
-			false, false, false, false
-		};
+		bool[] deviceConnected = new bool[] { false, false, false, false };
 
 		const int maxDevices = 4;
-		readonly RingBuffer<GamePadState>[] gamePadState = new RingBuffer<GamePadState>[maxDevices];
+		RingBuffer<GamePadState>[] gamePadState = new RingBuffer<GamePadState>[ maxDevices ];
 		Thread thread;
-		readonly int timeStep;
+		int timeStep;
 		int bufferSize;
 
 
@@ -147,7 +143,6 @@ namespace InControl
 				{
 					errors.Add( e.Message + ".dll could not be found or is missing a dependency." );
 				}
-
 				return false;
 			}
 
@@ -158,15 +153,15 @@ namespace InControl
 		internal static void Enable()
 		{
 			var errors = new List<string>();
-			if (CheckPlatformSupport( errors ))
+			if (XInputDeviceManager.CheckPlatformSupport( errors ))
 			{
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.Xbox360WindowsUnityProfile) );
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.XboxOneWindowsUnityProfile) );
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.XboxOneWindows10UnityProfile) );
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.XboxOneWindows10AEUnityProfile) );
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.LogitechF310ModeXWindowsUnityProfile) );
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.LogitechF510ModeXWindowsUnityProfile) );
-				InputManager.HideDevicesWithProfile( typeof(UnityDeviceProfiles.LogitechF710ModeXWindowsUnityProfile) );
+				InputManager.HideDevicesWithProfile( typeof(Xbox360WinProfile) );
+				InputManager.HideDevicesWithProfile( typeof(XboxOneWinProfile) );
+				InputManager.HideDevicesWithProfile( typeof(XboxOneWin10Profile) );
+				InputManager.HideDevicesWithProfile( typeof(XboxOneWin10AEProfile) );
+				InputManager.HideDevicesWithProfile( typeof(LogitechF310ModeXWinProfile) );
+				InputManager.HideDevicesWithProfile( typeof(LogitechF510ModeXWinProfile) );
+				InputManager.HideDevicesWithProfile( typeof(LogitechF710ModeXWinProfile) );
 				InputManager.AddDeviceManager<XInputDeviceManager>();
 			}
 			else
@@ -180,3 +175,4 @@ namespace InControl
 	}
 }
 #endif
+

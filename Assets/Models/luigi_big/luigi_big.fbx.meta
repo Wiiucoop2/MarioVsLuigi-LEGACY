@@ -1,8 +1,79 @@
 fileFormatVersion: 2
 guid: 77fa7e39322fd5440bec69cf0275d39d
 ModelImporter:
-  serializedVersion: 20101
-  internalIDToNameTable: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ankle_l1
+    100002: ankle_l1_end
+    100004: ankle_l1_end_end
+    100006: ankle_l1_end_end_end
+    100008: ankle_r1
+    100010: ankle_r1_end
+    100012: ankle_r1_end_end
+    100014: ankle_r1_end_end_end
+    100016: arm_l1
+    100018: arm_l2
+    100020: arm_r1
+    100022: arm_r2
+    100024: head
+    100026: head_end
+    100028: head_end_end
+    100030: head_end_end_end
+    100032: leg_l1
+    100034: leg_l2
+    100036: leg_r1
+    100038: leg_r2
+    100040: //RootNode
+    100042: mario_all_root
+    100044: mario_model_mg
+    100046: mario_model_mg.001
+    100048: skl_root
+    100050: spin
+    100052: wrist_l1
+    100054: wrist_l1_end
+    100056: wrist_l1_end_end
+    100058: wrist_l1_end_end_end
+    100060: wrist_r1
+    100062: wrist_r1_end
+    100064: wrist_r1_end_end
+    100066: wrist_r1_end_end_end
+    400000: ankle_l1
+    400002: ankle_l1_end
+    400004: ankle_l1_end_end
+    400006: ankle_l1_end_end_end
+    400008: ankle_r1
+    400010: ankle_r1_end
+    400012: ankle_r1_end_end
+    400014: ankle_r1_end_end_end
+    400016: arm_l1
+    400018: arm_l2
+    400020: arm_r1
+    400022: arm_r2
+    400024: head
+    400026: head_end
+    400028: head_end_end
+    400030: head_end_end_end
+    400032: leg_l1
+    400034: leg_l2
+    400036: leg_r1
+    400038: leg_r2
+    400040: //RootNode
+    400042: mario_all_root
+    400044: mario_model_mg
+    400046: mario_model_mg.001
+    400048: skl_root
+    400050: spin
+    400052: wrist_l1
+    400054: wrist_l1_end
+    400056: wrist_l1_end_end
+    400058: wrist_l1_end_end_end
+    400060: wrist_r1
+    400062: wrist_r1_end
+    400064: wrist_r1_end_end
+    400066: wrist_r1_end_end_end
+    4300000: mario_model_mg.001
+    9500000: //RootNode
+    13700000: mario_model_mg.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -15,7 +86,7 @@ ModelImporter:
       name: eye_tx
     second: {fileID: 2100000, guid: fbce16c3aeb273243b3a2df61a022193, type: 2}
   materials:
-    materialImportMode: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -48,32 +119,25 @@ ModelImporter:
     meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 180
     normalImportMode: 1
@@ -82,10 +146,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 0
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -95,17 +159,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: mario_all_root
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 024ceb223bceebd488dbc425555f4df0,
-    type: 3}
-  autoGenerateAvatarMappingIfUnspecified: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -41,6 +41,7 @@
 		[SerializeField, HideInInspector]
 		Vector2 worldSize;
 
+		Transform spriteParentTransform;
 		GameObject spriteGameObject;
 		SpriteRenderer spriteRenderer;
 		bool state;
@@ -49,7 +50,9 @@
 		public bool Ready { get; set; }
 
 
-		public TouchSprite() {}
+		public TouchSprite()
+		{
+		}
 
 
 		public TouchSprite( float size )
@@ -116,7 +119,7 @@
 				var color = State ? busyColor : idleColor;
 				if (spriteRenderer.color != color)
 				{
-					spriteRenderer.color = Utility.MoveColorTowards( spriteRenderer.color, color, 5.0f * Time.unscaledDeltaTime );
+					spriteRenderer.color = Utility.MoveColorTowards( spriteRenderer.color, color, 5.0f * Time.deltaTime );
 				}
 			}
 		}
@@ -133,25 +136,13 @@
 		}
 
 
-		static Shader spriteRendererShader;
-		static Material spriteRendererMaterial;
-		static int spriteRendererPixelSnapId;
-
-
 		SpriteRenderer CreateSpriteRenderer( GameObject spriteGameObject, Sprite sprite, int sortingOrder )
 		{
-			if (!spriteRendererMaterial)
-			{
-				spriteRendererShader = Shader.Find( "Sprites/Default" );
-				spriteRendererMaterial = new Material( spriteRendererShader );
-				spriteRendererPixelSnapId = Shader.PropertyToID( "PixelSnap" );
-			}
-
 			var spriteRenderer = spriteGameObject.AddComponent<SpriteRenderer>();
 			spriteRenderer.sprite = sprite;
 			spriteRenderer.sortingOrder = sortingOrder;
-			spriteRenderer.sharedMaterial = spriteRendererMaterial;
-			spriteRenderer.sharedMaterial.SetFloat( spriteRendererPixelSnapId, 1.0f );
+			spriteRenderer.sharedMaterial = new Material( Shader.Find( "Sprites/Default" ) );
+			spriteRenderer.sharedMaterial.SetFloat( "PixelSnap", 1.0f );
 			return spriteRenderer;
 		}
 
@@ -232,7 +223,7 @@
 
 
 		public bool State
-		{
+		{ 
 			get
 			{
 				return state;

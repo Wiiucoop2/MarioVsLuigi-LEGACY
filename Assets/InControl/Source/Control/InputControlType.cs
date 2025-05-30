@@ -5,7 +5,7 @@ namespace InControl
 
 	/// <summary>
 	/// An enumeration of input controls.
-	/// This includes both the standardized set of controls and a variety
+	/// This includes both the standardized set of controls and a variety 
 	/// of non-standard and generic unnamed controls.
 	/// </summary>
 	public enum InputControlType : int
@@ -51,7 +51,7 @@ namespace InControl
 		Action12,
 
 		// Command buttons.
-		// When adding to this list, update InputDevice.Commit() accordingly.
+		// When adding to this list, update InputDevice.AnyCommandControlIsPressed() accordingly.
 		Back = 100,
 		Start,
 		Select,
@@ -64,12 +64,8 @@ namespace InControl
 		View,
 		Power,
 		Capture,
-		Assistant,
 		Plus,
 		Minus,
-		Create,
-		Mute,
-		Guide,
 
 		// Steering controls.
 		PedalLeft = 150,
@@ -82,12 +78,6 @@ namespace InControl
 		Pitch = 200,
 		Roll,
 		Yaw,
-		PitchUp,
-		PitchDown,
-		RollLeft,
-		RollRight,
-		YawLeft,
-		YawRight,
 		ThrottleUp,
 		ThrottleDown,
 		ThrottleLeft,
@@ -102,12 +92,6 @@ namespace InControl
 		TiltX = 250,
 		TiltY,
 		TiltZ,
-		GyroscopeX = TiltX,
-		GyroscopeY = TiltY,
-		GyroscopeZ = TiltZ,
-		AccelerometerX,
-		AccelerometerY,
-		AccelerometerZ,
 		ScrollWheel,
 
 		[Obsolete( "Use InputControlType.TouchPadButton instead.", true )]
@@ -123,11 +107,6 @@ namespace InControl
 		RightSL,
 		RightSR,
 
-		Paddle1,
-		Paddle2,
-		Paddle3,
-		Paddle4,
-
 		// Alias controls; can't be explicitly mapped in a profile.
 		//
 		Command = 300,
@@ -137,8 +116,6 @@ namespace InControl
 		RightStickY,
 		DPadX,
 		DPadY,
-		LeftCommand,
-		RightCommand,
 
 		// Generic controls (usually assigned to unknown devices).
 		//
@@ -183,19 +160,10 @@ namespace InControl
 		Button17,
 		Button18,
 		Button19,
-		Button20,
-		Button21,
-		Button22,
-		Button23,
-		Button24,
-		Button25,
-		Button26,
-		Button27,
-		Button28,
-		Button29,
 
 		// Internal. Must be last.
 		//
 		Count
 	}
 }
+

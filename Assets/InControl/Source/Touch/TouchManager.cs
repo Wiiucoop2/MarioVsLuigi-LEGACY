@@ -8,7 +8,7 @@ namespace InControl
 
 
 	[ExecuteInEditMode]
-	public class TouchManager : SingletonMonoBehavior<TouchManager>
+	public class TouchManager : SingletonMonoBehavior<TouchManager, InControlManager>
 	{
 		public enum GizmoShowOption
 		{
@@ -19,8 +19,8 @@ namespace InControl
 		}
 
 		[Space( 10 )]
-		public Camera touchCamera;
 
+		public Camera touchCamera;
 		public GizmoShowOption controlsShowGizmos = GizmoShowOption.Always;
 
 		[HideInInspector]
@@ -51,14 +51,17 @@ namespace InControl
 		List<Touch> activeTouches;
 		ReadOnlyCollection<Touch> readOnlyActiveTouches;
 
+		Vector2 lastMousePosition;
 		bool isReady;
 
-		#pragma warning disable 414
-		readonly Touch[] mouseTouches = new Touch[3];
-		#pragma warning restore 414
+#pragma warning disable 414
+		Touch mouseTouch;
+#pragma warning restore 414
 
 
-		protected TouchManager() {}
+		protected TouchManager()
+		{
+		}
 
 
 		void OnEnable()
@@ -66,17 +69,18 @@ namespace InControl
 			var manager = GetComponent<InControlManager>();
 			if (manager == null)
 			{
-				Logger.LogError( "Touch Manager component can only be added to the InControl Manager object." );
+				Debug.LogError( "Touch Manager component can only be added to the InControl Manager object." );
 				DestroyImmediate( this );
 				return;
 			}
 
-			if (EnforceSingleton)
+			if (EnforceSingletonComponent() == false)
 			{
+				Debug.LogWarning( "There is already a Touch Manager component on this game object." );
 				return;
 			}
 
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			if (touchCamera == null)
 			{
 				foreach (var component in manager.gameObject.GetComponentsInChildren<Camera>())
@@ -99,7 +103,7 @@ namespace InControl
 				touchCamera.rect = new Rect( 0.0f, 0.0f, 1.0f, 1.0f );
 				touchCamera.depth = 100;
 			}
-			#endif
+#endif
 
 			touchControls = GetComponentsInChildren<TouchControl>( true );
 
@@ -143,12 +147,7 @@ namespace InControl
 		void Reset()
 		{
 			device = null;
-
-			for (var i = 0; i < 3; i++)
-			{
-				mouseTouches[i] = null;
-			}
-
+			mouseTouch = null;
 			cachedTouches = null;
 			activeTouches = null;
 			readOnlyActiveTouches = null;
@@ -194,7 +193,7 @@ namespace InControl
 		}
 
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		void OnGUI()
 		{
 			var currentScreenSize = GetCurrentScreenSize();
@@ -203,7 +202,7 @@ namespace InControl
 				UpdateScreenSize( currentScreenSize );
 			}
 		}
-		#endif
+#endif
 
 
 		void CreateDevice()
@@ -231,7 +230,7 @@ namespace InControl
 			device.AddControl( InputControlType.LeftBumper, "LeftBumper" );
 			device.AddControl( InputControlType.RightBumper, "RightBumper" );
 
-			for (var control = InputControlType.Action1; control <= InputControlType.Action12; control++)
+			for (var control = InputControlType.Action1; control <= InputControlType.Action4; control++)
 			{
 				device.AddControl( control, control.ToString() );
 			}
@@ -293,7 +292,6 @@ namespace InControl
 			// Somehow the camera's projection matrix doesn't always update correctly on
 			// resolution changes. This seems to cause it to recalculate properly.
 			touchCamera.rect = new Rect( 0, 0, 0.99f, 1 );
-			// ReSharper disable once Unity.InefficientPropertyAccess
 			touchCamera.rect = new Rect( 0, 0, 1, 1 );
 
 			screenSize = currentScreenSize;
@@ -324,11 +322,8 @@ namespace InControl
 		{
 			cachedTouches = new TouchPool();
 
-			for (var i = 0; i < 3; i++)
-			{
-				mouseTouches[i] = new Touch();
-				mouseTouches[i].fingerId = Touch.FingerID_Mouse;
-			}
+			mouseTouch = new Touch();
+			mouseTouch.fingerId = Touch.FingerID_Mouse;
 
 			activeTouches = new List<Touch>( 32 );
 			readOnlyActiveTouches = new ReadOnlyCollection<Touch>( activeTouches );
@@ -340,15 +335,12 @@ namespace InControl
 			activeTouches.Clear();
 			cachedTouches.FreeEndedTouches();
 
-			#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_WEBGL || UNITY_WSA
-			for (var i = 0; i < 3; i++)
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_WEBGL || UNITY_WSA
+			if (mouseTouch.SetWithMouseData( updateTick, deltaTime ))
 			{
-				if (mouseTouches[i].SetWithMouseData( i, updateTick, deltaTime ))
-				{
-					activeTouches.Add( mouseTouches[i] );
-				}
+				activeTouches.Add( mouseTouch );
 			}
-			#endif
+#endif
 
 			for (var i = 0; i < Input.touchCount; i++)
 			{
@@ -434,27 +426,21 @@ namespace InControl
 				var touch = activeTouches[i];
 				switch (touch.phase)
 				{
-					case TouchPhase.Began:
-						SendTouchBegan( touch );
-						break;
+				case TouchPhase.Began:
+					SendTouchBegan( touch );
+					break;
 
-					case TouchPhase.Moved:
-						SendTouchMoved( touch );
-						break;
+				case TouchPhase.Moved:
+					SendTouchMoved( touch );
+					break;
 
-					case TouchPhase.Ended:
-						SendTouchEnded( touch );
-						break;
+				case TouchPhase.Ended:
+					SendTouchEnded( touch );
+					break;
 
-					case TouchPhase.Canceled:
-						SendTouchEnded( touch );
-						break;
-
-					case TouchPhase.Stationary:
-						break;
-
-					default:
-						throw new ArgumentOutOfRangeException();
+				case TouchPhase.Canceled:
+					SendTouchEnded( touch );
+					break;
 				}
 			}
 		}
@@ -532,7 +518,10 @@ namespace InControl
 
 		public bool controlsEnabled
 		{
-			get { return _controlsEnabled; }
+			get
+			{
+				return _controlsEnabled;
+			}
 
 			set
 			{
@@ -554,13 +543,19 @@ namespace InControl
 
 		public static ReadOnlyCollection<Touch> Touches
 		{
-			get { return Instance.readOnlyActiveTouches; }
+			get
+			{
+				return Instance.readOnlyActiveTouches;
+			}
 		}
 
 
 		public static int TouchCount
 		{
-			get { return Instance.activeTouches.Count; }
+			get
+			{
+				return Instance.activeTouches.Count;
+			}
 		}
 
 
@@ -630,69 +625,105 @@ namespace InControl
 
 		public static Camera Camera
 		{
-			get { return Instance.touchCamera; }
+			get
+			{
+				return Instance.touchCamera;
+			}
 		}
 
 
 		public static InputDevice Device
 		{
-			get { return Instance.device; }
+			get
+			{
+				return Instance.device;
+			}
 		}
 
 
 		public static Vector3 ViewSize
 		{
-			get { return Instance.viewSize; }
+			get
+			{
+				return Instance.viewSize;
+			}
 		}
 
 
 		public static float PercentToWorld
 		{
-			get { return Instance.percentToWorld; }
+			get
+			{
+				return Instance.percentToWorld;
+			}
 		}
 
 
 		public static float HalfPercentToWorld
 		{
-			get { return Instance.halfPercentToWorld; }
+			get
+			{
+				return Instance.halfPercentToWorld;
+			}
 		}
 
 
 		public static float PixelToWorld
 		{
-			get { return Instance.pixelToWorld; }
+			get
+			{
+				return Instance.pixelToWorld;
+			}
 		}
 
 
 		public static float HalfPixelToWorld
 		{
-			get { return Instance.halfPixelToWorld; }
+			get
+			{
+				return Instance.halfPixelToWorld;
+			}
 		}
 
 
 		public static Vector2 ScreenSize
 		{
-			get { return Instance.screenSize; }
+			get
+			{
+				return Instance.screenSize;
+			}
 		}
 
 
 		public static Vector2 HalfScreenSize
 		{
-			get { return Instance.halfScreenSize; }
+			get
+			{
+				return Instance.halfScreenSize;
+			}
 		}
 
 
 		public static GizmoShowOption ControlsShowGizmos
 		{
-			get { return Instance.controlsShowGizmos; }
+			get
+			{
+				return Instance.controlsShowGizmos;
+			}
 		}
 
 
 		public static bool ControlsEnabled
 		{
-			get { return Instance.controlsEnabled; }
+			get
+			{
+				return Instance.controlsEnabled;
+			}
 
-			set { Instance.controlsEnabled = value; }
+			set
+			{
+				Instance.controlsEnabled = value;
+			}
 		}
 
 		#endregion

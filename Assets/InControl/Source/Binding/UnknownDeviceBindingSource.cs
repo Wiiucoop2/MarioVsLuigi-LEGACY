@@ -45,7 +45,7 @@
 			{
 				if (BoundTo == null)
 				{
-					// Cannot query property 'Name' for unbound BindingSource.
+					// Debug.LogWarning( "Cannot query property 'Name' for unbound BindingSource." );
 					return "";
 				}
 				else
@@ -55,7 +55,8 @@
 					{
 						prefix = "Negative ";
 					}
-					else if (Control.SourceRange == InputRangeType.ZeroToOne)
+					else
+					if (Control.SourceRange == InputRangeType.ZeroToOne)
 					{
 						prefix = "Positive ";
 					}
@@ -84,7 +85,7 @@
 			{
 				if (BoundTo == null)
 				{
-					// Cannot query property 'DeviceName' for unbound BindingSource.
+					// Debug.LogWarning( "Cannot query property 'DeviceName' for unbound BindingSource." );
 					return "";
 				}
 				else
@@ -174,7 +175,7 @@
 			{
 				if (BoundTo == null)
 				{
-					Logger.LogError( "Cannot query property 'IsValid' for unbound BindingSource." );
+					Debug.LogError( "Cannot query property 'IsValid' for unbound BindingSource." );
 					return false;
 				}
 				else
@@ -186,7 +187,7 @@
 		}
 
 
-		public override void Load( BinaryReader reader, UInt16 dataFormatVersion )
+		internal override void Load( BinaryReader reader, UInt16 dataFormatVersion )
 		{
 			// Have to do this because it's a struct property? Weird.
 			var temp = new UnknownDeviceControl();
@@ -195,9 +196,11 @@
 		}
 
 
-		public override void Save( BinaryWriter writer )
+		internal override void Save( BinaryWriter writer )
 		{
 			Control.Save( writer );
 		}
 	}
 }
+
+

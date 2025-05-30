@@ -10,27 +10,33 @@ namespace InControl
 
 
 	[InitializeOnLoad]
-	class UnityProfileListGenerator
+	internal class UnityProfileListGenerator
 	{
 		static UnityProfileListGenerator()
 		{
-			if (!EditorApplication.isPlayingOrWillChangePlaymode)
-			{
-				DiscoverProfiles();
-			}
+			DiscoverProfiles();
 		}
 
 
 		static void DiscoverProfiles()
 		{
+			var unityInputDeviceProfileType = typeof(UnityInputDeviceProfile);
+			var autoDiscoverAttributeType = typeof(InControl.AutoDiscover);
+
 			var names = new List<string>();
 
-			foreach (var type in Reflector.AllAssemblyTypes)
+			foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
 			{
-				if (type.IsSubclassOf( typeof(InputDeviceProfile) ) &&
-				    type.GetCustomAttributes( typeof(UnityInputDeviceProfileAttribute), false ).Length > 0)
+				foreach (var type in assembly.GetTypes())
 				{
-					names.Add( type.FullName );
+					if (type.IsSubclassOf( unityInputDeviceProfileType ))
+					{
+						var typeAttrs = type.GetCustomAttributes( autoDiscoverAttributeType, false );
+						if (typeAttrs.Length > 0)
+						{
+							names.Add( type.FullName );
+						}
+					}
 				}
 			}
 
@@ -46,8 +52,7 @@ namespace InControl
 			var filePath = AssetDatabase.GetAssetPath( MonoScript.FromScriptableObject( instance ) );
 			UnityEngine.Object.DestroyImmediate( instance );
 
-			const string code1 = @"// ReSharper disable StringLiteralTypo
-namespace InControl
+			const string code1 = @"namespace InControl
 {
 	using UnityEngine;
 
@@ -75,6 +80,7 @@ namespace InControl
 			var streamReader = new StreamReader( fileName );
 			var fileContents = streamReader.ReadToEnd();
 			streamReader.Close();
+
 			return fileContents;
 		}
 
@@ -87,10 +93,11 @@ namespace InControl
 				return false;
 			}
 
-			var streamWriter = new StreamWriter( filePath );
+			StreamWriter streamWriter = new StreamWriter( filePath );
 			streamWriter.Write( content );
 			streamWriter.Flush();
 			streamWriter.Close();
+
 			return true;
 		}
 

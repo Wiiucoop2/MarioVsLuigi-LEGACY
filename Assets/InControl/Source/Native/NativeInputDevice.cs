@@ -1,4 +1,3 @@
-// ReSharper disable InconsistentNaming
 namespace InControl
 {
 	using System;
@@ -12,42 +11,25 @@ namespace InControl
 		const int maxUnknownButtons = 20;
 		const int maxUnknownAnalogs = 20;
 
-		public DeviceHandle Handle { get; private set; }
-		public InputDeviceInfo Info { get; private set; }
+		internal DeviceHandle Handle { get; private set; }
+		internal NativeDeviceInfo Info { get; private set; }
 
 		Int16[] buttons;
 		Int16[] analogs;
-		InputDeviceProfile profile;
+		NativeInputDeviceProfile profile;
 
 		int skipUpdateFrames = 0;
 
 		int numUnknownButtons;
 		int numUnknownAnalogs;
 
-		InputControlSource[] controlSourceByTarget;
+
+		internal NativeInputDevice()
+		{
+		}
 
 
-		bool sendVibrate;
-		float lastTimeVibrateWasSent;
-		Vector2 vibrateToSend;
-
-		bool sendVibrateTriggers;
-		float lastTimeVibrateTriggersWasSent;
-		Vector2 vibrateTriggersToSend;
-
-		bool sendLightColor;
-		float lastTimeLightColorWasSent;
-		Vector3 lightColorToSend;
-
-		bool sendLightFlash;
-		float lastTimeLightFlashWasSent;
-		Vector2 lightFlashToSend;
-
-
-		internal NativeInputDevice() {}
-
-
-		internal void Initialize( DeviceHandle deviceHandle, InputDeviceInfo deviceInfo, InputDeviceProfile deviceProfile )
+		internal void Initialize( DeviceHandle deviceHandle, NativeDeviceInfo deviceInfo, NativeInputDeviceProfile deviceProfile )
 		{
 			Handle = deviceHandle;
 			Info = deviceInfo;
@@ -63,17 +45,13 @@ namespace InControl
 
 			AnalogSnapshot = null;
 
-			const int numInputControlTypes = (int) InputControlType.Count + 1;
-			controlSourceByTarget = new InputControlSource[numInputControlTypes];
-
 			ClearInputState();
 			ClearControls();
 
 			if (IsKnown)
 			{
-				Name = profile.DeviceName ?? Info.name;
-				Name = Name.Replace( "{NAME}", Info.name ).Trim();
-				Meta = profile.DeviceNotes ?? Info.name;
+				Name = profile.Name ?? Info.name;
+				Meta = profile.Meta ?? Info.name;
 
 				DeviceClass = profile.DeviceClass;
 				DeviceStyle = profile.DeviceStyle;
@@ -82,24 +60,20 @@ namespace InControl
 				for (var i = 0; i < analogMappingCount; i++)
 				{
 					var analogMapping = profile.AnalogMappings[i];
-					var analogControl = AddControl( analogMapping.Target, analogMapping.Name );
+					var analogControl = AddControl( analogMapping.Target, analogMapping.Handle );
 					analogControl.Sensitivity = Mathf.Min( profile.Sensitivity, analogMapping.Sensitivity );
 					analogControl.LowerDeadZone = Mathf.Max( profile.LowerDeadZone, analogMapping.LowerDeadZone );
 					analogControl.UpperDeadZone = Mathf.Min( profile.UpperDeadZone, analogMapping.UpperDeadZone );
 					analogControl.Raw = analogMapping.Raw;
 					analogControl.Passive = analogMapping.Passive;
-
-					controlSourceByTarget[(int) analogMapping.Target] = analogMapping.Source;
 				}
 
 				var buttonMappingCount = profile.ButtonCount;
 				for (var i = 0; i < buttonMappingCount; i++)
 				{
 					var buttonMapping = profile.ButtonMappings[i];
-					var buttonControl = AddControl( buttonMapping.Target, buttonMapping.Name );
+					var buttonControl = AddControl( buttonMapping.Target, buttonMapping.Handle );
 					buttonControl.Passive = buttonMapping.Passive;
-
-					controlSourceByTarget[(int) buttonMapping.Target] = buttonMapping.Source;
 				}
 			}
 			else
@@ -122,7 +96,7 @@ namespace InControl
 		}
 
 
-		internal void Initialize( DeviceHandle deviceHandle, InputDeviceInfo deviceInfo )
+		internal void Initialize( DeviceHandle deviceHandle, NativeDeviceInfo deviceInfo )
 		{
 			Initialize( deviceHandle, deviceInfo, this.profile );
 		}
@@ -130,8 +104,6 @@ namespace InControl
 
 		public override void Update( ulong updateTick, float deltaTime )
 		{
-			SendStatusUpdates();
-
 			if (skipUpdateFrames > 0)
 			{
 				skipUpdateFrames -= 1;
@@ -157,10 +129,9 @@ namespace InControl
 					//UpdateWithValue( analogMapping.Target, mappedValue, updateTick, deltaTime );
 
 					var targetControl = GetControl( analogMapping.Target );
-					if (!(analogMapping.IgnoreInitialZeroValue && targetControl.IsOnZeroTick &&
-					      Utility.IsZero( analogValue )))
+					if (!(analogMapping.IgnoreInitialZeroValue && targetControl.IsOnZeroTick && Utility.IsZero( analogValue )))
 					{
-						var mappedValue = analogMapping.ApplyToValue( analogValue );
+						var mappedValue = analogMapping.MapValue( analogValue );
 						targetControl.UpdateWithValue( mappedValue, updateTick, deltaTime );
 					}
 				}
@@ -188,7 +159,7 @@ namespace InControl
 		}
 
 
-		public override bool ReadRawButtonState( int index )
+		internal override bool ReadRawButtonState( int index )
 		{
 			if (index < buttons.Length)
 			{
@@ -199,7 +170,7 @@ namespace InControl
 		}
 
 
-		public override float ReadRawAnalogValue( int index )
+		internal override float ReadRawAnalogValue( int index )
 		{
 			if (index < analogs.Length)
 			{
@@ -210,7 +181,7 @@ namespace InControl
 		}
 
 
-		static Byte FloatToByte( float value )
+		Byte FloatToByte( float value )
 		{
 			return (Byte) (Mathf.Clamp01( value ) * 0xFF);
 		}
@@ -218,160 +189,49 @@ namespace InControl
 
 		public override void Vibrate( float leftMotor, float rightMotor )
 		{
-			sendVibrate = true;
-			vibrateToSend = new Vector2( leftMotor, rightMotor );
-			// Native.SetHapticState( Handle, FloatToByte( leftMotor ), FloatToByte( rightMotor ) );
-		}
-
-
-		public override void VibrateTriggers( float leftTrigger, float rightTrigger )
-		{
-			sendVibrateTriggers = true;
-			vibrateTriggersToSend = new Vector2( leftTrigger, rightTrigger );
-			// Native.SetTriggersHapticState( Handle, FloatToByte( leftTrigger ), FloatToByte( rightTrigger ) );
+			Native.SetHapticState( Handle, FloatToByte( leftMotor ), FloatToByte( rightMotor ) );
 		}
 
 
 		public override void SetLightColor( float red, float green, float blue )
 		{
-			sendLightColor = true;
-			lightColorToSend = new Vector3( red, green, blue );
-			// Native.SetLightColor( Handle, FloatToByte( red ), FloatToByte( green ), FloatToByte( blue ) );
+			Native.SetLightColor( Handle, FloatToByte( red ), FloatToByte( green ), FloatToByte( blue ) );
 		}
 
 
 		public override void SetLightFlash( float flashOnDuration, float flashOffDuration )
 		{
-			sendLightFlash = true;
-			lightFlashToSend = new Vector2( flashOnDuration, flashOffDuration );
-			// Native.SetLightFlash( Handle, FloatToByte( flashOnDuration ), FloatToByte( flashOffDuration ) );
+			Native.SetLightFlash( Handle, FloatToByte( flashOnDuration ), FloatToByte( flashOffDuration ) );
 		}
 
 
-		void SendStatusUpdates()
-		{
-			// This ensures we're not overloading the controller with too many status updates.
-			// Otherwise, on some platforms/drivers, it creates huge latency until effects happen.
-			const float statusUpdateInterval = 0.02f;
-
-			if (sendVibrate &&
-			    InputManager.CurrentTime - lastTimeVibrateWasSent > statusUpdateInterval)
-			{
-				Native.SetHapticState( Handle, FloatToByte( vibrateToSend.x ), FloatToByte( vibrateToSend.y ) );
-				sendVibrate = false;
-				lastTimeVibrateWasSent = InputManager.CurrentTime;
-				vibrateToSend = Vector2.zero;
-			}
-
-			if (sendVibrateTriggers &&
-			    InputManager.CurrentTime - lastTimeVibrateTriggersWasSent > statusUpdateInterval)
-			{
-				Native.SetTriggersHapticState( Handle, FloatToByte( vibrateTriggersToSend.x ), FloatToByte( vibrateTriggersToSend.y ) );
-				sendVibrateTriggers = false;
-				lastTimeVibrateTriggersWasSent = InputManager.CurrentTime;
-				vibrateTriggersToSend = Vector2.zero;
-			}
-
-			if (sendLightColor &&
-			    InputManager.CurrentTime - lastTimeLightColorWasSent > statusUpdateInterval)
-			{
-				Native.SetLightColor( Handle, FloatToByte( lightColorToSend.x ), FloatToByte( lightColorToSend.y ), FloatToByte( lightColorToSend.z ) );
-				sendLightColor = false;
-				lastTimeLightColorWasSent = InputManager.CurrentTime;
-				lightColorToSend = Vector3.zero;
-			}
-
-			if (sendLightFlash &&
-			    InputManager.CurrentTime - lastTimeLightFlashWasSent > statusUpdateInterval)
-			{
-				Native.SetLightFlash( Handle, FloatToByte( lightFlashToSend.x ), FloatToByte( lightFlashToSend.y ) );
-				sendLightFlash = false;
-				lastTimeLightFlashWasSent = InputManager.CurrentTime;
-				lightFlashToSend = Vector2.zero;
-			}
-		}
-
-
-		readonly System.Text.StringBuilder glyphName = new System.Text.StringBuilder( 256 );
-		const string defaultGlyphName = "";
-
-
-		public string GetAppleGlyphNameForControl( InputControlType controlType )
-		{
-			// if (InputManager.NativeInputEnableMFi && Info.vendorID == 0xffff)
-			{
-				var controlSource = controlSourceByTarget[(int) controlType];
-				if (controlSource.SourceType != InputControlSourceType.None)
-				{
-					IntPtr data;
-					UInt32 size;
-
-					// ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-					// ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-					switch (controlSource.SourceType)
-					{
-						case InputControlSourceType.Button:
-							size = Native.GetButtonGlyphName( Handle, (UInt32) controlSource.Index, out data );
-							break;
-						case InputControlSourceType.Analog:
-							size = Native.GetAnalogGlyphName( Handle, (UInt32) controlSource.Index, out data );
-							break;
-						default:
-							data = IntPtr.Zero;
-							size = 0;
-							break;
-					}
-
-					if (size > 0)
-					{
-						glyphName.Clear();
-						for (var i = 0; i < size; i++)
-						{
-							glyphName.Append( (char) Marshal.ReadByte( data, i ) );
-						}
-
-						return glyphName.ToString();
-					}
-				}
-			}
-
-			return defaultGlyphName;
-		}
-
-
-		public bool HasSameVendorID( InputDeviceInfo deviceInfo )
+		public bool HasSameVendorID( NativeDeviceInfo deviceInfo )
 		{
 			return Info.HasSameVendorID( deviceInfo );
 		}
 
 
-		public bool HasSameProductID( InputDeviceInfo deviceInfo )
+		public bool HasSameProductID( NativeDeviceInfo deviceInfo )
 		{
 			return Info.HasSameProductID( deviceInfo );
 		}
 
 
-		public bool HasSameVersionNumber( InputDeviceInfo deviceInfo )
+		public bool HasSameVersionNumber( NativeDeviceInfo deviceInfo )
 		{
 			return Info.HasSameVersionNumber( deviceInfo );
 		}
 
 
-		public bool HasSameLocation( InputDeviceInfo deviceInfo )
+		public bool HasSameLocation( NativeDeviceInfo deviceInfo )
 		{
 			return Info.HasSameLocation( deviceInfo );
 		}
 
 
-		public bool HasSameSerialNumber( InputDeviceInfo deviceInfo )
+		public bool HasSameSerialNumber( NativeDeviceInfo deviceInfo )
 		{
 			return Info.HasSameSerialNumber( deviceInfo );
-		}
-
-
-		public string ProfileName
-		{
-			get { return profile == null ? "N/A" : profile.GetType().Name; }
 		}
 
 
@@ -387,13 +247,13 @@ namespace InControl
 		}
 
 
-		public override int NumUnknownButtons
+		internal override int NumUnknownButtons
 		{
 			get { return numUnknownButtons; }
 		}
 
 
-		public override int NumUnknownAnalogs
+		internal override int NumUnknownAnalogs
 		{
 			get { return numUnknownAnalogs; }
 		}

@@ -1,8 +1,45 @@
 fileFormatVersion: 2
 guid: 5801964e0dfe6e64c80864e6bf0b86e4
 ModelImporter:
-  serializedVersion: 21202
-  internalIDToNameTable: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature.001
+    100004: spin_obj
+    100006: spin_obj 1
+    100008: spin_obj 2
+    100010: spin_obj.001
+    100012: spin_obj2
+    100014: spin_obj2 1
+    100016: spin_obj3
+    100018: spin_obj3 1
+    100020: spin_obj3_end
+    100022: spin_obj3_end 1
+    100024: spin_obj3_end_end
+    100026: //RootNode
+    400000: Armature
+    400002: Armature.001
+    400004: spin_obj
+    400006: spin_obj 1
+    400008: spin_obj 2
+    400010: spin_obj.001
+    400012: spin_obj2
+    400014: spin_obj2 1
+    400016: spin_obj3
+    400018: spin_obj3 1
+    400020: spin_obj3_end
+    400022: spin_obj3_end 1
+    400024: spin_obj3_end_end
+    400026: //RootNode
+    2100000: mat_spin_j_obj4.001
+    2100002: mat_biss.001
+    2100004: mat_env_s_j_top.001
+    2100006: mat_env_s_j1.001
+    4300000: spin_obj
+    4300002: spin_obj.001
+    9500000: //RootNode
+    13700000: spin_obj
+    13700002: spin_obj.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -25,7 +62,7 @@ ModelImporter:
       name: mat_spin_j_obj4
     second: {fileID: 2100000, guid: 56852aa23e2781140b534bc30f39cdc4, type: 2}
   materials:
-    materialImportMode: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -34,7 +71,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -59,34 +95,25 @@ ModelImporter:
     meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    optimizeBones: 1
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -95,10 +122,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 0
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -108,17 +135,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

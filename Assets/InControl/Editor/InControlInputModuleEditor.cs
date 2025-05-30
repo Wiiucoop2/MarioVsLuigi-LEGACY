@@ -5,7 +5,7 @@ namespace InControl
 	using UnityEngine;
 
 
-	[CustomEditor( typeof(InControlInputModule) )]
+	[CustomEditor( typeof( InControlInputModule ) )]
 	public class InControlInputModuleEditor : Editor
 	{
 		SerializedProperty submitButton;
@@ -63,3 +63,4 @@ namespace InControl
 	}
 }
 #endif
+

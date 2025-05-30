@@ -1,15 +1,16 @@
 namespace InControl.Internal
 {
+	using System;
 	using System.Linq;
 	using System.Text;
 	using System.Text.RegularExpressions;
 
 
-	public class CodeWriter
+	internal class CodeWriter
 	{
-		const char newLine = '\n';
+		const char NewLine = '\n';
 		int indent;
-		readonly StringBuilder stringBuilder;
+		StringBuilder stringBuilder;
 
 
 		public CodeWriter()
@@ -58,7 +59,7 @@ namespace InControl.Internal
 
 				if (i < linesCount - 1)
 				{
-					stringBuilder.Append( newLine );
+					stringBuilder.Append( NewLine );
 				}
 			}
 		}
@@ -67,31 +68,32 @@ namespace InControl.Internal
 		public void AppendLine( string code )
 		{
 			Append( code );
-			stringBuilder.Append( newLine );
+			stringBuilder.Append( NewLine );
 		}
 
 
 		public void AppendLine( int count )
 		{
-			stringBuilder.Append( newLine, count );
+			stringBuilder.Append( NewLine, count );
 		}
 
 
 		public void AppendFormat( string format, params object[] args )
 		{
-			Append( string.Format( format, args ) );
+			Append( String.Format( format, args ) );
 		}
 
 
 		public void AppendLineFormat( string format, params object[] args )
 		{
-			AppendLine( string.Format( format, args ) );
+			AppendLine( String.Format( format, args ) );
 		}
 
 
-		public override string ToString()
+		override public string ToString()
 		{
 			return stringBuilder.ToString();
 		}
 	}
 }
+

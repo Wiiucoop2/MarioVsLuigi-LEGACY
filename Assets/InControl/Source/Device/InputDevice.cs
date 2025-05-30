@@ -32,14 +32,6 @@ namespace InControl
 		public TwoAxisInputControl RightStick { get; private set; }
 		public TwoAxisInputControl DPad { get; private set; }
 
-		bool hasLeftCommandControl;
-		InputControl leftCommandSource;
-		public InputControlType LeftCommandControl { get; private set; }
-
-		bool hasRightCommandControl;
-		InputControl rightCommandSource;
-		public InputControlType RightCommandControl { get; private set; }
-
 		/// <summary>
 		/// When a device is passive, it will never be considered an active device.
 		/// This may be useful if you want a device to be accessible, but not
@@ -55,7 +47,6 @@ namespace InControl
 			public float maxValue;
 			public float minValue;
 
-
 			public void TrackMinMaxValue( float currentValue )
 			{
 				maxValue = Mathf.Max( maxValue, currentValue );
@@ -67,11 +58,15 @@ namespace InControl
 
 
 		public InputDevice()
-			: this( "" ) {}
+			: this( "" )
+		{
+		}
 
 
 		public InputDevice( string name )
-			: this( name, false ) {}
+			: this( name, false )
+		{
+		}
 
 
 		public InputDevice( string name, bool rawSticks )
@@ -132,27 +127,11 @@ namespace InControl
 				AddControl( InputControlType.DPadX, "DPad X" );
 				AddControl( InputControlType.DPadY, "DPad Y" );
 
-				#if UNITY_PS4
+#if UNITY_PS4
 				AddControl( InputControlType.Command, "OPTIONS button" );
-				#else
+#else
 				AddControl( InputControlType.Command, "Command" );
-				#endif
-
-				LeftCommandControl = DeviceStyle.LeftCommandControl();
-				leftCommandSource = GetControl( LeftCommandControl );
-				hasLeftCommandControl = !leftCommandSource.IsNullControl;
-				if (hasLeftCommandControl)
-				{
-					AddControl( InputControlType.LeftCommand, leftCommandSource.Handle );
-				}
-
-				RightCommandControl = DeviceStyle.RightCommandControl();
-				rightCommandSource = GetControl( RightCommandControl );
-				hasRightCommandControl = !rightCommandSource.IsNullControl;
-				if (hasRightCommandControl)
-				{
-					AddControl( InputControlType.RightCommand, rightCommandSource.Handle );
-				}
+#endif
 
 				ExpireControlCache();
 			}
@@ -172,14 +151,6 @@ namespace InControl
 			RemoveControl( InputControlType.DPadX );
 			RemoveControl( InputControlType.DPadY );
 			RemoveControl( InputControlType.Command );
-			RemoveControl( InputControlType.LeftCommand );
-			RemoveControl( InputControlType.RightCommand );
-
-			leftCommandSource = null;
-			hasLeftCommandControl = false;
-
-			rightCommandSource = null;
-			hasRightCommandControl = false;
 
 			ExpireControlCache();
 		}
@@ -301,7 +272,7 @@ namespace InControl
 		}
 
 
-		public void UpdateLeftStickWithValue( Vector2 value, ulong updateTick, float deltaTime )
+		internal void UpdateLeftStickWithValue( Vector2 value, ulong updateTick, float deltaTime )
 		{
 			LeftStickLeft.UpdateWithValue( Mathf.Max( 0.0f, -value.x ), updateTick, deltaTime );
 			LeftStickRight.UpdateWithValue( Mathf.Max( 0.0f, value.x ), updateTick, deltaTime );
@@ -319,7 +290,7 @@ namespace InControl
 		}
 
 
-		public void UpdateLeftStickWithRawValue( Vector2 value, ulong updateTick, float deltaTime )
+		internal void UpdateLeftStickWithRawValue( Vector2 value, ulong updateTick, float deltaTime )
 		{
 			LeftStickLeft.UpdateWithRawValue( Mathf.Max( 0.0f, -value.x ), updateTick, deltaTime );
 			LeftStickRight.UpdateWithRawValue( Mathf.Max( 0.0f, value.x ), updateTick, deltaTime );
@@ -337,7 +308,7 @@ namespace InControl
 		}
 
 
-		public void CommitLeftStick()
+		internal void CommitLeftStick()
 		{
 			LeftStickUp.Commit();
 			LeftStickDown.Commit();
@@ -346,7 +317,7 @@ namespace InControl
 		}
 
 
-		public void UpdateRightStickWithValue( Vector2 value, ulong updateTick, float deltaTime )
+		internal void UpdateRightStickWithValue( Vector2 value, ulong updateTick, float deltaTime )
 		{
 			RightStickLeft.UpdateWithValue( Mathf.Max( 0.0f, -value.x ), updateTick, deltaTime );
 			RightStickRight.UpdateWithValue( Mathf.Max( 0.0f, value.x ), updateTick, deltaTime );
@@ -364,7 +335,7 @@ namespace InControl
 		}
 
 
-		public void UpdateRightStickWithRawValue( Vector2 value, ulong updateTick, float deltaTime )
+		internal void UpdateRightStickWithRawValue( Vector2 value, ulong updateTick, float deltaTime )
 		{
 			RightStickLeft.UpdateWithRawValue( Mathf.Max( 0.0f, -value.x ), updateTick, deltaTime );
 			RightStickRight.UpdateWithRawValue( Mathf.Max( 0.0f, value.x ), updateTick, deltaTime );
@@ -382,7 +353,7 @@ namespace InControl
 		}
 
 
-		public void CommitRightStick()
+		internal void CommitRightStick()
 		{
 			RightStickUp.Commit();
 			RightStickDown.Commit();
@@ -524,7 +495,7 @@ namespace InControl
 			{
 				var passive = true;
 				var pressed = false;
-				for (var i = (int) InputControlType.Back; i <= (int) InputControlType.Mute; i++)
+				for (var i = (int) InputControlType.Back; i <= (int) InputControlType.Minus; i++)
 				{
 					var control = ControlsByTarget[i];
 					if (control != null && control.IsPressed)
@@ -539,18 +510,6 @@ namespace InControl
 
 				Command.Passive = passive;
 				Command.CommitWithState( pressed, updateTick, deltaTime );
-
-				if (hasLeftCommandControl)
-				{
-					LeftCommand.Passive = leftCommandSource.Passive;
-					LeftCommand.CommitWithState( leftCommandSource.IsPressed, updateTick, deltaTime );
-				}
-
-				if (hasRightCommandControl)
-				{
-					RightCommand.Passive = rightCommandSource.Passive;
-					RightCommand.CommitWithState( rightCommandSource.IsPressed, updateTick, deltaTime );
-				}
 			}
 
 			// If any non-passive controls provide input, flag the device active.
@@ -573,14 +532,16 @@ namespace InControl
 		}
 
 
-		public void RequestActivation()
+		internal void RequestActivation()
 		{
 			LastInputTick = InputManager.CurrentTick;
 			IsActive = true;
 		}
 
 
-		public virtual void Vibrate( float leftMotor, float rightMotor ) {}
+		public virtual void Vibrate( float leftMotor, float rightMotor )
+		{
+		}
 
 
 		public void Vibrate( float intensity )
@@ -589,16 +550,15 @@ namespace InControl
 		}
 
 
-		public virtual void VibrateTriggers( float leftTrigger, float rightTrigger ) {}
-
-
 		public void StopVibration()
 		{
 			Vibrate( 0.0f );
 		}
 
 
-		public virtual void SetLightColor( float red, float green, float blue ) {}
+		public virtual void SetLightColor( float red, float green, float blue )
+		{
+		}
 
 
 		public void SetLightColor( Color color )
@@ -607,7 +567,9 @@ namespace InControl
 		}
 
 
-		public virtual void SetLightFlash( float flashOnDuration, float flashOffDuration ) {}
+		public virtual void SetLightFlash( float flashOnDuration, float flashOffDuration )
+		{
+		}
 
 
 		public void StopLightFlash()
@@ -786,8 +748,6 @@ namespace InControl
 		InputControl cachedDPadX;
 		InputControl cachedDPadY;
 		InputControl cachedCommand;
-		InputControl cachedLeftCommand;
-		InputControl cachedRightCommand;
 
 
 		public InputControl LeftStickUp
@@ -936,18 +896,6 @@ namespace InControl
 		}
 
 
-		public InputControl LeftCommand
-		{
-			get { return cachedLeftCommand ?? (cachedLeftCommand = GetControl( InputControlType.LeftCommand )); }
-		}
-
-
-		public InputControl RightCommand
-		{
-			get { return cachedRightCommand ?? (cachedRightCommand = GetControl( InputControlType.RightCommand )); }
-		}
-
-
 		void ExpireControlCache()
 		{
 			cachedLeftStickUp = null;
@@ -979,8 +927,6 @@ namespace InControl
 			cachedDPadX = null;
 			cachedDPadY = null;
 			cachedCommand = null;
-			cachedLeftCommand = null;
-			cachedRightCommand = null;
 		}
 
 		#endregion
@@ -988,31 +934,31 @@ namespace InControl
 
 		#region Snapshots for Unknown Devices
 
-		public virtual int NumUnknownAnalogs
+		internal virtual int NumUnknownAnalogs
 		{
 			get { return 0; }
 		}
 
 
-		public virtual int NumUnknownButtons
+		internal virtual int NumUnknownButtons
 		{
 			get { return 0; }
 		}
 
 
-		public virtual bool ReadRawButtonState( int index )
+		internal virtual bool ReadRawButtonState( int index )
 		{
 			return false;
 		}
 
 
-		public virtual float ReadRawAnalogValue( int index )
+		internal virtual float ReadRawAnalogValue( int index )
 		{
 			return 0.0f;
 		}
 
 
-		public void TakeSnapshot()
+		internal void TakeSnapshot()
 		{
 			if (AnalogSnapshot == null)
 			{
@@ -1027,7 +973,7 @@ namespace InControl
 		}
 
 
-		public UnknownDeviceControl GetFirstPressedAnalog()
+		internal UnknownDeviceControl GetFirstPressedAnalog()
 		{
 			if (AnalogSnapshot != null)
 			{
@@ -1071,7 +1017,7 @@ namespace InControl
 		}
 
 
-		public UnknownDeviceControl GetFirstPressedButton()
+		internal UnknownDeviceControl GetFirstPressedButton()
 		{
 			for (var index = 0; index < NumUnknownButtons; index++)
 			{

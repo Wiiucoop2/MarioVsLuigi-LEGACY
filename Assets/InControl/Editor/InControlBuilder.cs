@@ -5,9 +5,9 @@ namespace InControl
 	using UnityEngine;
 
 
-	static class InControlBuilder
+	internal class InControlBuilder
 	{
-		[MenuItem( "GameObject/InControl/Manager", false, 100 )]
+		[MenuItem( "GameObject/Create Other/InControl/Manager", false, 1 )]
 		static void CreateInputManager()
 		{
 			MonoBehaviour component;
@@ -19,7 +19,7 @@ namespace InControl
 				return;
 			}
 
-			var gameObject = GameObject.Find( "InControl" ) ?? new GameObject( "InControl" );
+			GameObject gameObject = GameObject.Find( "InControl" ) ?? new GameObject( "InControl" );
 			gameObject.AddComponent<InControlManager>();
 			Selection.activeGameObject = gameObject;
 
@@ -28,3 +28,4 @@ namespace InControl
 	}
 }
 #endif
+

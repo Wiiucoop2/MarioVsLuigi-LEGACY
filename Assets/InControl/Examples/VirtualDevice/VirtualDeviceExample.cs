@@ -62,17 +62,14 @@ namespace VirtualDeviceExample
 			{
 				color = Color.green;
 			}
-
 			if (inputDevice.Action2.IsPressed)
 			{
 				color = Color.red;
 			}
-
 			if (inputDevice.Action3.IsPressed)
 			{
 				color = Color.blue;
 			}
-
 			if (inputDevice.Action4.IsPressed)
 			{
 				color = Color.yellow;
@@ -83,3 +80,4 @@ namespace VirtualDeviceExample
 		}
 	}
 }
+

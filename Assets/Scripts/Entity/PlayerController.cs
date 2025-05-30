@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.InputSystem;
 using Photon.Pun;
 using InControl;
 
@@ -149,8 +148,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         sfx = GetComponent<AudioSource>();
         models = transform.Find("Models").gameObject;
         starDirection = Random.value < 0.5;
-        PlayerInput input = GetComponent<PlayerInput>();
-        input.enabled = !photonView || photonView.IsMine;
+//        PlayerInput input = GetComponent<PlayerInput>();
+//        input.enabled = !photonView || photonView.IsMine;
        
 
         // Clone the array and each material so changes are per-instance
@@ -323,20 +322,27 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         step = !step;
     }
 
-    void OnMovement(InputValue value) {
-        if (!photonView.IsMine) return;
-        joystick = value.Get<Vector2>();
-    }
-
-    public void OnJump(InputValue value) {
-        if (!photonView.IsMine) return;
-        jumpHeld = value.Get<float>() >= 0.5f;
-        if (jumpHeld) {
-            jumpBuffer = 0.15f;
+    /*    void OnMovement(InputValue value) {
+            if (!photonView.IsMine) return;
+            joystick = value.Get<Vector2>();
         }
-    }
-	
-	void jumpper(float timer) {
+
+        public void OnJump(InputValue value) {
+            if (!photonView.IsMine) return;
+            jumpHeld = value.Get<float>() >= 0.5f;
+            if (jumpHeld) {
+                jumpBuffer = 0.15f;
+            }
+        }
+
+
+
+        void OnSprint(InputValue value) {
+            if (!photonView.IsMine) return;
+            running = value.Get<float>() >= 0.5f;
+        }*/
+
+    void jumpper(float timer) {
         if (!photonView.IsMine) return;
         jumpHeld = timer >= 0.5f;
         if (jumpHeld) {
@@ -347,11 +353,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 	void sprintter(float timer) {
         if (!photonView.IsMine) return;
         running = timer >= 0.5f;
-    }
-
-    void OnSprint(InputValue value) {
-        if (!photonView.IsMine) return;
-        running = value.Get<float>() >= 0.5f;
     }
 	
 	

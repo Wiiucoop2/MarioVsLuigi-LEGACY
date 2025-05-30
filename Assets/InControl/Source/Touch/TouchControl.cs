@@ -130,7 +130,6 @@ namespace InControl
 					worldOffset = Vector3.Scale( offset, TouchManager.ViewSize );
 				}
 			}
-
 			return TouchManager.ViewToWorldPoint( TouchUtility.AnchorToViewPoint( anchor ) ) + worldOffset;
 		}
 
@@ -315,7 +314,8 @@ namespace InControl
 					return;
 				}
 			}
-			else if (TouchManager.ControlsShowGizmos != TouchManager.GizmoShowOption.Always)
+			else
+			if (TouchManager.ControlsShowGizmos != TouchManager.GizmoShowOption.Always)
 			{
 				return;
 			}

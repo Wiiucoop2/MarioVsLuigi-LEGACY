@@ -6,6 +6,7 @@
 	public class TouchSwipeControl : TouchControl
 	{
 		[Header( "Position" )]
+
 		[SerializeField]
 		TouchUnitType areaUnitType = TouchUnitType.Percent;
 
@@ -13,31 +14,32 @@
 		Rect activeArea = new Rect( 25.0f, 25.0f, 50.0f, 50.0f );
 
 
-		[Header( "Options" )]
+		[Header("Options")]
+
 		[Range( 0, 1 )]
 		public float sensitivity = 0.1f;
-
-		public bool oneSwipePerTouch = false;
+        public bool oneSwipePerTouch = false;
 
 
 		[Header( "Analog Target" )]
-		public AnalogTarget target = AnalogTarget.None;
 
+		public AnalogTarget target = AnalogTarget.None;
 		public SnapAngles snapAngles = SnapAngles.None;
 
 
 		[Header( "Button Targets" )]
-		public ButtonTarget upTarget = ButtonTarget.None;
 
+		public ButtonTarget upTarget = ButtonTarget.None;
 		public ButtonTarget downTarget = ButtonTarget.None;
 		public ButtonTarget leftTarget = ButtonTarget.None;
 		public ButtonTarget rightTarget = ButtonTarget.None;
 		public ButtonTarget tapTarget = ButtonTarget.None;
 
+        	
 
 		Rect worldActiveArea;
 		Vector3 currentVector;
-		bool currentVectorIsSet;
+        bool currentVectorIsSet;
 		Vector3 beganPosition;
 		Vector3 lastPosition;
 		Touch currentTouch;
@@ -47,7 +49,9 @@
 		bool dirty;
 
 
-		public override void CreateControl() {}
+		public override void CreateControl()
+		{
+		}
 
 
 		public override void DestroyControl()
@@ -128,7 +132,7 @@
 				lastPosition = beganPosition;
 				currentTouch = touch;
 				currentVector = Vector2.zero;
-				currentVectorIsSet = false;
+                currentVectorIsSet = false;
 
 				fireButtonTarget = true;
 				nextButtonTarget = ButtonTarget.None;
@@ -150,11 +154,11 @@
 			{
 				lastPosition = movedPosition;
 
-				if (!(oneSwipePerTouch && currentVectorIsSet))
-				{
-					currentVector = delta.normalized;
-					currentVectorIsSet = true;
-				}
+                if (!(oneSwipePerTouch && currentVectorIsSet))
+                {
+                    currentVector = delta.normalized;
+                    currentVectorIsSet = true;
+                }
 
 				if (fireButtonTarget)
 				{
@@ -177,7 +181,7 @@
 
 			currentTouch = null;
 			currentVector = Vector2.zero;
-			currentVectorIsSet = false;
+            currentVectorIsSet = false;
 
 			var touchPosition = TouchManager.ScreenToWorldPoint( touch.position );
 			var delta = beganPosition - touchPosition;
@@ -259,3 +263,4 @@
 		}
 	}
 }
+

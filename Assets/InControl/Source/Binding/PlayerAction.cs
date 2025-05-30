@@ -80,7 +80,7 @@
 		readonly ReadOnlyCollection<BindingSource> bindings;
 		readonly ReadOnlyCollection<BindingSource> unfilteredBindings;
 
-		readonly BindingSourceListener[] bindingSourceListeners =
+		static readonly BindingSourceListener[] bindingSourceListeners =
 		{
 			new DeviceBindingSourceListener(),
 			new UnknownDeviceBindingSourceListener(),
@@ -200,7 +200,7 @@
 
 			if (binding.BoundTo != null)
 			{
-				Logger.LogWarning( "Binding source is already bound to action " + binding.BoundTo.Name );
+				Debug.LogWarning( "Binding source is already bound to action " + binding.BoundTo.Name );
 				return false;
 			}
 
@@ -229,7 +229,7 @@
 		/// another action.
 		/// </summary>
 		/// <returns><c>true</c>, if binding was inserted, <c>false</c> otherwise.</returns>
-		/// <param name="index">The index at which to insert.</param>
+		/// <param name="binding">The index at which to insert.</param>
 		/// <param name="binding">The BindingSource to insert.</param>
 		public bool InsertBindingAt( int index, BindingSource binding )
 		{
@@ -250,7 +250,7 @@
 
 			if (binding.BoundTo != null)
 			{
-				Logger.LogWarning( "Binding source is already bound to action " + binding.BoundTo.Name );
+				Debug.LogWarning( "Binding source is already bound to action " + binding.BoundTo.Name );
 				return false;
 			}
 
@@ -291,14 +291,14 @@
 
 			if (withBinding.BoundTo != null)
 			{
-				Logger.LogWarning( "Binding source is already bound to action " + withBinding.BoundTo.Name );
+				Debug.LogWarning( "Binding source is already bound to action " + withBinding.BoundTo.Name );
 				return false;
 			}
 
 			var index = regularBindings.IndexOf( findBinding );
 			if (index < 0)
 			{
-				Logger.LogWarning( "Binding source to replace is not present in this action." );
+				Debug.LogWarning( "Binding source to replace is not present in this action." );
 				return false;
 			}
 
@@ -579,7 +579,10 @@
 		/// </summary>
 		public bool IsListeningForBinding
 		{
-			get { return Owner.listenWithAction == this; }
+			get
+			{
+				return Owner.listenWithAction == this;
+			}
 		}
 
 
@@ -590,7 +593,10 @@
 		/// </summary>
 		public ReadOnlyCollection<BindingSource> Bindings
 		{
-			get { return bindings; }
+			get
+			{
+				return bindings;
+			}
 		}
 
 
@@ -600,7 +606,10 @@
 		/// </summary>
 		public ReadOnlyCollection<BindingSource> UnfilteredBindings
 		{
-			get { return unfilteredBindings; }
+			get
+			{
+				return unfilteredBindings;
+			}
 		}
 
 
@@ -687,7 +696,7 @@
 
 			Commit();
 
-			ownerEnabled = Owner.Enabled;
+			Enabled = Owner.Enabled;
 
 			if (lastInputTypeChangedTick > LastInputTypeChangedTick)
 			{
@@ -748,11 +757,11 @@
 				{
 					if (listenOptions.RejectRedundantBindings)
 					{
-						listenOptions.CallOnBindingRejected( this, binding, BindingSourceRejectionType.DuplicateBindingOnAction );
+						listenOptions.CallOnBindingRejected( this, binding, BindingSourceRejectionType.DuplicateBindingOnActionSet );
 						return;
 					}
 
-					// By default, we just accept a redundant binding, do nothing, and move on.
+					// By default, we just accept a reduntant binding, do nothing, and move on.
 					StopListeningForBinding();
 					listenOptions.CallOnBindingAdded( this, binding );
 					return;
@@ -861,7 +870,10 @@
 		/// </summary>
 		public InputDevice ActiveDevice
 		{
-			get { return activeDevice ?? InputDevice.Null; }
+			get
+			{
+				return activeDevice ?? InputDevice.Null;
+			}
 		}
 
 
@@ -878,13 +890,16 @@
 		[Obsolete( "Please set this property on device controls directly. It does nothing here." )]
 		public new float LowerDeadZone
 		{
-			get { return 0.0f; }
+			get
+			{
+				return 0.0f;
+			}
 
 			set
 			{
-				#pragma warning disable 0168, 0219
+#pragma warning disable 0168, 0219
 				var dummy = value;
-				#pragma warning restore 0168, 0219
+#pragma warning restore 0168, 0219
 			}
 		}
 
@@ -892,13 +907,16 @@
 		[Obsolete( "Please set this property on device controls directly. It does nothing here." )]
 		public new float UpperDeadZone
 		{
-			get { return 0.0f; }
+			get
+			{
+				return 0.0f;
+			}
 
 			set
 			{
-				#pragma warning disable 0168, 0219
+#pragma warning disable 0168, 0219
 				var dummy = value;
-				#pragma warning restore 0168, 0219
+#pragma warning restore 0168, 0219
 			}
 		}
 

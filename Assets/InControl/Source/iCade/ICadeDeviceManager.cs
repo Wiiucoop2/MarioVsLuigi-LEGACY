@@ -4,7 +4,6 @@ namespace InControl
 	using System.Collections.Generic;
 	using System.Threading;
 	using UnityEngine;
-	using Internal;
 
 
 	public class ICadeDeviceManager : InputDeviceManager
@@ -106,7 +105,9 @@ namespace InControl
 		}
 
 
-		public override void Update( ulong updateTick, float deltaTime ) {}
+		public override void Update( ulong updateTick, float deltaTime )
+		{
+		}
 
 
 		public override void Destroy()

@@ -8,8 +8,8 @@
 	//
 	public class VirtualDevice : InputDevice
 	{
-		const float Sensitivity = 0.1f;
-		const float MouseScale = 0.05f;
+		const float sensitivity = 0.1f;
+		const float mouseScale = 0.05f;
 
 		// To store keyboard x, y for smoothing.
 		float kx, ky;
@@ -59,7 +59,7 @@
 			// Submit it as a raw value so it doesn't get processed down to -1.0 to +1.0 range.
 			UpdateRightStickWithRawValue( rightStickVector, updateTick, deltaTime );
 
-			// You could also read from keyboard input and submit into the virtual device left stick
+			// You could also read from keyboard input and submit into the virtual device left stick 
 			// unsmoothed which would be much simpler.
 			// UpdateWithState( InputControlType.LeftStickLeft, Input.GetKey( KeyCode.LeftArrow ), updateTick, deltaTime );
 			// UpdateWithState( InputControlType.LeftStickRight, Input.GetKey( KeyCode.RightArrow ), updateTick, deltaTime );
@@ -74,6 +74,12 @@
 			UpdateWithState( InputControlType.Action2, Input.GetKey( KeyCode.S ), updateTick, deltaTime );
 			UpdateWithState( InputControlType.Action3, Input.GetKey( KeyCode.D ), updateTick, deltaTime );
 			UpdateWithState( InputControlType.Action4, Input.GetKey( KeyCode.F ), updateTick, deltaTime );
+
+			// Commit the current state of all controls.
+			// This may only be done once per update tick. Updates submissions (like those above)
+			// can be done multiple times per tick (for example, to aggregate multiple sources) 
+			// but must be followed by a single commit to submit the final value to the control.
+			Commit( updateTick, deltaTime );
 		}
 
 
@@ -81,20 +87,19 @@
 		{
 			if (smoothed)
 			{
-				kx = ApplySmoothing( kx, GetXFromKeyboard(), deltaTime, Sensitivity );
-				ky = ApplySmoothing( ky, GetYFromKeyboard(), deltaTime, Sensitivity );
+				kx = ApplySmoothing( kx, GetXFromKeyboard(), deltaTime, sensitivity );
+				ky = ApplySmoothing( ky, GetYFromKeyboard(), deltaTime, sensitivity );
 			}
 			else
 			{
 				kx = GetXFromKeyboard();
 				ky = GetYFromKeyboard();
 			}
-
 			return new Vector2( kx, ky );
 		}
 
 
-		static float GetXFromKeyboard()
+		float GetXFromKeyboard()
 		{
 			var l = Input.GetKey( KeyCode.LeftArrow ) ? -1.0f : 0.0f;
 			var r = Input.GetKey( KeyCode.RightArrow ) ? 1.0f : 0.0f;
@@ -102,7 +107,7 @@
 		}
 
 
-		static float GetYFromKeyboard()
+		float GetYFromKeyboard()
 		{
 			var u = Input.GetKey( KeyCode.UpArrow ) ? 1.0f : 0.0f;
 			var d = Input.GetKey( KeyCode.DownArrow ) ? -1.0f : 0.0f;
@@ -114,20 +119,19 @@
 		{
 			if (smoothed)
 			{
-				mx = ApplySmoothing( mx, Input.GetAxisRaw( "mouse x" ) * MouseScale, deltaTime, Sensitivity );
-				my = ApplySmoothing( my, Input.GetAxisRaw( "mouse y" ) * MouseScale, deltaTime, Sensitivity );
+				mx = ApplySmoothing( mx, Input.GetAxisRaw( "mouse x" ) * mouseScale, deltaTime, sensitivity );
+				my = ApplySmoothing( my, Input.GetAxisRaw( "mouse y" ) * mouseScale, deltaTime, sensitivity );
 			}
 			else
 			{
-				mx = Input.GetAxisRaw( "mouse x" ) * MouseScale;
-				my = Input.GetAxisRaw( "mouse y" ) * MouseScale;
+				mx = Input.GetAxisRaw( "mouse x" ) * mouseScale;
+				my = Input.GetAxisRaw( "mouse y" ) * mouseScale;
 			}
-
 			return new Vector2( mx, my );
 		}
 
 
-		static float ApplySmoothing( float lastValue, float thisValue, float deltaTime, float sensitivity )
+		float ApplySmoothing( float lastValue, float thisValue, float deltaTime, float sensitivity )
 		{
 			sensitivity = Mathf.Clamp( sensitivity, 0.001f, 1.0f );
 
@@ -140,3 +144,4 @@
 		}
 	}
 }
+

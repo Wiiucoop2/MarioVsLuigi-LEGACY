@@ -4,12 +4,11 @@ namespace InControl
 	using System.IO;
 	using UnityEngine;
 
-
-	#if NETFX_CORE
+#if NETFX_CORE
 	using Windows.Storage;
 	using Windows.Storage.Streams;
 	using System.Threading.Tasks;
-	#endif
+#endif
 
 
 	public static class Utility
@@ -17,8 +16,7 @@ namespace InControl
 		public const float Epsilon = 1.0e-7f;
 
 
-		static readonly Vector2[] circleVertexList =
-		{
+		private static Vector2[] circleVertexList = {
 			new Vector2( +0.0000f, +1.0000f ),
 			new Vector2( +0.2588f, +0.9659f ),
 			new Vector2( +0.5000f, +0.8660f ),
@@ -49,11 +47,11 @@ namespace InControl
 
 		public static void DrawCircleGizmo( Vector2 center, float radius )
 		{
-			var p = circleVertexList[0] * radius + center;
+			var p = (circleVertexList[0] * radius) + center;
 			var c = circleVertexList.Length;
 			for (var i = 1; i < c; i++)
 			{
-				Gizmos.DrawLine( p, p = circleVertexList[i] * radius + center );
+				Gizmos.DrawLine( p, p = (circleVertexList[i] * radius) + center );
 			}
 		}
 
@@ -163,7 +161,7 @@ namespace InControl
 		public static float ApplySmoothing( float thisValue, float lastValue, float deltaTime, float sensitivity )
 		{
 			// 1.0f and above is instant (no smoothing).
-			if (Approximately( sensitivity, 1.0f ))
+			if (Utility.Approximately( sensitivity, 1.0f ))
 			{
 				return thisValue;
 			}
@@ -172,7 +170,7 @@ namespace InControl
 			var maxDelta = deltaTime * sensitivity * 100.0f;
 
 			// Snap to zero when changing direction quickly.
-			if (IsNotZero( thisValue ) && Sign( lastValue ) != Sign( thisValue ))
+			if (IsNotZero( thisValue ) && Mathf.Sign( lastValue ) != Mathf.Sign( thisValue ))
 			{
 				lastValue = 0.0f;
 			}
@@ -213,25 +211,25 @@ namespace InControl
 		// TODO: This meaningless distinction should probably be removed entirely.
 		internal static bool TargetIsButton( InputControlType target )
 		{
-			return target >= InputControlType.Action1 && target <= InputControlType.Action12 ||
-			       target >= InputControlType.Button0 && target <= InputControlType.Button19;
+			return (target >= InputControlType.Action1 && target <= InputControlType.Action12) ||
+				   (target >= InputControlType.Button0 && target <= InputControlType.Button19);
 		}
 
 
 		internal static bool TargetIsStandard( InputControlType target )
 		{
 			return (target >= InputControlType.LeftStickUp && target <= InputControlType.Action12) ||
-			       (target >= InputControlType.Command && target <= InputControlType.RightCommand);
+				   (target >= InputControlType.Command && target <= InputControlType.DPadY);
 		}
 
 
 		internal static bool TargetIsAlias( InputControlType target )
 		{
-			return target >= InputControlType.Command && target <= InputControlType.RightCommand;
+			return target >= InputControlType.Command && target <= InputControlType.DPadY;
 		}
 
 
-		#if NETFX_CORE
+#if NETFX_CORE
 		public static async Task<string> Async_ReadFromFile( string path )
 		{
 			string name = Path.GetFileName( path );
@@ -249,32 +247,32 @@ namespace InControl
 			StorageFile file = await folder.CreateFileAsync( name, CreationCollisionOption.ReplaceExisting );
 		    await FileIO.WriteTextAsync( file, data );
 		}
-		#endif
+#endif
 
 
 		public static string ReadFromFile( string path )
 		{
-			#if NETFX_CORE
+#if NETFX_CORE
 			return Async_ReadFromFile( path ).Result;
-			#else
+#else
 			var streamReader = new StreamReader( path );
 			var data = streamReader.ReadToEnd();
 			streamReader.Close();
 			return data;
-			#endif
+#endif
 		}
 
 
 		public static void WriteToFile( string path, string data )
 		{
-			#if NETFX_CORE
+#if NETFX_CORE
 			Async_WriteToFile( path, data ).Wait();
-			#else
+#else
 			var streamWriter = new StreamWriter( path );
 			streamWriter.Write( data );
 			streamWriter.Flush();
 			streamWriter.Close();
-			#endif
+#endif
 		}
 
 
@@ -309,12 +307,6 @@ namespace InControl
 		}
 
 
-		public static int Sign( float f )
-		{
-			return f < 0.0 ? -1 : +1;
-		}
-
-
 		public static bool AbsoluteIsOverThreshold( float value, float threshold )
 		{
 			return (value < -threshold) || (value > threshold);
@@ -339,49 +331,48 @@ namespace InControl
 
 		public static float VectorToAngle( Vector2 vector )
 		{
-			if (IsZero( vector.x ) && IsZero( vector.y ))
+			if (Utility.IsZero( vector.x ) && Utility.IsZero( vector.y ))
 			{
 				return 0.0f;
 			}
-
-			return NormalizeAngle( Mathf.Atan2( vector.x, vector.y ) * Mathf.Rad2Deg );
+			return Utility.NormalizeAngle( Mathf.Atan2( vector.x, vector.y ) * Mathf.Rad2Deg );
 		}
 
 
 		public static float Min( float v0, float v1 )
 		{
-			return v0 >= v1 ? v1 : v0;
+			return (v0 >= v1) ? v1 : v0;
 		}
 
 
 		public static float Max( float v0, float v1 )
 		{
-			return v0 <= v1 ? v1 : v0;
+			return (v0 <= v1) ? v1 : v0;
 		}
 
 
 		public static float Min( float v0, float v1, float v2, float v3 )
 		{
-			var r0 = v0 >= v1 ? v1 : v0;
-			var r1 = v2 >= v3 ? v3 : v2;
-			return r0 >= r1 ? r1 : r0;
+			var r0 = (v0 >= v1) ? v1 : v0;
+			var r1 = (v2 >= v3) ? v3 : v2;
+			return (r0 >= r1) ? r1 : r0;
 		}
 
 
 		public static float Max( float v0, float v1, float v2, float v3 )
 		{
-			var r0 = v0 <= v1 ? v1 : v0;
-			var r1 = v2 <= v3 ? v3 : v2;
-			return r0 <= r1 ? r1 : r0;
+			var r0 = (v0 <= v1) ? v1 : v0;
+			var r1 = (v2 <= v3) ? v3 : v2;
+			return (r0 <= r1) ? r1 : r0;
 		}
 
 
 		internal static float ValueFromSides( float negativeSide, float positiveSide )
 		{
-			var nsv = Abs( negativeSide );
-			var psv = Abs( positiveSide );
+			var nsv = Utility.Abs( negativeSide );
+			var psv = Utility.Abs( positiveSide );
 
-			if (Approximately( nsv, psv ))
+			if (Utility.Approximately( nsv, psv ))
 			{
 				return 0.0f;
 			}
@@ -396,8 +387,10 @@ namespace InControl
 			{
 				return ValueFromSides( positiveSide, negativeSide );
 			}
-
-			return ValueFromSides( negativeSide, positiveSide );
+			else
+			{
+				return ValueFromSides( negativeSide, positiveSide );
+			}
 		}
 
 
@@ -419,36 +412,6 @@ namespace InControl
 		}
 
 
-		public static void ArrayAppend<T>( ref T[] array, T item )
-		{
-			if (array == null)
-			{
-				array = new T[1];
-				array[0] = item;
-			}
-			else
-			{
-				Array.Resize( ref array, array.Length + 1 );
-				array[array.Length - 1] = item;
-			}
-		}
-
-
-		public static void ArrayAppend<T>( ref T[] array, T[] items )
-		{
-			if (array == null)
-			{
-				array = new T[items.Length];
-				Array.Copy( items, array, items.Length );
-			}
-			else
-			{
-				Array.Resize( ref array, array.Length + items.Length );
-				Array.ConstrainedCopy( items, 0, array, array.Length - items.Length, items.Length );
-			}
-		}
-
-
 		public static int NextPowerOfTwo( int value )
 		{
 			if (value > 0)
@@ -462,7 +425,6 @@ namespace InControl
 				value++;
 				return value;
 			}
-
 			return 0;
 		}
 
@@ -485,101 +447,35 @@ namespace InControl
 		}
 
 
-		public static string GetPlatformName( bool uppercase = true )
+#if !NETFX_CORE && !UNITY_WEBPLAYER && !UNITY_EDITOR_OSX && (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN)
+		public static string HKLM_GetString( string path, string key )
 		{
-			#if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !NETFX_CORE && !UNITY_WEBPLAYER && !UNITY_WEBGL && !UNITY_EDITOR_OSX
-			var platformName = GetWindowsVersion();
-			#elif UNITY_WEBGL && !UNITY_EDITOR_OSX
-			// MAC OS X 10_14_6 CHROME 76
-			// MAC OS X 10.14 FIREFOX 68
-			// MAC OS X 10_14_6 SAFARI 12.1
-			// WINDOWS EDGE 17.17134
-
-			// Normalize operating system name and remove version numbers.
-			var operatingSystem = SystemInfo.operatingSystem.ToUpper();
-			if (operatingSystem.Contains( "MAC" ))
+			try
 			{
-				operatingSystem = "Mac";
-			}
-			else if (operatingSystem.Contains( "WINDOWS" ))
-			{
-				operatingSystem = "Windows";
-			}
-			else if (operatingSystem.Contains( "LINUX" ))
-			{
-				operatingSystem = "Linux";
-			}
-
-			// Normalize browser name and remove version numbers.
-			var browser = SystemInfo.deviceModel.ToUpper();
-			if (browser.Contains( "CHROME" ))
-			{
-				browser = "Chrome";
-			}
-			else if (browser.Contains( "FIREFOX" ))
-			{
-				browser = "Firefox";
-			}
-			else if (browser.Contains( "SAFARI" ))
-			{
-				browser = "Safari";
-			}
-			else if (browser.Contains( "EDGE" ))
-			{
-				browser = "Edge";
-			}
-
-			var platformName = operatingSystem + " " + browser;
-			#else
-			var platformName = SystemInfo.operatingSystem + " " + SystemInfo.deviceModel;
-			#endif
-			return uppercase ? platformName.ToUpper() : platformName;
-		}
-
-
-		#if !NETFX_CORE && !UNITY_WEBPLAYER && !UNITY_EDITOR_OSX && (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN)
-		static string GetHumanUnderstandableWindowsVersion()
-		{
-			var version = Environment.OSVersion.Version;
-
-			if (version.Major == 6)
-			{
-				switch (version.Minor)
+				var rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey( path );
+				if (rk == null)
 				{
-					case 3:
-						return "8.1";
-					case 2:
-						return "8";
-					case 1:
-						return "7";
-					default:
-						return "Vista";
+					return "";
 				}
+				return (string) rk.GetValue( key );
 			}
-
-			if (version.Major == 5)
+			catch
 			{
-				switch (version.Minor)
-				{
-					case 2:
-					case 1:
-						return "XP";
-					default:
-						return "2000";
-				}
+				return null;
 			}
-
-			return version.Major.ToString();
 		}
-
 
 		public static string GetWindowsVersion()
 		{
-			// Result should be like: WINDOWS 10 64BIT BUILD 17134
-			var version = GetHumanUnderstandableWindowsVersion();
-			var bitSize = Is32Bit ? "32Bit" : "64Bit";
-			var buildNumber = GetSystemBuildNumber();
-			return "Windows " + version + " " + bitSize + " Build " + buildNumber;
+			var product = HKLM_GetString( @"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ProductName" );
+			if (product != null)
+			{
+				var version = HKLM_GetString( @"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "CSDVersion" );
+				var bitSize = Is32Bit ? "32Bit" : "64Bit";
+				var buildNumber = GetSystemBuildNumber();
+				return product + (version != null ? " " + version : "") + " " + bitSize + " Build " + buildNumber;
+			}
+			return SystemInfo.operatingSystem;
 		}
 
 
@@ -587,33 +483,36 @@ namespace InControl
 		{
 			return Environment.OSVersion.Version.Build;
 		}
-		#else
+#else
 		public static int GetSystemBuildNumber()
 		{
 			return 0;
 		}
-		#endif
+#endif
 
 
-		public static void LoadScene( string sceneName )
+		internal static void LoadScene( string sceneName )
 		{
-			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 			Application.LoadLevel( sceneName );
-			#else
+#else
 			UnityEngine.SceneManagement.SceneManager.LoadScene( sceneName );
-			#endif
+#endif
 		}
 
 
 		internal static string PluginFileExtension()
 		{
-			#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 			return ".bundle";
-			#elif UNITY_EDITOR_LINUX || UNITY_STANDALONE_LINUX
+#elif UNITY_EDITOR_LINUX || UNITY_STANDALONE_LINUX
 			return ".dylib";
-			#else
+#else
 			return ".dll";
-			#endif
+#endif
 		}
 	}
 }
+
+
+

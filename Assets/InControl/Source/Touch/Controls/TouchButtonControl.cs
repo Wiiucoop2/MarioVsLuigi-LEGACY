@@ -6,6 +6,7 @@ namespace InControl
 	public class TouchButtonControl : TouchControl
 	{
 		[Header( "Position" )]
+
 		[SerializeField]
 		TouchControlAnchor anchor = TouchControlAnchor.BottomRight;
 
@@ -20,17 +21,18 @@ namespace InControl
 
 
 		[Header( "Options" )]
-		public ButtonTarget target = ButtonTarget.Action1;
 
+		public ButtonTarget target = ButtonTarget.Action1;
 		public bool allowSlideToggle = true;
 		public bool toggleOnLeave = false;
 
-		#if !(UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2)
+#if !(UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2)
 		public bool pressureSensitive = false;
-		#endif
+#endif
 
 
 		[Header( "Sprites" )]
+
 		public TouchSprite button = new TouchSprite( 15.0f );
 
 
@@ -86,7 +88,7 @@ namespace InControl
 
 		public override void SubmitControlState( ulong updateTick, float deltaTime )
 		{
-			#if !(UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2)
+#if !(UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2)
 			if (pressureSensitive)
 			{
 				var buttonValue = 0.0f;
@@ -100,21 +102,20 @@ namespace InControl
 							var touch = TouchManager.GetTouch( i );
 							if (button.Contains( touch ))
 							{
-								buttonValue = Utility.Max( buttonValue, touch.NormalizedPressure );
+								buttonValue = Utility.Max( buttonValue, touch.normalizedPressure );
 							}
 						}
 					}
 				}
 				else
 				{
-					buttonValue = currentTouch.NormalizedPressure;
+					buttonValue = currentTouch.normalizedPressure;
 				}
-
 				ButtonState = buttonValue > 0.0f;
 				SubmitButtonValue( target, buttonValue, updateTick, deltaTime );
 				return;
 			}
-			#endif
+#endif
 
 			if (currentTouch == null && allowSlideToggle)
 			{
@@ -125,7 +126,6 @@ namespace InControl
 					ButtonState = ButtonState || button.Contains( TouchManager.GetTouch( i ) );
 				}
 			}
-
 			SubmitButtonState( target, ButtonState, updateTick, deltaTime );
 		}
 
@@ -267,3 +267,4 @@ namespace InControl
 		}
 	}
 }
+

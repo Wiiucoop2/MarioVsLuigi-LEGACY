@@ -1,27 +1,17 @@
 {
   "dependencies": {
     "com.jimmycushnie.noisynodes": "https://github.com/JimmyCushnie/Noisy-Nodes.git",
-    "com.unity.2d.animation": "3.1.1",
-    "com.unity.2d.common": "2.1.0",
-    "com.unity.2d.path": "2.0.4",
-    "com.unity.2d.pixel-perfect": "3.0.2",
-    "com.unity.2d.sprite": "1.0.0",
-    "com.unity.2d.spriteshape": "3.0.11",
-    "com.unity.2d.tilemap": "1.0.0",
-    "com.unity.2d.tilemap.extras": "https://github.com/Unity-Technologies/2d-extras.git#2019.4",
-    "com.unity.ide.visualstudio": "2.0.3",
-    "com.unity.ide.vscode": "1.2.3",
-    "com.unity.inputsystem": "1.0.2",
+    "com.unity.2d.common": "1.0.9-preview.1",
+    "com.unity.2d.pixel-perfect": "1.0.0-preview",
+    "com.unity.2d.spriteshape": "1.0.10-preview.2",
+    "com.unity.2d.triangle": "1.0.2-preview.1",
     "com.unity.nuget.mono-cecil": "1.0.0-preview.1",
-    "com.unity.nuget.newtonsoft-json": "2.0.0",
-    "com.unity.render-pipelines.universal": "7.5.3",
-    "com.unity.test-framework": "1.1.14",
-    "com.unity.textmeshpro": "2.0.0",
-    "com.unity.timeline": "1.2.18",
-    "com.unity.toolchain.win-x86_64-linux-x86_64": "0.1.21-preview",
-    "com.unity.ugui": "1.0.0",
+    "com.unity.nuget.newtonsoft-json": "1.1.2",
+    "com.unity.render-pipelines.lightweight": "4.10.0-preview",
+    "com.unity.shadergraph": "4.10.0-preview",
+    "com.unity.test-framework": "0.0.4-preview",
+    "com.unity.textmeshpro": "1.4.1",
     "com.unity.modules.ai": "1.0.0",
-    "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
     "com.unity.modules.audio": "1.0.0",
@@ -54,12 +44,8 @@
   },
   "lock": {
     "com.jimmycushnie.noisynodes": {
-      "revision": "HEAD",
-      "hash": "38d18b868ba4550aab2f76b2817882474300e75c"
-    },
-    "com.unity.2d.tilemap.extras": {
-      "revision": "2019.4",
-      "hash": "ced1751d127d7897238dfcd466da7521da8533bc"
+      "hash": "38d18b868ba4550aab2f76b2817882474300e75c",
+      "revision": "HEAD"
     }
   }
 }

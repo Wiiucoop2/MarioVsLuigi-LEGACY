@@ -3,6 +3,7 @@ namespace InControl
 	using System;
 	using System.Collections.Generic;
 	using System.Collections.ObjectModel;
+	using System.Runtime.InteropServices;
 	using System.Text;
 	using UnityEngine;
 	using DeviceHandle = System.UInt32;
@@ -10,14 +11,13 @@ namespace InControl
 
 	public class NativeInputDeviceManager : InputDeviceManager
 	{
-		// ReSharper disable once UnassignedField.Global
-		public static Func<InputDeviceInfo, ReadOnlyCollection<NativeInputDevice>, NativeInputDevice> CustomFindDetachedDevice;
+		public static Func<NativeDeviceInfo, ReadOnlyCollection<NativeInputDevice>, NativeInputDevice> CustomFindDetachedDevice;
 
-		readonly List<NativeInputDevice> attachedDevices;
-		readonly List<NativeInputDevice> detachedDevices;
+		List<NativeInputDevice> attachedDevices;
+		List<NativeInputDevice> detachedDevices;
 
-		readonly List<InputDeviceProfile> systemDeviceProfiles;
-		readonly List<InputDeviceProfile> customDeviceProfiles;
+		List<NativeInputDeviceProfile> systemDeviceProfiles;
+		List<NativeInputDeviceProfile> customDeviceProfiles;
 
 		DeviceHandle[] deviceEvents;
 
@@ -27,8 +27,8 @@ namespace InControl
 			attachedDevices = new List<NativeInputDevice>();
 			detachedDevices = new List<NativeInputDevice>();
 
-			systemDeviceProfiles = new List<InputDeviceProfile>( NativeInputDeviceProfileList.Profiles.Length );
-			customDeviceProfiles = new List<InputDeviceProfile>();
+			systemDeviceProfiles = new List<NativeInputDeviceProfile>( NativeInputDeviceProfileList.Profiles.Length );
+			customDeviceProfiles = new List<NativeInputDeviceProfile>();
 
 			deviceEvents = new DeviceHandle[32];
 
@@ -36,7 +36,6 @@ namespace InControl
 
 			var options = new NativeInputOptions();
 			options.enableXInput = InputManager.NativeInputEnableXInput ? 1 : 0;
-			options.enableMFi = InputManager.NativeInputEnableMFi ? 1 : 0;
 			options.preventSleep = InputManager.NativeInputPreventSleep ? 1 : 0;
 
 			if (InputManager.NativeInputUpdateRate > 0)
@@ -58,6 +57,23 @@ namespace InControl
 		}
 
 
+		UInt32 NextPowerOfTwo( UInt32 x )
+		{
+			if (x < 0)
+			{
+				return 0;
+			}
+
+			--x;
+			x |= x >> 1;
+			x |= x >> 2;
+			x |= x >> 4;
+			x |= x >> 8;
+			x |= x >> 16;
+			return x + 1;
+		}
+
+
 		public override void Update( ulong updateTick, float deltaTime )
 		{
 			IntPtr data;
@@ -75,7 +91,7 @@ namespace InControl
 					var stringBuilder = new StringBuilder( 256 );
 					stringBuilder.Append( "Attached native device with handle " + deviceHandle + ":\n" );
 
-					InputDeviceInfo deviceInfo;
+					NativeDeviceInfo deviceInfo;
 					if (Native.GetDeviceInfo( deviceHandle, out deviceInfo ))
 					{
 						stringBuilder.AppendFormat( "Name: {0}\n", deviceInfo.name );
@@ -114,24 +130,19 @@ namespace InControl
 		}
 
 
-		void DetectDevice( DeviceHandle deviceHandle, InputDeviceInfo deviceInfo )
+		void DetectDevice( DeviceHandle deviceHandle, NativeDeviceInfo deviceInfo )
 		{
 			// Try to find a matching profile for this device.
-			InputDeviceProfile deviceProfile = null;
-
-			// ReSharper disable once ConstantNullCoalescingCondition
+			NativeInputDeviceProfile deviceProfile = null;
 			deviceProfile = deviceProfile ?? customDeviceProfiles.Find( profile => profile.Matches( deviceInfo ) );
 			deviceProfile = deviceProfile ?? systemDeviceProfiles.Find( profile => profile.Matches( deviceInfo ) );
 			deviceProfile = deviceProfile ?? customDeviceProfiles.Find( profile => profile.LastResortMatches( deviceInfo ) );
 			deviceProfile = deviceProfile ?? systemDeviceProfiles.Find( profile => profile.LastResortMatches( deviceInfo ) );
 
 			// Find a matching previously attached device or create a new one.
-			if (deviceProfile == null || deviceProfile.IsNotHidden)
-			{
-				var device = FindDetachedDevice( deviceInfo ) ?? new NativeInputDevice();
-				device.Initialize( deviceHandle, deviceInfo, deviceProfile );
-				AttachDevice( device );
-			}
+			var device = FindDetachedDevice( deviceInfo ) ?? new NativeInputDevice();
+			device.Initialize( deviceHandle, deviceInfo, deviceProfile );
+			AttachDevice( device );
 		}
 
 
@@ -167,20 +178,20 @@ namespace InControl
 		}
 
 
-		NativeInputDevice FindDetachedDevice( InputDeviceInfo deviceInfo )
+		NativeInputDevice FindDetachedDevice( NativeDeviceInfo deviceInfo )
 		{
-			var readOnlyDetachedDevices = new ReadOnlyCollection<NativeInputDevice>( detachedDevices );
+			var devices = new ReadOnlyCollection<NativeInputDevice>( detachedDevices );
 
 			if (CustomFindDetachedDevice != null)
 			{
-				return CustomFindDetachedDevice( deviceInfo, readOnlyDetachedDevices );
+				return CustomFindDetachedDevice( deviceInfo, devices );
 			}
 
-			return SystemFindDetachedDevice( deviceInfo, readOnlyDetachedDevices );
+			return SystemFindDetachedDevice( deviceInfo, devices );
 		}
 
 
-		static NativeInputDevice SystemFindDetachedDevice( InputDeviceInfo deviceInfo, ReadOnlyCollection<NativeInputDevice> detachedDevices )
+		static NativeInputDevice SystemFindDetachedDevice( NativeDeviceInfo deviceInfo, ReadOnlyCollection<NativeInputDevice> detachedDevices )
 		{
 			var detachedDevicesCount = detachedDevices.Count;
 
@@ -230,9 +241,9 @@ namespace InControl
 		}
 
 
-		void AddSystemDeviceProfile( InputDeviceProfile deviceProfile )
+		void AddSystemDeviceProfile( NativeInputDeviceProfile deviceProfile )
 		{
-			if (deviceProfile != null && deviceProfile.IsSupportedOnThisPlatform)
+			if (deviceProfile.IsSupportedOnThisPlatform)
 			{
 				systemDeviceProfiles.Add( deviceProfile );
 			}
@@ -241,10 +252,9 @@ namespace InControl
 
 		void AddSystemDeviceProfiles()
 		{
-			for (var i = 0; i < NativeInputDeviceProfileList.Profiles.Length; i++)
+			foreach (var typeName in NativeInputDeviceProfileList.Profiles)
 			{
-				var typeName = NativeInputDeviceProfileList.Profiles[i];
-				var deviceProfile = InputDeviceProfile.CreateInstanceOfType( typeName );
+				var deviceProfile = (NativeInputDeviceProfile) Activator.CreateInstance( Type.GetType( typeName ) );
 				AddSystemDeviceProfile( deviceProfile );
 			}
 		}
@@ -255,15 +265,13 @@ namespace InControl
 			if (Application.platform != RuntimePlatform.OSXPlayer &&
 			    Application.platform != RuntimePlatform.OSXEditor &&
 			    Application.platform != RuntimePlatform.WindowsPlayer &&
-			    Application.platform != RuntimePlatform.WindowsEditor &&
-			    Application.platform != RuntimePlatform.IPhonePlayer &&
-			    Application.platform != RuntimePlatform.tvOS)
+			    Application.platform != RuntimePlatform.WindowsEditor)
 			{
 				// Don't add errors here. Just fail silently on unsupported platforms.
 				return false;
 			}
 
-			#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
+#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
 			if (!Application.HasProLicense())
 			{
 				if (errors != null)
@@ -272,7 +280,7 @@ namespace InControl
 				}
 				return false;
 			}
-			#endif
+#endif
 
 			try
 			{
@@ -299,25 +307,13 @@ namespace InControl
 			var errors = new List<string>();
 			if (CheckPlatformSupport( errors ))
 			{
-				if (InputManager.NativeInputEnableMFi)
-				{
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.XboxOneSBluetoothMacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.XboxSeriesXBluetoothMacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.PlayStation4MacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.PlayStation5USBMacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.PlayStation5BluetoothMacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.SteelseriesNimbusMacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.HoriPadUltimateMacNativeProfile) );
-					InputManager.HideDevicesWithProfile( typeof(NativeDeviceProfiles.NintendoSwitchProMacNativeProfile) );
-				}
-
 				InputManager.AddDeviceManager<NativeInputDeviceManager>();
 				return true;
 			}
 
 			foreach (var error in errors)
 			{
-				Logger.LogError( "Error enabling NativeInputDeviceManager: " + error );
+				Debug.LogError( "Error enabling NativeInputDeviceManager: " + error );
 			}
 
 			return false;
